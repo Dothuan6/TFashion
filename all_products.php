@@ -121,7 +121,7 @@
     <div class="row container">
     <!-- products -->
     <?php 
-    getproducts()
+    get_allproducts();
     ?>
     <!--  -->
   </div>

@@ -118,7 +118,7 @@ button:hover{
                 <h1>TFaShion</h1>
                 <div>
                     <a href="home_page_chose.php?explore">
-                    <button name="explore" value="explore" type="button">Explore</button>
+                    <button name="explore" value="explore" type="button"><a class="text-decoration-none text-dark" href="./homepage.php">Explore</a></button>
                     </a>
                 </div>
                 </div>

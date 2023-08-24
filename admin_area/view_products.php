@@ -1,5 +1,5 @@
 
-<h3 class="text-center text-success">All products</h3>
+<h3 class="text-center text-success">Tất cả sản phẩm</h3>
 <table class="table table-bordered mt-5 text-center">
     <thead>
         <tr>

@@ -104,7 +104,6 @@
     </div>
     <?php
     if(isset($_POST['insert_product'])){
-
         $product_title = $_POST['product_title'];
         $description = $_POST['description'];
         $product_keywords = $_POST['product_keywords'];
@@ -126,7 +125,7 @@
       // check product exist
       $select_products = "select * from `products` where product_title = '$product_title'";
       $result_products=mysqli_query($con,$select_products);
-      $row_products=mysqli_num_rows($result_products);
+      $row_products=mysqli_num_rows($result_products);  
       if($row_products==0){
         //checking empty
         if(empty($product_title) or empty($description) or empty($product_keywords) or 
