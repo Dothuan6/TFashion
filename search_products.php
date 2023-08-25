@@ -65,7 +65,7 @@
           <a class='nav-link' href='#'><i class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
         </li>
         <li class='nav-item'>
-      <a class='nav-link' href='#'>Tổng Tiền: 100k</a>
+      <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?>K</a>
     </li>
       </ul>
       <form class="d-flex" role="search" action="search_products.php" method="get">

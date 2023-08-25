@@ -22,10 +22,16 @@
      <!-- css style link -->
      <link rel="stylesheet" href="/style.css">
      <link rel="stylesheet" href="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css">
-
      <link rel="stylesheet" href="./style.css">
 
   <style>
+    body{
+    background-color: white;
+}
+  .dark_mode{
+    background-color: black !important;
+    color: white !important;
+}
   .logo{
     width: 6%;  
     height:7%;
@@ -37,8 +43,38 @@
   </style>
 </head>
 <body>
+<li class="nav-item dropdown">
+            <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (dark)" fdprocessedid="dpj9ni">
+              <svg class="bi my-1 theme-icon-active"><use href="#moon-stars-fill"></use></svg>
+              <span class="d-lg-none ms-2" id="bd-theme-text">Toggle theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+              <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                  <svg class="bi me-2 opacity-50 theme-icon"><use href="#sun-fill"></use></svg>
+                  Light
+                  <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="dark" aria-pressed="true">
+                  <svg class="bi me-2 opacity-50 theme-icon"><use href="#moon-stars-fill"></use></svg>
+                  Dark
+                  <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                  <svg class="bi me-2 opacity-50 theme-icon"><use href="#circle-half"></use></svg>
+                  Auto
+                  <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+                </button>
+              </li>
+            </ul>
+</li>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-secondary-subtle">
+      
   <div class="container-fluid">
     <img src="images/logo.png" alt="Lo Go" class="logo">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +101,7 @@
           <a class='nav-link' href='#'><i class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
         </li>
         <li class='nav-item'>
-      <a class='nav-link' href='#'>Tổng Tiền: 100k</a>
+      <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?>K</a>
     </li>
       </ul>
       <form class="d-flex" role="search" action="search_products.php" method="get">
@@ -175,5 +211,13 @@
     <?php
     include_once('./includes/footer.php'); 
     ?>
+
+<!-- script -->
+<script>
+    function dark_mode(){
+      var element = document.body;
+      element.classList.toggle("dark_mode");
+    }
+</script>
 </body>
 </html> 
