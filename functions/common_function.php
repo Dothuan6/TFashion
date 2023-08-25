@@ -23,7 +23,7 @@ function getproducts(){
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
                   <p class='card-text'>Giá: {$product_price}K</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+                  <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
                   <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
                 </div>
       </div>
@@ -62,7 +62,7 @@ function get_unique_categories(){
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
                   <p class='card-text'>Giá: {$product_price}K</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+                  <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
                   <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
                 </div>
       </div>
@@ -113,7 +113,7 @@ function get_unique_brands(){
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
                   <p class='card-text'>Giá: {$product_price}K</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+                  <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
                   <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
                 </div>
       </div>
@@ -166,7 +166,7 @@ function search_products(){
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
                   <p class='card-text'>Giá: {$product_price}K</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+                  <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
                   <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
                 </div>
       </div>
@@ -198,7 +198,7 @@ function get_allproducts(){
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
                   <p class='card-text'>Giá: {$product_price}K</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+                  <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
                   <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
                 </div>
       </div>
@@ -234,8 +234,8 @@ function view_details(){
                <h5 class='card-title'>$product_title</h5>
                 <p class='card-text'> $product_description</p>
                 <p class='card-text'>Giá: {$product_price}K</p>
-                <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
-                <a href='homepage.php?product_id= $product_id' class='btn btn-secondary'>Quay về</a>
+                <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+                <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Quay về</a>
 
               </div>
     </div>
@@ -355,14 +355,14 @@ function add_cart(){
     $num_of_rows= mysqli_num_rows($result_query);
     if($num_of_rows>0){
       echo "<script>alert('This item is already present inside cart')</script>";
-      echo "<script>window.open('index.php','_self')</script>";
+      echo "<script>window.open('homepage.php','_self')</script>";
 
     }else{
       $insert_query = "insert into `cart_details` (product_id,ip_address,quantity) values(
         $get_product_id,'$get_ip_add',0)";
         $result_query = mysqli_query($con,$insert_query);
       echo "<script>alert('Item is added to cart')</script>";
-      echo "<script>window.open('index.php','_self')</script>";
+      echo "<script>window.open('homepage.php','_self')</script>";
 
     }
 

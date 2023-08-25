@@ -62,7 +62,7 @@
         <a class='nav-link' href='#'>Liên Hệ</a>
       </li>
       <li class='nav-item'>
-          <a class='nav-link' href='#'><i class='fa-solid fa-cart-shopping'></i><sup>1<sup></a>
+          <a class='nav-link' href='#'><i class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
         </li>
         <li class='nav-item'>
       <a class='nav-link' href='#'>Tổng Tiền: 100k</a>
@@ -75,6 +75,11 @@
     </div>
   </div>
 </nav>
+<!-- cart -->
+<?php
+  add_cart();
+?>
+<!--  -->
 <!-- second child -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
   <ul class="navbar-nav me-auto">
