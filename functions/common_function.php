@@ -43,7 +43,9 @@ function get_unique_categories(){
     $result_query = mysqli_query($con,$select_query);
     $num_of_rows = mysqli_num_rows($result_query);
     if($num_of_rows==0){
-        echo "<h2 class ='text-center text-danger'>No stock for category</h2>";
+      echo "<div class='alert alert-warning' role='alert'>
+      Không có nhãn hàng nào được tìm thấy!
+    </div>";
     }
     while($row = mysqli_fetch_assoc($result_query)){
       $product_id = $row['product_id'];
@@ -59,9 +61,9 @@ function get_unique_categories(){
                 <div class='card-body'>
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
-                  <p class='card-text'>Price: $product_price\$</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
-                  <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>View more</a>
+                  <p class='card-text'>Giá: {$product_price}K</p>
+                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+                  <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
                 </div>
       </div>
   </div>";
@@ -78,7 +80,7 @@ function getbrands(){
           $brand_title = $row_data['brand_title'];
           $brand_id = $row_data['brand_id'];
           echo "<li>
-          <a href='homepage.php?brand_id=$brand_id' class='nav-link text-seccondary'>$brand_title</a>
+          <a href='homepage.php?brand=$brand_id' class='nav-link text-seccondary'>$brand_title</a>
         </li><hr class='sidebar-divider'>";
         }
 }
@@ -92,7 +94,9 @@ function get_unique_brands(){
     $result_query = mysqli_query($con,$select_query);
     $num_of_rows = mysqli_num_rows($result_query);
     if($num_of_rows==0){
-        echo "<h2 class ='text-center text-danger'>No stock for Brand</h2>";
+      echo "<div class='alert alert-warning' role='alert'>
+      Không có nhãn hàng nào được tìm thấy!
+    </div>";
     }
     while($row = mysqli_fetch_assoc($result_query)){
       $product_id = $row['product_id'];
@@ -104,13 +108,13 @@ function get_unique_brands(){
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
       <div class='card'>
-                <img src='./admin_area/product_images/$product_image2' class='card-img-top rounded' alt='...'>
+                <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
                 <div class='card-body'>
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
-                  <p class='card-text'>Price: $product_price\$</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
-                  <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
+                  <p class='card-text'>Giá: {$product_price}K</p>
+                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+                  <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
                 </div>
       </div>
   </div>";
@@ -123,12 +127,13 @@ function get_unique_brands(){
 function getcategories(){
     global $con;
     $select_categories = "select *from `categories`";
-    $result_categories= mysqli_query($con,$select_categories);        // $row_data = mysqli_fetch_assoc($result_brands);
+    $result_categories= mysqli_query($con,$select_categories);       
+     // $row_data = mysqli_fetch_assoc($result_brands);
     while($row_data = mysqli_fetch_assoc($result_categories)){
       $category_title = $row_data['category_title'];
       $category_id = $row_data['category_id'];
       echo "<li class='nav-item'>
-      <a href='homepage.php?category_id=$category_id' class='nav-link text-secondary'>$category_title</a>
+      <a href='homepage.php?category=$category_id' class='nav-link text-secondary'>$category_title</a>
     </li> <hr class='sidebar-divider'>";
     }
 }
@@ -138,11 +143,13 @@ function getcategories(){
 function search_products(){
     global $con;
     $search_data_value = $_GET['search_data'];
-   $search_query = "select *from `products` where product_keywords like '%$search_data_value%'";
+    $search_query = "select *from `products` where product_keywords like '%$search_data_value%'";
     $result_query = mysqli_query($con,$search_query);
     $row_search = mysqli_num_rows($result_query);
     if($row_search == 0){
-        echo "<h3 class = 'text-center text-danger'>No match result, please enter again!!!</h3>";
+      echo "<div class='alert alert-warning' role='alert'>
+      Không có sản phẩm nào được tìm thấy!
+    </div>";
     }
     while($row = mysqli_fetch_assoc($result_query)){
       $product_id = $row['product_id'];
@@ -154,13 +161,13 @@ function search_products(){
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
       <div class='card'>
-                <img src='./admin_area/product_images/$product_image2' class='card-img-top img-fluid' alt='...'>
+                <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
                 <div class='card-body'>
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
-                  <p class='card-text'>Price: $product_price\$</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
-                  <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>View more</a>
+                  <p class='card-text'>Giá: {$product_price}K</p>
+                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+                  <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
                 </div>
       </div>
   </div>";
@@ -186,13 +193,13 @@ function get_allproducts(){
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
       <div class='card'>
-                <img src='./admin_area/product_images/$product_image2' class='card-img-top img-fluid' alt='...'>
-                <div class='card-body'>
+                <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
+                <div class='card-body'> 
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
-                  <p class='card-text'>Price: $product_price\$</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
-                  <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>View more</a>
+                  <p class='card-text'>Giá: {$product_price}K</p>
+                  <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+                  <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
                 </div>
       </div>
   </div>";
@@ -222,13 +229,14 @@ function view_details(){
     $brand_id = $row['brand_id'];
     echo "<div class='col-md-4 mb-2'>
     <div class='card'>
-              <img src='./admin_area/product_images/$product_image2' class='card-img-top img-fluid' alt='...'>
+              <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
               <div class='card-body'>
                <h5 class='card-title'>$product_title</h5>
                 <p class='card-text'> $product_description</p>
-                <p class='card-text'>Price: $product_price\$</p>
-                <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
-                <a href='index.php?product_id= $product_id' class='btn btn-secondary'>Go Home</a>
+                <p class='card-text'>Giá: {$product_price}K</p>
+                <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+                <a href='homepage.php?product_id= $product_id' class='btn btn-secondary'>Quay về</a>
+
               </div>
     </div>
 </div>
@@ -236,15 +244,79 @@ function view_details(){
 <!-- related images -->
 <div class='row'>
     <div class='col-md-12'>
-        <h4 class='text-center text-info mb-5'>Related products</h4>
+        <h3 class='text-center text-info'>Thông tin chi tiết</h3>
     </div>
-    <div class='col-md-6'>
-    <img src='./admin_area/product_images/$product_image1' class='card-img-top img-fluid'
+    <div class='col-md-4'>
+    <img src='./admin_area/product_images/$product_image1' class='card-img-top img-fluid border border-2'
+     alt='$product_title'>
+     <img src='./admin_area/product_images/$product_image3' class='card-img-top img-fluid py-2 border border-2'
      alt='$product_title'>
     </div>
     <div class='col-md-6'>
-    <img src='./admin_area/product_images/$product_image3' class='card-img-top img-fluid'
-     alt='$product_title'>
+      
+    <div class='accordion' id='accordionPanelsStayOpenExample'>
+    <div class='accordion-item'>
+      <h2 class='accordion-header'>
+        <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#panelsStayOpen-collapseOne' aria-expanded='true' aria-controls='panelsStayOpen-collapseOne'>
+          Sản phẩm có được bảo hành không?
+        </button>
+      </h2>
+      <div id='panelsStayOpen-collapseOne' class='accordion-collapse collapse show'>
+        <div class='accordion-body'>
+          <code>Có</code>
+        </div>
+      </div>
+    </div>
+    <div class='accordion-item'>
+      <h2 class='accordion-header'>
+        <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#panelsStayOpen-collapseTwo' aria-expanded='false' aria-controls='panelsStayOpen-collapseTwo'>
+          Thời gian bản hành
+        </button>
+      </h2>
+      <div id='panelsStayOpen-collapseTwo' class='accordion-collapse collapse'>
+        <div class='accordion-body'>
+        <code>12 tháng</code>
+        </div>
+      </div>
+    </div>
+    <div class='accordion-item'>
+      <h2 class='accordion-header'>
+        <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#panelsStayOpen-collapseThree' aria-expanded='false' aria-controls='panelsStayOpen-collapseThree'>
+          Thương hiệu
+        </button>
+      </h2>
+      <div id='panelsStayOpen-collapseThree' class='accordion-collapse collapse'>
+        <div class='accordion-body'>
+       <code>$product_title</code>
+        </div>
+      </div>
+    </div>
+    <div class='accordion-item'>
+    <h2 class='accordion-header'>
+      <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#panelsStayOpen-collapsefourth' aria-expanded='false' aria-controls='panelsStayOpen-collapseThree'>
+        Xuất xứ
+      </button>
+    </h2>
+    <div id='panelsStayOpen-collapsefourth' class='accordion-collapse collapse'>
+      <div class='accordion-body'>
+     <code>Việt Nam</code>
+      </div>
+    </div>
+  </div>
+  <div class='accordion-item'>
+  <h2 class='accordion-header'>
+    <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#panelsStayOpen-collapsefive' aria-expanded='false' aria-controls='panelsStayOpen-collapseThree'>
+      Giá cả
+    </button>
+  </h2>
+  <div id='panelsStayOpen-collapsefive' class='accordion-collapse collapse'>
+    <div class='accordion-body'>
+   <code>{$product_price}K</code>
+    </div>
+  </div>
+</div>
+  </div>
+
     </div>
 </div>
 </div>";

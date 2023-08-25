@@ -68,7 +68,7 @@
       <a class='nav-link' href='#'>Tổng Tiền: 100k</a>
     </li>
       </ul>
-      <form class="d-flex" role="search" action="search_products.php" method="get">
+      <form class="d-flex" role="search" method="get">
         <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="search_data">
         <button class="btn btn-outline-info" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
@@ -87,41 +87,13 @@
   </ul>
 </nav>
 <!-- third -->
-<div class="py-2">
-<div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="./images/quanao.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="./images/Kinh1.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="./images/tuixach.webp" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-</div>
 <!-- fourth -->
 <div class="row px-1 mt-2">
   <div class="col-md-10">
     <div class="row container">
     <!-- products -->
-    <?php
-    getproducts();
+    <?php 
+    view_details();
     get_unique_categories();
     get_unique_brands();
     ?>
@@ -136,8 +108,8 @@
       </li>
 
       <!-- category -->
-      <?php getcategories();
-            
+      <?php 
+      getcategories();
        ?>
 </ul>
 <!-- Brand -->
