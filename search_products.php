@@ -68,7 +68,7 @@
       <a class='nav-link' href='#'>Tổng Tiền: 100k</a>
     </li>
       </ul>
-      <form class="d-flex" role="search" method="get">
+      <form class="d-flex" role="search" action="search_products.php" method="get">
         <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="search_data">
         <button class="btn btn-outline-info" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
