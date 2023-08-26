@@ -432,7 +432,11 @@ function cart_item(){
           echo "<tr class='text-center'>
           <td>$product_title</td>
           <td><img class='cart_img center-block' src='./admin_area/product_images/$product_image1' alt=''></td>
-          <td><input type='text' class='form-input w-50' name='qty'></td>
+          <td><div class='input-group mb-3' style='width:130px'>
+          <button class='input-group-text decrement-btn input-qty'>-</button>
+          <input type='text' class='form-control bg-white text-center' value='1' disabled>
+          <button class='input-group-text increment-btn'>+</button>
+        </div></td>
           <td>$price_table$</td>
           <td><input type='checkbox' name='removeitem[]' value='$product_id'</td>
           <td>
@@ -475,7 +479,7 @@ function cart_item(){
             }
         }
         }
-        echo "$total_price\$";
+        echo "{$total_price}K";
       }
       // remove the cart
 
@@ -492,7 +496,7 @@ function cart_item(){
           }
         }
         else{
-          echo "<script>alert('please chosing the products')</script>";
+          echo "<script>alert('Sản phẩm bạn chọn là?')</script>";
         }
       }
     }

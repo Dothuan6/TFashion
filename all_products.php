@@ -62,7 +62,7 @@
         <a class='nav-link' href='#'>Liên Hệ</a>
       </li>
       <li class='nav-item'>
-          <a class='nav-link' href='#'><i class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
+          <a class='nav-link' href='cart.php'><i class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
         </li>
         <li class='nav-item'>
       <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?>K</a>
@@ -169,5 +169,7 @@
     <?php
     include_once('./includes/footer.php'); 
     ?>
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/custom.js">
+    </script>
 </body>
 </html> 
