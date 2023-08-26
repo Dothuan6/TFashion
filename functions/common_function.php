@@ -433,8 +433,8 @@ function cart_item(){
           <td>$product_title</td>
           <td><img class='cart_img center-block' src='./admin_area/product_images/$product_image1' alt=''></td>
           <td><div class='input-group mb-3' style='width:130px'>
-          <button class='input-group-text decrement-btn input-qty'>-</button>
-          <input type='text' class='form-control bg-white text-center' value='1' disabled>
+          <button class='input-group-text decrement-btn'>-</button>
+          <input type='text' class='form-control bg-white text-center input-qty' value='1' disabled>
           <button class='input-group-text increment-btn'>+</button>
         </div></td>
           <td>$price_table$</td>

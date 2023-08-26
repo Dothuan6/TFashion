@@ -131,10 +131,9 @@ body{
             </thead>
         </table>
         <!-- subtotal -->
-        <div class="d-flex mb-5"><h4 class="px3">Subtotal:<strong class="text-info"><?php subtotal()?></strong></h4>
-        <button class="mx-2 bg-info py-2 px-3 border-0 btn btn-outline"> <a href="index.php" class="text-dark" style="text-decoration: none;">Continue Shopping</a></button>
-        <button class="mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline"> <a href="./users_area/checkout.php" class="text-light" style="text-decoration: none;">Checkout</a></button>
-
+        <div class="d-flex mb-5"><h4 class="px3">Tổng tiền: <strong class="text-info"><?php subtotal()?></strong></h4>
+        <button class="mx-2 bg-info py-2 px-3 border-0 btn btn-outline"> <a href="index.php" class="text-dark" style="text-decoration: none;">Mua sắm</a></button>
+        <button class="mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline"> <a href="./users_area/checkout.php" class="text-light" style="text-decoration: none;">Thanh toán</a></button>
     </div>
     </div>
 </div>
@@ -149,7 +148,7 @@ body{
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
     crossorigin="anonymous"></script>
-    <script src="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/custom.js">
-    </script>
+   <script src="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script> 
+<script src="./js/customs.js"></script>
 </body>
 </html>
