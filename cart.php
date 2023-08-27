@@ -123,16 +123,65 @@ body{
                     <th colspan="2">Thực thi</th>
                  </tr>
                  <tbody>
-                    <?php
-                    show_cart();
-                    remove_cart_item();
-                     ?>
-                 </tbody>
+     <?php 
+                   global $con;
+                   $total_price=0;
+                   $get_ip_add = getIPAddress();
+                   $cart_query="select *from `cart_details` where ip_address=
+                   '$get_ip_add'";
+                   $result=mysqli_query($con,$cart_query);
+                   while($row=mysqli_fetch_array($result)){
+                     $product_id = $row['product_id'];
+                     $select_products="select *from `products` where product_id='$product_id'";
+                     $result_products=mysqli_query($con,$select_products);
+                     while($row_product_price=mysqli_fetch_array($result_products)){
+                       $product_price = array($row_product_price['product_price']);
+                       $price_table = $row_product_price['product_price'];
+                       $product_title = $row_product_price['product_title'];
+                       $product_image1 = $row_product_price['product_image3'];
+                       $product_values = array_sum($product_price);
+                       $total_price+=$product_values;  
+    ?>
+
+           <tr class='text-center'>
+          <td><?php echo $product_title ?></td>
+          <td><?php echo "<img class='cart_img center-block' src='./admin_area/product_images/$product_image1'"?></td>
+          <td><div style='display: flex;'>
+          <input type="number" name="qty" id="" style="width: 70px; height: 20px;">
+          <label class='mb-4 text-muted' style='margin-left: 20px; margin-top: 10px;'>Còn hàng</label>
+          </div></td>
+
+          <?php 
+          $get_ip_add = getIPAddress();
+          if(isset($_POST['update_cart'])){
+            $quantities = $_POST['qty'];
+             $update_cart="update `cart_details` set quantity='$quantities' where product_id='$product_id'";
+             $result_products_quantity=mysqli_query($con,$update_cart);
+             settype($quantities,'integer');
+             $total_price= $total_price*$quantities;
+          }
+          ?>
+
+          <td><?php echo "{$price_table} VND" ?></td>
+          <td><input type='checkbox' name='removeitem[]' value='$product_id'></td>
+          <td>
+              <input class='mx-3 bg-info py-2 px-2 border-0' value='Update Cart' type='submit' name='update_cart'>
+              <input class='mx-3 bg-info py-2 px-2 border-0' value='Remove Cart' type='submit' name='remove_cart'>
+          </td>
+           </tr>
+    <?php 
+                }
+          }
+    ?>
+    <?php
+    remove_cart_item();
+    ?>
+                     </tbody>
             </thead>
         </table>
         <!-- subtotal -->
         <div class="d-flex mb-5"><h4 class="px3">Tổng tiền: <strong class="text-info"><?php subtotal()?></strong></h4>
-        <button class="mx-2 bg-info py-2 px-3 border-0 btn btn-outline"> <a href="index.php" class="text-dark" style="text-decoration: none;">Mua sắm</a></button>
+        <button class="mx-2 bg-info py-2 px-3 border-0 btn btn-outline"> <a href="homepage.php" class="text-dark" style="text-decoration: none;">Mua sắm</a></button>
         <button class="mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline"> <a href="./users_area/checkout.php" class="text-light" style="text-decoration: none;">Thanh toán</a></button>
     </div>
     </div>

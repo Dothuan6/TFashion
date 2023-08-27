@@ -40,12 +40,18 @@
 .carousel-inner{
   height: 700px !important;
 }
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}.sticky + .content {
+  padding-top: 60px;
+}
   </style>
 </head>
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-secondary-subtle">
-      
+<nav class="navbar navbar-expand-lg bg-secondary-subtle">
   <div class="container-fluid">
     <img src="images/logo.png" alt="Lo Go" class="logo">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +60,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
     <!-- Nav Item - Dashboard -->
-<li class="nav-item active">
+<li class="nav-item active" >
     <a class="nav-link" href="homepage.php">
     <i class="fa-solid fa-house"></i>
         <span>Trang Chủ</span></a>
@@ -72,7 +78,7 @@
           <a class='nav-link' href='cart.php'><i class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
         </li>
         <li class='nav-item'>
-      <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?>K</a>
+      <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?> VND</a>
     </li>
       </ul>
       <form class="d-flex" role="search" action="search_products.php" method="get">
@@ -192,5 +198,19 @@
 </script>
     <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/custom.js">
     </script>
+        <script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
 </body>
 </html> 
