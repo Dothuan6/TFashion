@@ -149,6 +149,6 @@ body{
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
     crossorigin="anonymous"></script>
    <script src="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script> 
-<script src="./js/customs.js"></script>
+   <script src="./js/customs.js"></script>
 </body>
 </html>

@@ -22,7 +22,7 @@ function getproducts(){
                 <div class='card-body'>
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
-                  <p class='card-text'>Giá: {$product_price}K</p>
+                  <p class='card-text text-danger'>Giá: {$product_price}K</p>
                   <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
                   <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
                 </div>
@@ -235,7 +235,7 @@ function view_details(){
                 <p class='card-text'> $product_description</p>
                 <p class='card-text'>Giá: {$product_price}K</p>
                 <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
-                <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Quay về</a>
+                <a href='homepage.php?product_id= $product_id' class='btn btn-secondary'>Quay về</a>
 
               </div>
     </div>
@@ -247,10 +247,29 @@ function view_details(){
         <h3 class='text-center text-info'>Thông tin chi tiết</h3>
     </div>
     <div class='col-md-4'>
-    <img src='./admin_area/product_images/$product_image1' class='card-img-top img-fluid border border-2'
-     alt='$product_title'>
-     <img src='./admin_area/product_images/$product_image3' class='card-img-top img-fluid py-2 border border-2'
-     alt='$product_title'>
+    
+    <div id='carouselExampleFade' class='carousel slide carousel-fade'>
+  <div class='carousel-inner'>
+    <div class='carousel-item active'>
+      <img src='./admin_area/product_images/$product_image3' class='d-block w-100' alt='...'>
+    </div>
+    <div class='carousel-item'>
+      <img src='./admin_area/product_images/$product_image1' class='d-block w-100' alt='...'>
+    </div>
+    <div class='carousel-item'>
+      <img src='./admin_area/product_images/$product_image2' class='d-block w-100' alt='...'>
+    </div>
+  </div>
+  <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleFade' data-bs-slide='prev'>
+    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+    <span class='visually-hidden'>Previous</span>
+  </button>
+  <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleFade' data-bs-slide='next'>
+    <span class='carousel-control-next-icon' aria-hidden='true'></span>
+    <span class='visually-hidden'>Next</span>
+  </button>
+</div>
+
     </div>
     <div class='col-md-6'>
       
@@ -426,39 +445,38 @@ function cart_item(){
           $product_price = array($row_product_price['product_price']);
           $price_table = $row_product_price['product_price'];
           $product_title = $row_product_price['product_title'];
-          $product_image1 = $row_product_price['product_image2'];
+          $product_image1 = $row_product_price['product_image3'];
           $product_values = array_sum($product_price);
-          $total_price+=$product_values;
+          $total_price+=$product_values;  
           echo "<tr class='text-center'>
           <td>$product_title</td>
           <td><img class='cart_img center-block' src='./admin_area/product_images/$product_image1' alt=''></td>
-          <td><div class='input-group mb-3' style='width:130px'>
-          <button class='input-group-text decrement-btn'>-</button>
-          <input type='text' class='form-control bg-white text-center input-qty' value='1' disabled>
-          <button class='input-group-text increment-btn'>+</button>
-        </div></td>
+          <td><div style='display: flex;'>
+          <button class='form-control detail-quantity' type='button' onclick='$('#num').val(parseInt($('#num').val()) - 1)' style='width: 35px !important; cursor: pointer;'>-</button>
+          <input name='qty' id='num' type='number' value='1' class='form-control detail-quantity'>
+          <button class='form-control detail-quantity' type='button' onclick='$('#num').val(parseInt($('#num').val()) + 1)' style='width: 35px !important; cursor: pointer;'>+</button>
+          <label class='mb-4 text-muted' style='margin-left: 20px; margin-top: 10px;'>Còn hàng</label>
+          </div></td>
           <td>$price_table$</td>
           <td><input type='checkbox' name='removeitem[]' value='$product_id'</td>
           <td>
               <input class='mx-3 bg-info py-2 px-2 border-0' value='Update Cart' type='submit' name='update_cart'>
               <input class='mx-3 bg-info py-2 px-2 border-0' value='Remove Cart' type='submit' name='remove_cart'>
           </td>
-      </tr>
-                    ";  
+      </tr>";  
         }
         }
       }
-
-
+      
       // subtotal
       function subtotal(){
         global $con;
         $total_price=0;
         $get_ip_add = getIPAddress();
-        $cart_query="select *from `cart_details` where ip_address=
-        '$get_ip_add'";
+        $cart_query="select *from `cart_details` where ip_address='$get_ip_add'";
         $result=mysqli_query($con,$cart_query);
         while($row=mysqli_fetch_array($result)){
+          $get_ip_add = getIPAddress();
           $product_id = $row['product_id'];
           $select_products="select *from `products` where product_id='$product_id'";
           $result_products=mysqli_query($con,$select_products);
@@ -469,15 +487,19 @@ function cart_item(){
             $product_image1 = $row_product_price['product_image2'];
             $product_values = array_sum($product_price);
             $total_price+=$product_values;
+            $get_ip_add = getIPAddress();
             if(isset($_POST['update_cart'])){
+              $get_ip_add = getIPAddress(); 
               $quantities=$_POST['qty'];
-              $update_cart="update `cart_details`
-              set quantity='$quantities' where ip_address='$get_ip_add'";
+              settype($quantities,"integer");
+              settype($price_table,"integer");
+              $update_cart="update `cart_details` set quantity='$quantities' where product_id='$product_id'";
               $result_products_quantity=mysqli_query($con,$update_cart);
-              $total_price = $total_price*$quantities;
-             
+              if($result_products_quantity){
+                $total_price=$total_price*$quantities;
             }
         }
+      }
         }
         echo "{$total_price}K";
       }

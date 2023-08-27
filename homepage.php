@@ -66,7 +66,7 @@
         <a class='nav-link' href='./user_area/reg_users.php'>Đăng Ký</a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' href='#'>Liên Hệ</a>
+        <a class='nav-link' href='contact.php'>Liên Hệ</a>
       </li>
       <li class='nav-item'>
           <a class='nav-link' href='cart.php'><i class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
