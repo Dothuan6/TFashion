@@ -43,7 +43,7 @@
             <img src="../images/payment.avif" alt="payment"></a>
             </div>
             <div class="col-md-6">
-            <a href="order.php?user_id=<?php echo $user_id ?>" target="_plank"><h2 class="text-center">Pay Offline</h2></a>
+            <a href="order.php?user_id=<?php echo $user_id ?>" target="_plank"><h2 class="text-center">Thanh toán khi nhận hàng</h2></a>
             </div>
         </div>
     </div>

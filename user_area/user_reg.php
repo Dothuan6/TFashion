@@ -1,6 +1,7 @@
 <?php
   include_once("../includes/connect.php");
   include_once('../functions/common_function.php');
+  @session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,8 +108,8 @@
                     </div>
                  </div>
                     <!--  -->
-                    <input class="btn btn-info px-3 mt-3" type="submit" name="Register" id="Register" value="Register">
-                <p class="small fw-bold mt-2 pt-1 mb-0">Bạn đã có tài khoản ? <strong><a class="text-danger" href="checkout.php"> Login</a></strong></p>
+                    <input class="btn btn-info px-3 mt-3" type="submit" name="Register" id="Register" value="Đăng ký">
+                <p class="small fw-bold mt-2 pt-1 mb-0">Bạn đã có tài khoản ? <strong><a class="text-danger" href="checkout.php"> Đăng nhập</a></strong></p>
                  
                 </div>
         </div>
@@ -181,7 +182,7 @@
             echo "<script>window.open('checkout.php','_self')</script>";
         }else{
             echo "<script>window.open('../index.php','_self')</script>";
-        }
-    }
+        }  
 }
+    }
     ?>

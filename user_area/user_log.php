@@ -49,7 +49,7 @@ include_once('../functions/common_function.php');
                         autocomplete="off" required="required" name="user_password">
                     </div>
                     <a class="" href="#">Quên mật khẩu</a><br>
-                    <input class="mt-4 btn btn-info mb-6 px-3" type="submit" name="user_login" id="user_login" value="Login">
+                    <input class="mt-4 btn btn-info mb-6 px-3" type="submit" name="user_login" id="user_login" value="Đăng nhập">
                     <p class="small fw-bold mt-2 pt-1 mb-0">Chưa có mật khẩu?<a class="text-danger" href="user_reg.php"> Đăng ký</a></p>
                 </form>
             </div>
