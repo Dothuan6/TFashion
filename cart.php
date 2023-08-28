@@ -33,7 +33,7 @@
     object-fit: contain;
     
 }
-body{
+body{ 
     background-color: white;
 }
   .dark_mode{
@@ -72,7 +72,7 @@ body{
               <a class="nav-link" href="all_products.php">Sản Phẩm</a>
             </li>
             <li class='nav-item'>
-            <a class='nav-link' href='./user_area/reg_users.php'>Đăng Ký</a>
+            <a class='nav-link' href='./user_area/user_reg.php'>Đăng Ký</a>
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='#'>Liên Hệ</a>
@@ -81,7 +81,7 @@ body{
               <a class='nav-link' href='cart.php'><i class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
             </li>
             <li class='nav-item'>
-          <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?>K</a>
+          <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?> VND</a>
         </li>
           </ul>
           <form class="d-flex" role="search" action="search_products.php" method="get">
@@ -99,7 +99,7 @@ body{
     <a class='nav-link' href='#'><i class="fa-regular fa-user"></i></a>
   </li>
 <li class='nav-item'>
-    <a class='nav-link' href='#'>Đăng Nhập</a>
+    <a class='nav-link' href='./user_area/user_log.php'>Đăng Nhập</a>
   </li>
   </ul>
 </nav>
@@ -119,8 +119,8 @@ body{
                     <th>Hình ảnh</th>
                     <th>Số lượng</th>
                     <th>Tổng tiền</th>
-                    <th>Xóa</th>
-                    <th colspan="2">Thực thi</th>
+                    <th>Chọn</th>
+                    <th colspan="2">Hoạt động</th>
                  </tr>
                  <tbody>
      <?php 
@@ -147,7 +147,7 @@ body{
           <td><?php echo $product_title ?></td>
           <td><?php echo "<img class='cart_img center-block' src='./admin_area/product_images/$product_image1'"?></td>
           <td><div style='display: flex;'>
-          <input type="number" name="qty" id="" style="width: 70px; height: 20px;">
+          <input type="number" name="qty" id="" style="width: 70px; height: 20px;margin-top: 10px;">
           <label class='mb-4 text-muted' style='margin-left: 20px; margin-top: 10px;'>Còn hàng</label>
           </div></td>
 
@@ -158,17 +158,22 @@ body{
              $update_cart="update `cart_details` set quantity='$quantities' where product_id='$product_id'";
              $result_products_quantity=mysqli_query($con,$update_cart);
              settype($quantities,'integer');
-             $total_price= $total_price*$quantities;
+             if($quantities>0){
+              $total_price= $total_price*$quantities;
+             }else{
+              $total_price = $total_price;
+             }
+            
           }
           ?>
 
           <td><?php echo "{$price_table} VND" ?></td>
-          <td><input type='checkbox' name='removeitem[]' value='$product_id'></td>
+          <td><input type='checkbox' name='removeitem[]' value='<?php echo $product_id ?>'></td>
           <td>
               <input class='mx-3 bg-info py-2 px-2 border-0' value='Update Cart' type='submit' name='update_cart'>
               <input class='mx-3 bg-info py-2 px-2 border-0' value='Remove Cart' type='submit' name='remove_cart'>
           </td>
-           </tr>
+          </tr>
     <?php 
                 }
           }
@@ -180,10 +185,24 @@ body{
             </thead>
         </table>
         <!-- subtotal -->
-        <div class="d-flex mb-5"><h4 class="px3">Tổng tiền: <strong class="text-info"><?php subtotal()?></strong></h4>
-        <button class="mx-2 bg-info py-2 px-3 border-0 btn btn-outline"> <a href="homepage.php" class="text-dark" style="text-decoration: none;">Mua sắm</a></button>
-        <button class="mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline"> <a href="./users_area/checkout.php" class="text-light" style="text-decoration: none;">Thanh toán</a></button>
-    </div>
+        <?php  
+        $get_ip_add=getIPAddress();
+        $cart_query="select * from `cart_details` where ip_address='$get_ip_add'";
+        $result=mysqli_query($con,$cart_query);
+        $result_count=mysqli_num_rows($result);
+        if($result_count>0){
+             echo "<div class='d-flex mb-5'><h4 class='px3'>Tổng tiền: <strong class='text-info'> $total_price VND</strong></h4>
+                  <button class='mx-2 bg-info py-2 px-3 border-0 btn btn-outline' name='continue_shopping'> <a href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
+                 <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php' class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
+                </div>";
+        }else{
+              echo "<button name='continue_shopping' class='mx-2 mb-3 bg-info py-2 px-3 border-0 btn btn-outline'> <a href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>";
+          
+        }if(isset($_POST['continue_shopping'])){
+          echo "<script>window.open('homepage.php','self')</script>";
+        }
+       
+    ?>
     </div>
 </div>
 </form>

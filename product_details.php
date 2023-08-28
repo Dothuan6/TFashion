@@ -59,7 +59,7 @@
         <a class='nav-link' href='./user_area/reg_users.php'>Đăng Ký</a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' href='#'>Liên Hệ</a>
+        <a class='nav-link' href='contact.php'>Liên Hệ</a>
       </li>
       <li class='nav-item'>
           <a class='nav-link' href='cart.php'><i class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
@@ -87,7 +87,7 @@ add_cart();
     <a class='nav-link' href='#'><i class="fa-regular fa-user"></i></a>
   </li>
 <li class='nav-item'>
-    <a class='nav-link' href='#'>Đăng Nhập</a>
+    <a class='nav-link' href='./user_area/user_log.php'>Đăng Nhập</a>
   </li>
   </ul>
 </nav>

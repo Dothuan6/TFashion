@@ -56,16 +56,16 @@
           <a class="nav-link" href="all_products.php">Sản Phẩm</a>
         </li>
         <li class='nav-item'>
-        <a class='nav-link' href='./user_area/reg_users.php'>Đăng Ký</a>
+        <a class='nav-link' href='./user_area/user_reg.php'>Đăng Ký</a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' href='#'>Liên Hệ</a>
+        <a class='nav-link' href='contact.php'>Liên Hệ</a>
       </li>
       <li class='nav-item'>
           <a class='nav-link' href='cart.php'><i class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
         </li>
         <li class='nav-item'>
-      <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?>K</a>
+      <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?> VND</a>
     </li>
       </ul>
       <form class="d-flex" role="search" action="search_products.php" method="get">
@@ -87,7 +87,7 @@
     <a class='nav-link' href='#'><i class="fa-regular fa-user"></i></a>
   </li>
 <li class='nav-item'>
-    <a class='nav-link' href='#'>Đăng Nhập</a>
+    <a class='nav-link' href='./user_area/user_log.php'>Đăng Nhập</a>
   </li>
   </ul>
 </nav>
