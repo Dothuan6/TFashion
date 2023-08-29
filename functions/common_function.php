@@ -539,14 +539,13 @@ function cart_item(){
               $result_order_query=mysqli_query($con,$get_orders);
               $row_count=mysqli_num_rows($result_order_query);
               if($row_count>0){
-                echo "<h3 class='text-center text-success mt-5 mb-2'>You have <span class='text-danger'>$row_count</span>
-                 pending orders</h3>
-                <p  class='text-center'><a class='text-dark text-decorate-none' href='profile.php?my_orders'>Order Details</a></p>";
+                echo "<h3 class='text-center text-success mt-5 mb-2'>Bạn có <span class='text-danger'>$row_count</span>
+                 đơn hàng đang xử lý</h3>
+                <p  class='text-center'><a class='text-dark text-decorate-none' href='user_profile.php?my_orders'>Chi tiết đơn hàng</a></p>";
               }else{
-                echo "<h3 class='text-center text-success mt-5 mb-2'>You have zero
-                pending orders</h3>
+                echo "<h3 class='text-center text-success mt-5 mb-2'>Không có đơn hàng nào đang xử lý</h3>
                <p  class='text-center'><a class='text-dark text-decorate-none' 
-               href='profile.php?my_orders'>Order Details</a></p>";
+               href='user_profile.php?my_orders'>Order Details</a></p>";
               }
             }
           }

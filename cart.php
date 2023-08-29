@@ -232,7 +232,6 @@ body{
 </div>
 </form>
 
-
   <?php
   include('./includes/footer.php');
   ?>

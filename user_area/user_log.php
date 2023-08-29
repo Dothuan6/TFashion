@@ -79,7 +79,7 @@ if(isset($_POST['user_login'])){
             if($row_count==1 and $row_count_cart==0){
                 $_SESSION['username'] = $user_username;
                 echo "<script>alert('Đăng nhập thành công!')</script>";
-                echo "<script>window.open('profile.php','_self')</script>";
+                echo "<script>window.open('user_profile.php','_self')</script>";
             }else{
                 $_SESSION['username'] = $user_username;
                 echo "<script>alert('Đăng nhập thành công')</script>";
