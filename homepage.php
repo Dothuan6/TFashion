@@ -38,9 +38,9 @@
     height:7%;
     border-radius: 20px;
 }
-.carousel-inner{
-  height: 700px !important;
-}
+/* .carousel-inner{
+ display: block;
+} */
 .sticky {
   position: fixed;
   top: 0;
@@ -140,14 +140,27 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner">
+    
     <div class="carousel-item active">
-      <img src="./images/quanao.jpg" class="d-block w-100" alt="...">
+      <img src="./images/quanao.jpg" class="d-block w-75 m-auto" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>TFashion Shop - Phong Cách Thời Thượng</h5>
+        <button class="btn btn-outline btn-success"><a class="text-decoration-none text-light" href="./all_products.php">Xem sản phẩm</a></button>
+      </div>
     </div>
     <div class="carousel-item">
-      <img src="./images/Kinh1.jpg" class="d-block w-100" alt="...">
+      <img src="./images/Kinh1.jpg" class="d-block w-75 m-auto" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="text-dark">TFashion Shop - Phong Cách Thời Thượng</h5>
+        <button class="btn btn-outline btn-success"><a class="text-decoration-none text-light" href="./all_products.php">Xem sản phẩm</a></button>
+      </div>
     </div>
     <div class="carousel-item">
-      <img src="./images/tuixach.webp" class="d-block w-100" alt="...">
+      <img src="./images/tuixach.webp" class="d-block w-75x m-auto" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>TFashion Shop - Phong Cách Thời Thượng</h5>
+        <button class="btn btn-outline btn-success"><a class="text-decoration-none text-light" href="./all_products.php">Xem sản phẩm</a></button>
+      </div>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

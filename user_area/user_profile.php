@@ -56,6 +56,11 @@
     /* object-fit: contain; */
     border-radius: 100%;
 }
+.edit_image{
+  width: 150px;
+  height: 50px;
+  object-fit: contain;
+}
   </style>
 </head>
 <body>
@@ -99,12 +104,12 @@
 <!-- third -->
 
 <!-- fourth -->
-<div class="row mt-4">
-  <div class="col-md-2 bg-secondary p-0">
+<div class="row">
+  <div class="col-md-2 bg-dark p-0">
     <!-- sidenav -->
   <ul class="navbar-nav me-auto text-center" style="height: 100vh;"> 
-      <li class="nav-item bg-info">
-        <a href="#" class="nav-link text-light "><h4>Tài khoản</h4></a>
+      <li class="nav-item">
+        <a href="#" class="nav-link text-light mt-3"><h4>Tài khoản</h4></a>
       </li>
 
       <?php

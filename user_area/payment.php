@@ -1,6 +1,7 @@
 <?php
    include("../includes/connect.php");
    include_once('../functions/common_function.php');
+   @session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,7 @@
 </head>
 <style>
     img{
-        width: 90%;
+        width: 100%;
         margin: auto;
         display: block;
     }
@@ -25,7 +26,10 @@
      <!--php access user id  -->
      <?php
      global $con;
+        $get_username = $_SESSION['username'];
+        $get_userid = $_GET['user_id'];
         $user_ip=getIPAddress();
+    
         $get_user = "select * from `user_table` where user_ip='$user_ip'";
         $result=mysqli_query($con,$get_user);
         $run_query=mysqli_fetch_array($result);
@@ -43,7 +47,7 @@
             <img src="../images/payment.avif" alt="payment"></a>
             </div>
             <div class="col-md-6">
-            <a href="order.php?user_id=<?php echo $user_id ?>" target="_plank"><h2 class="text-center">Thanh toán khi nhận hàng</h2></a>
+            <a href="order.php?user_id=<?php echo $get_userid ?>" target="_plank"><h2 class="text-center">Thanh toán khi nhận hàng</h2></a>
             </div>
         </div>
     </div>

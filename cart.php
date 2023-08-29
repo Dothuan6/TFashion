@@ -215,17 +215,25 @@ body{
         $cart_query="select * from `cart_details` where ip_address='$get_ip_add'";
         $result=mysqli_query($con,$cart_query);
         $result_count=mysqli_num_rows($result);
+        $get_username= $_SESSION['username'];
+        $select_user_id="select * from `user_table` where username='$get_username'";
+        $result_user_id=mysqli_query($con, $select_user_id);
+        $row_user_id = mysqli_fetch_array($result_user_id);
+        $user_id = $row_user_id['user_id'];
+        
         if($result_count>0){
              echo "<div class='d-flex mb-5'><h4 class='px3'>Tổng tiền: <strong class='text-info'> $total_price VND</strong></h4>
                   <button class='mx-2 bg-info py-2 px-3 border-0 btn btn-outline' name='continue_shopping'> <a href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
-                 <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php' class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
+                 <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php?user_id=$user_id' class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
                 </div>";
-        }else{
+        }
+      else{
               echo "<button name='continue_shopping' class='mx-2 mb-3 bg-info py-2 px-3 border-0 btn btn-outline'> <a href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>";
           
         }if(isset($_POST['continue_shopping'])){
           echo "<script>window.open('homepage.php','self')</script>";
         }
+
        
     ?>
     </div>
