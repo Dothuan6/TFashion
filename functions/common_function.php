@@ -18,13 +18,15 @@ function getproducts(){
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
       <div class='card'>
-                <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
+      <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
+      <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
+      </a>
                 <div class='card-body'>
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
                   <p class='card-text text-danger'>Giá: {$product_price}K</p>
                   <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
-                  <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
+              
                 </div>
       </div>
   </div>";
@@ -56,15 +58,16 @@ function get_unique_categories(){
       $category_id = $row['category_id'];
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
-      <div class='card'>
-                <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
-                <div class='card-body'>
-                 <h5 class='card-title'>$product_title</h5>
-                  <p class='card-text'> $product_description</p>
-                  <p class='card-text'>Giá: {$product_price}K</p>
-                  <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
-                  <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
-                </div>
+              <div class='card'>
+              <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
+              <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
+              </a>
+              <div class='card-body'>
+              <h5 class='card-title'>$product_title</h5>
+              <p class='card-text'> $product_description</p>
+              <p class='card-text'>Giá: {$product_price}K</p>
+              <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+              </div>
       </div>
   </div>";
     }   
@@ -108,13 +111,15 @@ function get_unique_brands(){
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
       <div class='card'>
+                <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
                 <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
+                </a>
                 <div class='card-body'>
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
                   <p class='card-text'>Giá: {$product_price}K</p>
                   <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
-                  <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
+                  
                 </div>
       </div>
   </div>";
@@ -161,13 +166,15 @@ function search_products(){
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
       <div class='card'>
-                <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
+                  <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
+                   <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
+                  </a>
                 <div class='card-body'>
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
                   <p class='card-text'>Giá: {$product_price}K</p>
                   <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
-                  <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
+                 
                 </div>
       </div>
   </div>";
@@ -193,13 +200,15 @@ function get_allproducts(){
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
       <div class='card'>
-                <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
+      <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
+      <img src='./admin_area/product_images/$product_image2' class='card-img-top'>
+      </a>
                 <div class='card-body'> 
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
                   <p class='card-text'>Giá: {$product_price}K</p>
                   <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
-                  <a href='product_details.php?product_id= $product_id' class='btn btn-secondary'>Xem chi tiết</a>
+                 
                 </div>
       </div>
   </div>";
@@ -228,36 +237,21 @@ function view_details(){
     $category_id = $row['category_id'];
     $brand_id = $row['brand_id'];
     echo "<div class='col-md-4 mb-2'>
-    <div class='card'>
-              <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
-              <div class='card-body'>
-               <h5 class='card-title'>$product_title</h5>
-                <p class='card-text'> $product_description</p>
-                <p class='card-text'>Giá: {$product_price}K</p>
-                <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
-                <a href='homepage.php?product_id= $product_id' class='btn btn-secondary'>Quay về</a>
-
-              </div>
-    </div>
 </div>
 <div class='col-md-8'>
-<!-- related images -->
-<div class='row'>
-    <div class='col-md-12'>
-        <h3 class='text-center text-info'>Thông tin chi tiết</h3>
-    </div>
-    <div class='col-md-4'>
+<div class='row py-4'>
+    <div class='col-md-6'>
     
     <div id='carouselExampleFade' class='carousel slide carousel-fade'>
   <div class='carousel-inner'>
     <div class='carousel-item active'>
-      <img src='./admin_area/product_images/$product_image3' class='d-block w-100' alt='...'>
+      <img src='./admin_area/product_images/$product_image3' class='d-block' style='width:100%;' alt='...'>
     </div>
     <div class='carousel-item'>
-      <img src='./admin_area/product_images/$product_image1' class='d-block w-100' alt='...'>
+      <img src='./admin_area/product_images/$product_image1' class='d-block' style='width:100%;' alt='...'>
     </div>
     <div class='carousel-item'>
-      <img src='./admin_area/product_images/$product_image2' class='d-block w-100' alt='...'>
+      <img src='./admin_area/product_images/$product_image2' class='d-block' style='width:100%;' alt='...'>
     </div>
   </div>
   <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleFade' data-bs-slide='prev'>
@@ -271,70 +265,21 @@ function view_details(){
 </div>
 
     </div>
-    <div class='col-md-6'>
-      
-    <div class='accordion' id='accordionPanelsStayOpenExample'>
-    <div class='accordion-item'>
-      <h2 class='accordion-header'>
-        <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#panelsStayOpen-collapseOne' aria-expanded='true' aria-controls='panelsStayOpen-collapseOne'>
-          Sản phẩm có được bảo hành không?
-        </button>
-      </h2>
-      <div id='panelsStayOpen-collapseOne' class='accordion-collapse collapse show'>
-        <div class='accordion-body'>
-          <code>Có</code>
-        </div>
-      </div>
+    <div class='col-md-6 col-lg-6 col-sm-12 px-2'>
+
+
+    <h3 class='text-dark mt-2'>$product_title</h3>
+    <div class='py-1'><h6 class='text-danger'>Giá: $product_price VND</h6></div>
+    <div class='row fw-bold text-dark m-2 mt-4'>
+    Mô tả:
     </div>
-    <div class='accordion-item'>
-      <h2 class='accordion-header'>
-        <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#panelsStayOpen-collapseTwo' aria-expanded='false' aria-controls='panelsStayOpen-collapseTwo'>
-          Thời gian bản hành
-        </button>
-      </h2>
-      <div id='panelsStayOpen-collapseTwo' class='accordion-collapse collapse'>
-        <div class='accordion-body'>
-        <code>12 tháng</code>
-        </div>
-      </div>
+    <p class='card-text text-secondary-bundle px-4'> $product_description</p>
+    <div class='m-2'>
+    <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
     </div>
-    <div class='accordion-item'>
-      <h2 class='accordion-header'>
-        <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#panelsStayOpen-collapseThree' aria-expanded='false' aria-controls='panelsStayOpen-collapseThree'>
-          Thương hiệu
-        </button>
-      </h2>
-      <div id='panelsStayOpen-collapseThree' class='accordion-collapse collapse'>
-        <div class='accordion-body'>
-       <code>$product_title</code>
-        </div>
-      </div>
-    </div>
-    <div class='accordion-item'>
-    <h2 class='accordion-header'>
-      <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#panelsStayOpen-collapsefourth' aria-expanded='false' aria-controls='panelsStayOpen-collapseThree'>
-        Xuất xứ
-      </button>
-    </h2>
-    <div id='panelsStayOpen-collapsefourth' class='accordion-collapse collapse'>
-      <div class='accordion-body'>
-     <code>Việt Nam</code>
-      </div>
-    </div>
-  </div>
-  <div class='accordion-item'>
-  <h2 class='accordion-header'>
-    <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#panelsStayOpen-collapsefive' aria-expanded='false' aria-controls='panelsStayOpen-collapseThree'>
-      Giá cả
-    </button>
-  </h2>
-  <div id='panelsStayOpen-collapsefive' class='accordion-collapse collapse'>
-    <div class='accordion-body'>
-   <code>{$product_price}K</code>
-    </div>
-  </div>
-</div>
-  </div>
+    <div class='mt-5 m-2'>
+    <a href='homepage.php?product_id= $product_id' class='m-2'><i class='fa-solid fa-backward'></i> Quay về</a>
+    </div>  
 
     </div>
 </div>

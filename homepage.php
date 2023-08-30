@@ -48,6 +48,86 @@
 }.sticky + .content {
   padding-top: 60px;
 }
+.chat_bot{
+  text-align: center;
+  border-radius: 100%;
+  
+}
+body{
+  box-sizing: border-box;}
+
+/* Nút Để Mở Chatbox */
+.nut-mo-chatbox {
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 6%;
+  height: 6%;
+}
+/* Ẩn chatbox mặc định */
+.Chatbox {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Thêm style cho form */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* thiết lập style textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 100px;
+}
+
+/*thiết lập style cho textarea khi được focus */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Sthiết lập style cho nút trong form*/
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Thiết lập màu nền cho nút đóng chatbox */
+.form-container .nut-dong-chatbox {
+  background-color: red;
+  
+}
+
+/* Thêm hiệu ứng hover cho nút*/
+.form-container .btn:hover, .nut-mo-chatbox:hover {
+  opacity: 1;
+}
+.nut-mo-chatbox{
+  border-radius: 100% !important;
+}
   </style>
 </head>
 <body>
@@ -89,6 +169,9 @@
         <li class='nav-item'>
       <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?> VND</a>
     </li>
+
+
+    
       </ul>
       <form class="d-flex" role="search" action="search_products.php" method="get">
         <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="search_data">
@@ -128,7 +211,6 @@
     </li>";
   }
   ?>
-
   </ul>
 </nav>
 <!-- third -->
@@ -219,7 +301,25 @@
     // get_unique_brands();
       ?>
       <!-- row END  -->
-      </div>
+      
+   </div>
+   <!-- Chat bot -->
+
+
+   <button class="nut-mo-chatbox btn btn-outline btn-success" onclick="moForm()"><i class="fa-solid fa-comments"></i></button>
+  <div class="Chatbox" id="myForm">
+  <form action="" class="form-container">
+    <h3><i class="fa-solid fa-headphones"></i> Tfashion</h3><hr>
+
+    <label for="msg"><b>Lời Nhắn</b></label>
+    <textarea placeholder="Bạn hãy nhập lời nhắn.." name="msg" required></textarea>
+
+    <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i></button>
+    <button type="button" class="btn nut-dong-chatbox" onclick="dongForm()"><i class="fa-solid fa-circle-chevron-left"></i></button>
+  </form>
+</div>
+
+      
   <!-- col end -->
 <!-- js link bstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
@@ -250,6 +350,18 @@ function myFunction() {
   } else {
     navbar.classList.remove("sticky");
   }
+}
+</script>
+
+<!-- js chat bot -->
+<script>
+  /*Hàm Mở Form*/
+function moForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+/*Hàm Đóng Form*/
+function dongForm() {
+  document.getElementById("myForm").style.display = "none";
 }
 </script>
 </body>
