@@ -75,7 +75,7 @@
                 ?>
                 <?php
                 if($order_status=='Hoàn thành'){
-                    echo "<td class='bg-secondary text-light'>Đã chi trả</td>";
+                    echo "<td class='bg-secondary text-light'>Đã xác nhận</td>";
                 }else{
                   echo "<td class='bg-secondary text-light'>
                     <a class='text-light' href='confirm_payment.php?order_id=$order_id'>xác nhận</a></td>
