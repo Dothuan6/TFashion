@@ -83,7 +83,7 @@ if(isset($_POST['user_login'])){
             }else{
                 $_SESSION['username'] = $user_username;
                 echo "<script>alert('Đăng nhập thành công')</script>";
-                echo "<script>window.open('../homepage.php','_self')</script>";
+                echo "<script>window.open('user_profile.php','_self')</script>";
         }
         }
     }else{

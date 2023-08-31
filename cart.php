@@ -48,7 +48,7 @@ body{
 .carousel-inner{
   height: 700px !important;
 }
-
+/* chat bot css */
 body{
   box-sizing: border-box;}
 
@@ -124,7 +124,6 @@ body{
 .nut-mo-chatbox{
   border-radius: 100% !important;
 }
-
 </style>
 </head>
 <body>
@@ -286,7 +285,8 @@ body{
             </thead>
         </table>
         <!-- subtotal -->
-        <?php  
+        <?php
+        if(isset($_SESSION['username'])){
         $get_ip_add=getIPAddress();
         $cart_query="select * from `cart_details` where ip_address='$get_ip_add'";
         $result=mysqli_query($con,$cart_query);
@@ -309,6 +309,24 @@ body{
         }if(isset($_POST['continue_shopping'])){
           echo "<script>window.open('homepage.php','self')</script>";
         }
+      }else{
+        $get_ip_add=getIPAddress();
+        $cart_query="select * from `cart_details` where ip_address='$get_ip_add'";
+        $result=mysqli_query($con,$cart_query);
+        $result_count=mysqli_num_rows($result);
+        if($result_count>0){
+             echo "<div class='d-flex mb-5'><h4 class='px3'>Tổng tiền: <strong class='text-info'> $total_price VND</strong></h4>
+                  <button class='mx-2 bg-info py-2 px-3 border-0 btn btn-outline' name='continue_shopping'> <a href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
+                 <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php' class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
+                </div>";
+        }
+      else{
+              echo "<button name='continue_shopping' class='mx-2 mb-3 bg-info py-2 px-3 border-0 btn btn-outline'> <a href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>";
+          
+        }if(isset($_POST['continue_shopping'])){
+          echo "<script>window.open('homepage.php','self')</script>";
+        }
+      }
 
        
     ?>
@@ -339,8 +357,7 @@ body{
     crossorigin="anonymous"></script>
    <script src="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script> 
    <script src="./js/customs.js"></script>
-   <!-- js chat bot -->
-<script>
+   <script>
   /*Hàm Mở Form*/
 function moForm() {
   document.getElementById("myForm").style.display = "block";
@@ -350,5 +367,6 @@ function dongForm() {
   document.getElementById("myForm").style.display = "none";
 }
 </script>
+
 </body>
 </html>

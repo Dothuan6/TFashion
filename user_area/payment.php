@@ -1,5 +1,5 @@
 <?php
-   include("../includes/connect.php");
+   include_once("../includes/connect.php");
    include_once('../functions/common_function.php');
    @session_start();
 ?>
@@ -26,14 +26,9 @@
      <!--php access user id  -->
      <?php
      global $con;
-        $get_username = $_SESSION['username'];
+     if(isset($_GET['user_id'])){
         $get_userid = $_GET['user_id'];
-        $user_ip=getIPAddress();
-    
-        $get_user = "select * from `user_table` where user_ip='$user_ip'";
-        $result=mysqli_query($con,$get_user);
-        $run_query=mysqli_fetch_array($result);
-        $user_id=$run_query['user_id'];
+     }
     // if($user_id==''){
     //     echo "<script>alert('have not an account')</script>";
     //     echo "<script>window.open('user_reg.php'.'_self')</script>";

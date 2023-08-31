@@ -35,7 +35,7 @@
 .carousel-inner{
   height: 700px !important;
 }
-
+/* chat bot css */
 body{
   box-sizing: border-box;}
 
