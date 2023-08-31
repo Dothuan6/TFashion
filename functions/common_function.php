@@ -34,6 +34,41 @@ function getproducts(){
 }
 }
 }
+// get product_thirth
+function getproducts_thirth(){
+  global $con;
+  if(!isset($_GET['category'])){
+      if(!isset($_GET['brand'])){
+  $select_query = "select * from `products` order by rand() LIMIT 0,3";
+  $result_query = mysqli_query($con,$select_query);
+  // $row = mysqli_fetch_assoc($result_query);
+  while($row = mysqli_fetch_assoc($result_query)){
+    $product_id = $row['product_id'];
+    $product_title = $row['product_title'];
+    $product_description = $row['product_description'];
+    // $product_keywords = $row['product_keywords'];
+    $product_image2 = $row['product_image2'];
+    $product_price = $row['product_price'];
+    $category_id = $row['category_id'];
+    $brand_id = $row['brand_id'];
+    echo "<div class='col-md-4' style='height:400px;'>
+    <div class='card'>
+    <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
+    <img src='./admin_area/product_images/$product_image2' class='card-img-top_sale' alt='...'>
+    </a>
+              <div class='card-body'>
+               <h5 class='card-title'>$product_title</h5>
+                <p class='card-text text-danger'>Giá: {$product_price}K</p>
+                <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+            
+              </div>
+    </div>
+</div>";
+  }
+}
+}
+}
+
 
 // getting unique categories
 

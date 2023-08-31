@@ -72,7 +72,7 @@ body{
 /* Ẩn chatbox mặc định */
 .Chatbox {
   display: none;
-  position: fixed;
+  position: fixed;  
   bottom: 0;
   right: 15px;
   border: 3px solid #f1f1f1;
@@ -127,6 +127,27 @@ body{
 }
 .nut-mo-chatbox{
   border-radius: 100% !important;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 40px;
+  width: 40px;
+  outline: black;
+  border-radius: 100%;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  font-size: 20px;
+  color: black;
+  align-items: center !important;
+}
+
+.carousel-control-prev-icon:after {
+  font-size: 20px;
+  color: black;
+  align-items: center !important;
 }
   </style>
 </head>
@@ -214,7 +235,8 @@ body{
   </ul>
 </nav>
 <!-- third -->
-<div class="py-2">
+<div class="row">
+<div class="py-2 m-0 w-50 col-lg-6 col-md-12">
 <div id="carouselExampleIndicators" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -224,21 +246,21 @@ body{
   <div class="carousel-inner">
     
     <div class="carousel-item active">
-      <img src="./images/quanao.jpg" class="d-block w-75 m-auto" alt="...">
+      <img src="./images/fashion1.jpg" class="d-block w-75 m-auto" style="height: 400px;" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>TFashion Shop - Phong Cách Thời Thượng</h5>
         <button class="btn btn-outline btn-success"><a class="text-decoration-none text-light" href="./all_products.php">Xem sản phẩm</a></button>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="./images/Kinh1.jpg" class="d-block w-75 m-auto" alt="...">
+      <img src="./images/fashion2.jpg" class="d-block w-75 m-auto" style="height: 400px;" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5 class="text-dark">TFashion Shop - Phong Cách Thời Thượng</h5>
         <button class="btn btn-outline btn-success"><a class="text-decoration-none text-light" href="./all_products.php">Xem sản phẩm</a></button>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="./images/tuixach.webp" class="d-block w-75x m-auto" alt="...">
+      <img src="./images/fashion3.jpg" class="d-block w-75 m-auto" style="height: 400px;" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>TFashion Shop - Phong Cách Thời Thượng</h5>
         <button class="btn btn-outline btn-success"><a class="text-decoration-none text-light" href="./all_products.php">Xem sản phẩm</a></button>
@@ -246,15 +268,27 @@ body{
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="carousel-control-prev-icon text-black" aria-hidden="true"><i class="fa-solid fa-angles-left"></i></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+    <span class="carousel-control-next-icon text-black" aria-hidden="true"><i class="fa-solid fa-angles-right"></i></span>
+    <span class="visually-hidden">Next</span> 
   </button>
 </div>
 </div>
+
+<div class="col-lg-6 col-md-6">
+  <div class="row" style="height: 49px;"> 
+          <header><img src="./images/sale_header1.jpg" class="h-25 w-100" alt=""></header>
+  </div>
+  <div class="row mt-2" style="height: 30 0px;">
+          <?php getproducts_thirth(); 
+          ?>
+  </div>
+</div>
+
+</div>  
 <!-- fourth -->
 <div class="row px-1 mt-2">
   <div class="col-md-10">
