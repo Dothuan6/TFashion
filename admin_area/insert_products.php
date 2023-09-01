@@ -1,5 +1,5 @@
 <div class="container mt-3">
-        <h1 class="text-center text-info">Thêm sản phẩm</h1>
+        <h1 class="text-center text-dark">Thêm sản phẩm</h1>
         <!-- form -->
         <form action="" method="post" enctype="multipart/form-data">
             <!--product title -->
@@ -121,7 +121,7 @@
         $temp_image1 = $_FILES['product_image1']['tmp_name'];
         $temp_image2 = $_FILES['product_image2']['tmp_name'];
         $temp_image3 = $_FILES['product_image3']['tmp_name'];
-    }
+    
       // check product exist
       $select_products = "select * from `products` where product_title = '$product_title'";
       $result_products=mysqli_query($con,$select_products);
@@ -153,10 +153,11 @@
             '$product_price',NOW(),'$product_status')";
              $result_query = mysqli_query($con,$insert_products);
             if($result_query){  
-                echo "<script>alert('Successfully insert the products')</script>";
+                echo "<script>alert('Thêm sản phẩm thành công!')</script>";
             }
         }
     }else{
         echo "<script>alert('Sản phẩm đã tồn tại!!')</script>";
     }
+}
     ?>

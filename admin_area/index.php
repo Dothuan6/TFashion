@@ -40,7 +40,26 @@
 .admin_img{
   width: 100px;
    object-fit: contain;
-}
+}       .product_images{
+            width: 50%;
+            object-fit: contain;
+        }
+        .edit_image{
+            width: 10%;
+            border-radius: 20%;
+            margin-left: 2%;
+        }
+        .user_images{
+            width:100px;
+            height: 70px;
+            object-fit: contain;
+        }
+        .img{
+            width: 10%;
+        }
+        .admin_image{
+            border-radius: 20px;
+        }
   </style>
 </head>
 <body id="page-top">
@@ -88,27 +107,27 @@
     </li>
     <hr class="sidebar-divider">
     <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="index.php?view_categories">
             <span>XEM DANH MỤC</span></a>
     </li>
     <hr class="sidebar-divider">
     <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="index.php?view_brands">
             <span>XEM NHÃN HÀNG</span></a>
     </li>
     <hr class="sidebar-divider">
     <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="index.php?view_orders">
             <span>XEM CÁC ĐƠN HÀNG</span></a>
     </li>
     <hr class="sidebar-divider">
     <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="index.php?view_payments">
             <span>XEM CÁC THANH TOÁN</span></a>
     </li>
     <hr class="sidebar-divider">
     <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="index.php?views_users">
             <span>XEM CÁC KHÁCH HÀNG</span></a>
     </li>
 
@@ -152,6 +171,14 @@
   }
   if(isset($_GET['view_products'])){
     include('view_products.php');
+  }if(isset($_GET['view_brands'])){
+    include('view_brand.php');
+  }if(isset($_GET['view_categories'])){
+    include('view_category.php');
+  }if(isset($_GET['edit_category'])){
+    include('edit_category.php');
+  }if(isset($_GET['edit_products'])){
+    include('edit_products.php');
   }
 ?>
 

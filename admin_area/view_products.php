@@ -1,16 +1,16 @@
 
-<h3 class="text-center text-success">Tất cả sản phẩm</h3>
+<h3 class="text-center text-dark">Tất cả sản phẩm</h3>
 <table class="table table-bordered mt-5 text-center">
     <thead>
         <tr>
-            <th class="bg-info">Product ID</th>
-            <th class="bg-info">Product Title</th>
-            <th class="bg-info">Product Image</th>
-            <th class="bg-info">Product Price</th>
-            <th class="bg-info"> Total Sold</th>
-            <th class="bg-info">Status</th>
-            <th class="bg-info">Edit</th>
-            <th class="bg-info">Delete</th>
+            <th class="bg-info">STT</th>
+            <th class="bg-info">Tên Sản Phẩm</th>
+            <th class="bg-info">Hình Ảnh</th>
+            <th class="bg-info">Giá</th>
+            <th class="bg-info">Số Lượng Bán</th>
+            <th class="bg-info">Trạng Thái</th>
+            <th class="bg-info">Chỉnh Sửa</th>
+            <th class="bg-info">Xóa</th>
         </tr>
     </thead>
     <tbody>
@@ -30,7 +30,7 @@
             $row_count=mysqli_num_rows($result_count);
             echo "<tr><td class='bg-secondary text-light'>$number</td>
             <td  class='bg-secondary text-light'>$product_title</td>
-            <td  class='bg-secondary text-light'><img src='./product_images/$product_image2' class='product_images'></td>
+            <td  class='bg-secondary text-light img'><img src='./product_images/$product_image2' class='product_images'></td>
             <td  class='bg-secondary text-light'>$product_price</td>
             <td  class='bg-secondary text-light'> $row_count</td>
             <td  class='bg-secondary text-light'>$product_status</td>
@@ -49,14 +49,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <h4>Are you sure want to delete this?</h4>
+        <h4>Bạn chắc chắn muốn xóa sản phẩm này?</h4>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          <a class="text-decoration-none text-light" href="./index.php?view_products">No</a></button>
+          <a class="text-decoration-none text-light" href="./index.php?view_products">Không</a></button>
         <button type="button" class="btn btn-primary">
             <a href="index.php?delete_products=<?php echo $product_id ?>"
-             class="text-light text-decoration-none">Yes</a></button>
+             class="text-light text-decoration-none">Có</a></button>
       </div>
     </div>
   </div>
