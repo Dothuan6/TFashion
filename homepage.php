@@ -294,12 +294,24 @@ body{
   <div class="col-md-10">
     <div class="row container">
     <!-- products -->
-    <?php
-    getproducts();
-    get_unique_categories();
-    get_unique_brands();
-    ?>
-    <!--  -->
+    <!-- product mu -->
+    <?php if(isset($_GET['category']) or isset($_GET['brand'])){
+       get_unique_categories();
+       get_unique_brands();
+    }else{
+        echo "<div><h3 class='text-center bg-dark text-light'>Nón</h3></div>";
+        getproducts_non();
+        echo " <div><h3 class='text-center bg-dark text-light'>Túi Xách</h3></div>";
+        getproducts_tuixach(); 
+        echo "<div><h3 class='text-center bg-dark text-light'>Quần Áo</h3></div>";
+        getproducts_quan_ao(); 
+        echo "<div><h3 class='text-center bg-dark text-light'>Mắt Kính</h3></div>";
+        getproducts_kinh(); 
+        get_unique_categories();
+        get_unique_brands();
+    }
+     ?>
+     
   </div>
   </div>
   <div class="col-md-2">
