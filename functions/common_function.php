@@ -442,8 +442,12 @@ function view_details(){
     </div>
     <div class='col-md-6 col-lg-6 col-sm-12 px-2'>
 
-
     <h3 class='text-dark mt-2'>$product_title</h3>
+    <i class='fa-regular fa-star text-warning'></i>
+    <i class='fa-regular fa-star text-warning'></i>
+    <i class='fa-regular fa-star text-warning'></i>
+    <i class='fa-regular fa-star text-warning'></i>
+    <i class='fa-regular fa-star text-warning'></i>
     <div class='py-1'><h6 class='text-danger'>Giá: $product_price VND</h6></div>
     <div class='row fw-bold text-dark m-2 mt-4'>
     Mô tả:
