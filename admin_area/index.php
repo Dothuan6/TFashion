@@ -59,7 +59,7 @@
         }
         .admin_image{
             border-radius: 20px;
-        }
+        }   
   </style>
 </head>
 <body id="page-top">
@@ -162,9 +162,11 @@
 <?php
   if(isset($_GET['insert_categories'])){
     include('insert_categories.php');
+    include_once('view_category.php');
   }
   if(isset($_GET['insert_brands'])){
     include('insert_brands.php');
+    include_once('view_brand.php');
   }
   if(isset($_GET['insert_products'])){
     include('insert_products.php');
@@ -179,6 +181,15 @@
     include('edit_category.php');
   }if(isset($_GET['edit_products'])){
     include('edit_products.php');
+  }
+  if(isset($_GET['edit_brand'])){
+    include('edit_brand.php');
+  }if(isset($_GET['delete_brand'])){
+    include('delete_brand.php');
+  }if(isset($_GET['delete_category'])){
+    include('delete_category.php');
+  }if(isset($_GET['delete_products'])){
+    include('delete_product.php');
   }
 ?>
 

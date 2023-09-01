@@ -8,14 +8,14 @@
         $result_select = mysqli_query($con,$select_query);
         $numver = mysqli_num_rows($result_select);
         if($numver>0){
-            echo "<script>alert('this Brand is the present inside the database')</script>";
+            echo "<script>alert('Nhãn hàng đã có trong kho')</script>";
 
         }else{
 
             $insert_query="insert into `brands` (brand_title) value('$brand_title')";
             $result = mysqli_query($con,$insert_query);
             if($result){
-                echo"<script>alert('brand has been insert successfully!')</script>";
+                echo"<script>alert('Thêm thành công!')</script>";
         }
 
         }
