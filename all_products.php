@@ -200,7 +200,7 @@ body{
   <div class="col-md-10">
     <div class="row container">
     <!-- products -->
-    <div><h3 class="bg-dark text-light text-center">Tất cả sản phẩm</h3></div>
+    <div><h3 class="bg-dark text-light text-center py-1">Tất cả sản phẩm</h3></div>
     <?php 
     get_allproducts();
     ?>
