@@ -109,7 +109,7 @@ function getproducts_quan_ao(){
   global $con;
   if(!isset($_GET['category'])){
       if(!isset($_GET['brand'])){
-  $select_query = "select * from `products`  where product_keywords like '%quần áo%' order by rand() LIMIT 0,3";
+  $select_query = "select * from `products`  where product_keywords like '%ao%' order by rand() LIMIT 0,3";
   $result_query = mysqli_query($con,$select_query);
   // $row = mysqli_fetch_assoc($result_query);
   while($row = mysqli_fetch_assoc($result_query)){
@@ -139,6 +139,7 @@ function getproducts_quan_ao(){
 }
 }
 }
+
 // getproduct mat kinh
 function getproducts_kinh(){
   global $con;
