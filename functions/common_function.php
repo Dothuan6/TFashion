@@ -381,7 +381,7 @@ function get_allproducts(){
                 <div class='card-body'> 
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
-                  <p class='card-text'>Giá: {$product_price}K</p>
+                  <p class='card-text text-danger'>Giá: {$product_price}K</p>
                   <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
                  
                 </div>

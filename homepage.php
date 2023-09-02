@@ -24,7 +24,18 @@
     <link rel="stylesheet"
         href="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="./style.css">
-
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js">
+    </script>
+    <!-- hover mouse -->
+    <script>
+    $(document).ready(function() {
+        $('#imgHelp').mouseover(function() {
+            $('#divHelp').fadeIn(500);
+        }).mouseout(function() {
+            $('#divHelp').fadeOut(500);
+        });
+    });
+    </script>
     <style>
     body {
         background-color: white;
@@ -341,7 +352,7 @@
 
             </div>
         </div>
-        <div class="col-md-2 quick_ver2">
+        <div class="col-md-2">
             <!-- side nav -->
             <ul class="navbar-nav me-auto text-center">
                 <li class="nav-item bg-info">
