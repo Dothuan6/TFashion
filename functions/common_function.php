@@ -194,7 +194,7 @@ function getproducts_thirth(){
     $brand_id = $row['brand_id'];
     echo "<div class='col-md-4' style='height:400px;'>
     <div class='card' style='height:350px;'>
-    <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
+    <a href='product_details.php?product_id= $product_id' class='btn btn-light bg-warning'>
     <img src='./admin_area/product_images/$product_image2' class='card-img-top_sale' style='height:250px;'>
     </a>
               <div class='card-body'>
