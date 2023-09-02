@@ -24,18 +24,7 @@
     <link rel="stylesheet"
         href="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="./style.css">
-    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js">
-    </script>
-    <!-- hover mouse -->
-    <script>
-    $(document).ready(function() {
-        $('#imgHelp').mouseover(function() {
-            $('#divHelp').fadeIn(500);
-        }).mouseout(function() {
-            $('#divHelp').fadeOut(500);
-        });
-    });
-    </script>
+
     <style>
     body {
         background-color: white;
@@ -137,7 +126,7 @@
 
     /* Thiết lập màu nền cho nút đóng chatbox */
     .form-container .nut-dong-chatbox {
-        background-color: red;
+        background-color: orange !important;
 
     }
 

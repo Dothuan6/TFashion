@@ -48,6 +48,13 @@
             $('#divHelp3').fadeOut(100);
         });
     });
+    $(document).ready(function() {
+        $('#contactHelp0').mouseover(function() {
+            $('#divHelp0').fadeIn(100);
+        }).mouseout(function() {
+            $('#divHelp0').fadeOut(100);
+        });
+    });
     </script>
     <style>
     body {
@@ -145,7 +152,7 @@
 
     /* Thiết lập màu nền cho nút đóng chatbox */
     .form-container .nut-dong-chatbox {
-        background-color: red;
+        background-color: orange !important;
 
     }
 
@@ -263,23 +270,26 @@
                 <div><br>
                 </div>
                 <div>TFashion - 24/7 luôn sẵn sàng phục vụ quý khách.</div>
-                <div class="mt-4"><i class="fa-regular fa-circle-question"></i> Bạn có một vài câu hỏi?
+                <div class="mt-4"><i id="contactHelp0" class="fa-solid fa-circle-question"></i> Bạn có một vài câu hỏi?
+                    <div id="divHelp0" class="px-2 text-primary" style="display: none;">
+                        Chúng tôi sẽ giải đáp thắc mắc của bạn!
+                    </div>
                     <div class="ps-2 fs-6">
-                        Tôi có thể liên hệ trực tiếp với bạn không <i class="fa-regular fa-circle-question"
+                        Tôi có thể liên hệ trực tiếp với bạn không <i class="fa-solid fa-circle-question"
                             id="contactHelp"></i>
                     </div>
                     <div class="px-2 text-primary" id="divHelp" style="display:none;">
                         Có, bạn có thể liên hệ với tôi thông qua số: 0776562237
                     </div>
                     <div class="px-2">
-                        Tôi có được hoàn lại tiền nếu sản phẩm bị lỗi không <i class="fa-regular fa-circle-question"
+                        Tôi có được hoàn lại tiền nếu sản phẩm bị lỗi không <i class="fa-solid fa-circle-question"
                             id="contactHelp2"></i>
                     </div>
                     <div class="px-2 text-primary" style="display: none;" id="divHelp2">
                         Có, bạn sẽ nhận được hoàn tiền nếu sản phẩm bị lỗi!
                     </div>
                     <div class="px-2">
-                        Tôi có được hoàn lại tiền nếu sản phẩm bị lỗi không <i class="fa-regular fa-circle-question"
+                        Tôi có được hoàn lại tiền nếu sản phẩm bị lỗi không <i class="fa-solid fa-circle-question"
                             id="contactHelp3"></i>
                     </div>
                     <div class="px-2 text-primary" style="display: none;" id="divHelp3">

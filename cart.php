@@ -7,146 +7,157 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết giỏ hàng</title>
     <!-- css link bstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
-    crossorigin="anonymous">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
     <!-- font aware cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous"
-     referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-     <!-- css style link -->
-     <link rel="stylesheet" href="./style.css">
-     <!-- js -->
+    <!-- css style link -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- js -->
 
-     <style>
-  .cart_img{
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    
-}
-body{ 
-    background-color: white;
-}
-  .dark_mode{
-    background-color: black !important;
-    color: white !important;
-}
-  .logo{
-    width: 6%;  
-    height:7%;
-    border-radius: 20px;
-}
-.carousel-inner{
-  height: 700px !important;
-}
-/* chat bot css */
-body{
-  box-sizing: border-box;}
+    <style>
+    .cart_img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
 
-/* Nút Để Mở Chatbox */
-.nut-mo-chatbox {
-  background-color: green;
-  color: white;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 6%;
-  height: 6%;
-}
-/* Ẩn chatbox mặc định */
-.Chatbox {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
+    }
 
-/* Thêm style cho form */
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
+    body {
+        background-color: white;
+    }
 
-/* thiết lập style textarea */
-.form-container textarea {
-  width: 100%;
-  padding: 5px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 100px;
-}
+    .dark_mode {
+        background-color: black !important;
+        color: white !important;
+    }
 
-/*thiết lập style cho textarea khi được focus */
-.form-container textarea:focus {
-  background-color: #ddd;
-  outline: none;
-}
+    .logo {
+        width: 6%;
+        height: 7%;
+        border-radius: 20px;
+    }
 
-/* Sthiết lập style cho nút trong form*/
-.form-container .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
+    .carousel-inner {
+        height: 700px !important;
+    }
 
-/* Thiết lập màu nền cho nút đóng chatbox */
-.form-container .nut-dong-chatbox {
-  background-color: red;
-  
-}
+    /* chat bot css */
+    body {
+        box-sizing: border-box;
+    }
 
-/* Thêm hiệu ứng hover cho nút*/
-.form-container .btn:hover, .nut-mo-chatbox:hover {
-  opacity: 1;
-}
-.nut-mo-chatbox{
-  border-radius: 100% !important;
-}
-</style>
+    /* Nút Để Mở Chatbox */
+    .nut-mo-chatbox {
+        background-color: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 6%;
+        height: 6%;
+    }
+
+    /* Ẩn chatbox mặc định */
+    .Chatbox {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+    }
+
+    /* Thêm style cho form */
+    .form-container {
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+    }
+
+    /* thiết lập style textarea */
+    .form-container textarea {
+        width: 100%;
+        padding: 5px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+        resize: none;
+        min-height: 100px;
+    }
+
+    /*thiết lập style cho textarea khi được focus */
+    .form-container textarea:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    /* Sthiết lập style cho nút trong form*/
+    .form-container .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
+
+    /* Thiết lập màu nền cho nút đóng chatbox */
+    .form-container .nut-dong-chatbox {
+        background-color: orange !important;
+
+    }
+
+    /* Thêm hiệu ứng hover cho nút*/
+    .form-container .btn:hover,
+    .nut-mo-chatbox:hover {
+        opacity: 1;
+    }
+
+    .nut-mo-chatbox {
+        border-radius: 100% !important;
+    }
+    </style>
 </head>
+
 <body>
     <!-- navbar-->
-      <!-- navbar -->
-      <nav class="navbar navbar-expand-lg bg-secondary-subtle">
-      <div class="container-fluid">
-        <img src="images/logo.png" alt="Lo Go" class="logo">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="homepage.php">
-        <i class="fa-solid fa-house"></i>
-            <span>Trang Chủ</span></a>
-    </li>
-            <li class="nav-item">
-              <a class="nav-link" href="all_products.php">Sản Phẩm</a>
-            </li>
-            <?php 
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-secondary-subtle">
+        <div class="container-fluid">
+            <img src="images/logo.png" alt="Lo Go" class="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Nav Item - Dashboard -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="homepage.php">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Trang Chủ</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="all_products.php">Sản Phẩm</a>
+                    </li>
+                    <?php 
         if(isset($_SESSION['username'])){
           echo " <li class='nav-item'>
           <a class='nav-link' href='./user_area/user_profile.php'>Tài Khoản</a>
@@ -157,29 +168,32 @@ body{
         </li>";
         }
          ?>
-          <li class='nav-item'>
-            <a class='nav-link' href='#'>Liên Hệ</a>
-          </li>
-          <li class='nav-item'>
-              <a class='nav-link' href='cart.php'><i class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
-            </li>
-            <li class='nav-item'>
-          <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?> VND</a>
-        </li>
-          </ul>
-          <form class="d-flex" role="search" action="search_products.php" method="get">
-            <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="search_data">
-            <button class="btn btn-outline-info" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-          </form>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#'>Liên Hệ</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='cart.php'><i
+                                class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?> VND</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" action="search_products.php" method="get">
+                    <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search"
+                        name="search_data">
+                    <button class="btn btn-outline-info" type="submit"><i
+                            class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
         </div>
-      </div>
     </nav>
-<!-- second child -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-  <ul class="navbar-nav me-auto">
+    <!-- second child -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+            <ul class="navbar-nav me-auto">
 
-  <?php 
+                <?php 
   if(isset($_SESSION['username'])){
     echo "<li class='nav-item'>
           <a class='nav-link' href='homepage.php'>Xin chào {$_SESSION['username']}</a>
@@ -201,29 +215,29 @@ body{
     </li>";
   }
   ?>
-  </ul>
-</nav>
-  </ul>
-</nav> 
+            </ul>
+        </nav>
+        </ul>
+    </nav>
 
-<!-- third child -->
-<!-- fourth child-table -->
-<h3 class="text-center py-3 text-info">Chi tiết giỏ hàng</h3>
-<div class="container">
-    <div class="row">
-      <form action="" method="post">
-        <table class="table table-bordered">
-            <thead>
-                 <tr class="text-center">
-                    <th>Tên sản phẩm</th>
-                    <th>Hình ảnh</th>
-                    <th>Số lượng</th>
-                    <th>Tổng tiền</th>
-                    <th>Chọn</th>
-                    <th colspan="2">Hoạt động</th>
-                 </tr>
-                 <tbody>
-     <?php 
+    <!-- third child -->
+    <!-- fourth child-table -->
+    <h3 class="text-center py-3 text-info">Chi tiết giỏ hàng</h3>
+    <div class="container">
+        <div class="row">
+            <form action="" method="post">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Tên sản phẩm</th>
+                            <th>Hình ảnh</th>
+                            <th>Số lượng</th>
+                            <th>Tổng tiền</th>
+                            <th>Chọn</th>
+                            <th colspan="2">Hoạt động</th>
+                        </tr>
+                    <tbody>
+                        <?php 
                    global $con;
                    $total_price=0;
                    $get_ip_add = getIPAddress();
@@ -243,15 +257,20 @@ body{
                        $total_price+=$product_values;  
     ?>
 
-           <tr class='text-center'>
-          <td><?php echo $product_title ?></td>
-          <td><?php echo "<img class='cart_img center-block' src='./admin_area/product_images/$product_image1'"?></td>
-          <td><div style='display: flex;'>
-          <input type="number" name="qty" id="" style="width: 70px; height: 20px;margin-top: 10px;">
-          <label class='mb-4 text-muted' style='margin-left: 20px; margin-top: 10px;'>Còn hàng</label>
-          </div></td>
+                        <tr class='text-center'>
+                            <td><?php echo $product_title ?></td>
+                            <td><?php echo "<img class='cart_img center-block' src='./admin_area/product_images/$product_image1'"?>
+                            </td>
+                            <td>
+                                <div style='display: flex;'>
+                                    <input type="number" name="qty" id=""
+                                        style="width: 70px; height: 20px;margin-top: 10px;">
+                                    <label class='mb-4 text-muted' style='margin-left: 20px; margin-top: 10px;'>Còn
+                                        hàng</label>
+                                </div>
+                            </td>
 
-          <?php 
+                            <?php 
           $get_ip_add = getIPAddress();
           if(isset($_POST['update_cart'])){
             $quantities = $_POST['qty'];
@@ -267,25 +286,27 @@ body{
           }
           ?>
 
-          <td><?php echo "{$price_table} VND" ?></td>
-          <td><input type='checkbox' name='removeitem[]' value='<?php echo $product_id ?>'></td>
-          <td>
-              <input class='mx-3 bg-info py-2 px-2 border-0' value='Update Cart' type='submit' name='update_cart'>
-              <input class='mx-3 bg-info py-2 px-2 border-0' value='Remove Cart' type='submit' name='remove_cart'>
-          </td>
-          </tr>
-    <?php 
+                            <td><?php echo "{$price_table} VND" ?></td>
+                            <td><input type='checkbox' name='removeitem[]' value='<?php echo $product_id ?>'></td>
+                            <td>
+                                <input class='mx-3 bg-info py-2 px-2 border-0' value='Update Cart' type='submit'
+                                    name='update_cart'>
+                                <input class='mx-3 bg-info py-2 px-2 border-0' value='Remove Cart' type='submit'
+                                    name='remove_cart'>
+                            </td>
+                        </tr>
+                        <?php 
                 }
           }
     ?>
-    <?php
+                        <?php
     remove_cart_item();
     ?>
-                     </tbody>
-            </thead>
-        </table>
-        <!-- subtotal -->
-        <?php
+                    </tbody>
+                    </thead>
+                </table>
+                <!-- subtotal -->
+                <?php
         if(isset($_SESSION['username'])){
         $get_ip_add=getIPAddress();
         $cart_query="select * from `cart_details` where ip_address='$get_ip_add'";
@@ -330,43 +351,47 @@ body{
 
        
     ?>
+        </div>
     </div>
-</div>
-</form>
+    </form>
 
-  <?php
+    <?php
   include('./includes/footer.php');
   ?>
-</div>
-<button class="nut-mo-chatbox btn btn-outline btn-success" onclick="moForm()"><i class="fa-solid fa-comments"></i></button>
-  <div class="Chatbox" id="myForm">
-  <form action="" class="form-container">
-    <h3><i class="fa-solid fa-headphones"></i> Tfashion</h3><hr>
+    </div>
+    <button class="nut-mo-chatbox btn btn-outline btn-success" onclick="moForm()"><i
+            class="fa-solid fa-comments"></i></button>
+    <div class="Chatbox" id="myForm">
+        <form action="" class="form-container">
+            <h3><i class="fa-solid fa-headphones"></i> Tfashion</h3>
+            <hr>
 
-    <label for="msg"><b>Lời Nhắn</b></label>
-    <textarea placeholder="Bạn hãy nhập lời nhắn.." name="msg" required></textarea>
+            <label for="msg"><b>Lời Nhắn</b></label>
+            <textarea placeholder="Bạn hãy nhập lời nhắn.." name="msg" required></textarea>
 
-    <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i></button>
-    <button type="button" class="btn nut-dong-chatbox" onclick="dongForm()"><i class="fa-solid fa-circle-chevron-left"></i></button>
-  </form>
-</div>
+            <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i></button>
+            <button type="button" class="btn nut-dong-chatbox" onclick="dongForm()"><i
+                    class="fa-solid fa-circle-chevron-left"></i></button>
+        </form>
+    </div>
 
-<!-- js link bstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
-    crossorigin="anonymous"></script>
-   <script src="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script> 
-   <script src="./js/customs.js"></script>
-   <script>
-  /*Hàm Mở Form*/
-function moForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-/*Hàm Đóng Form*/
-function dongForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
+    <!-- js link bstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    </script>
+    <script src="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script>
+    <script src="./js/customs.js"></script>
+    <script>
+    /*Hàm Mở Form*/
+    function moForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+    /*Hàm Đóng Form*/
+    function dongForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+    </script>
 
 </body>
+
 </html>

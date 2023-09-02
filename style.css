@@ -41,3 +41,105 @@
     height: 10px;
     object-fit:contain;
 }
+
+/* chat bot */
+body {
+    box-sizing: border-box;
+}
+
+/* Nút Để Mở Chatbox */
+.nut-mo-chatbox {
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 6%;
+    height: 6%;
+}
+
+/* Ẩn chatbox mặc định */
+.Chatbox {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+/* Thêm style cho form */
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+/* thiết lập style textarea */
+.form-container textarea {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 100px;
+}
+
+/*thiết lập style cho textarea khi được focus */
+.form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Sthiết lập style cho nút trong form*/
+.form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Thiết lập màu nền cho nút đóng chatbox */
+.form-container .nut-dong-chatbox {
+    background-color: orange !important;
+
+}
+
+/* Thêm hiệu ứng hover cho nút*/
+.form-container .btn:hover,
+.nut-mo-chatbox:hover {
+    opacity: 1;
+}
+
+.nut-mo-chatbox {
+    border-radius: 100% !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 40px;
+    width: 40px;
+    outline: black;
+    border-radius: 100%;
+    background-image: none;
+}
+
+.carousel-control-next-icon:after {
+    font-size: 20px;
+    color: black;
+    align-items: center !important;
+}
+
+.carousel-control-prev-icon:after {
+    font-size: 20px;
+    color: black;
+    align-items: center !important;
+}
