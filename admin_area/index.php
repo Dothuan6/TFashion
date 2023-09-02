@@ -9,7 +9,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TFashion Shop</title>
+    <title><?php if(isset($_SESSION['admin_name'])){
+      echo "Quản Lý {$_SESSION['admin_name']}";
+    }else{
+      echo "Quản Lý";
+    }
+     ?></title>
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -83,7 +88,16 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin</div>
+                <?php
+                if(isset($_SESSION['admin_name']))
+                {
+                  echo " <div class='sidebar-brand-text mx-3'>{$_SESSION['admin_name']}</div>";
+                }else{
+                  echo " <div class='sidebar-brand-text mx-3'>Quản Lý</div>";
+                  
+                }
+                ?>
+
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -154,14 +168,29 @@
                 <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
                     <div class="bg-dark p-4">
                         <div>
-                            <h5 class="text-body-emphasis h4">Giao diện quản lý <a href="admin_reg.php"><button
-                                        name="reg" class="btn btn-outline reg" value="Logout">Đăng
-                                        Ký</button>
-                                </a></h5>
+                            <h5 class="text-body-emphasis h4">Giao diện quản lý
+                                <?php if(!isset($_SESSION['admin_name'])){
+                                  echo "<a href='admin_reg.php'><button
+                                  name='reg' class='btn btn-outline reg' value='Logout'>Đăng
+                                  Ký</button>
+                          </a>";
+                                } ?></h5>
                         </div>
-                        <a href="admin_log.php"><button name="login" class="btn btn-outline" value="Logout">Đăng
-                                nhập</button>
-                        </a>
+                        <?php 
+                        if(isset($_SESSION['admin_name'])){
+                          echo "<a href='admin_logout.php'><button name='login' class='btn btn-outline' value='Logout'>Đăng
+                          xuất</button>
+                  </a>";
+                        }else{
+                          echo "<a href='admin_log.php'><button name='login' class='btn btn-outline' value='Logout'>Đăng
+                          nhập</button>
+                  </a>";
+                        }
+                
+                        
+                        ?>
+
+
                     </div>
                 </div>
                 <nav class="navbar navbar-dark bg-dark">
@@ -178,6 +207,7 @@
                 <div class="container-fluid mt-3">
 
                     <?php
+                    if(isset($_SESSION['admin_name'])){
   if(isset($_GET['insert_categories'])){
     include('insert_categories.php');
     include_once('view_category.php');
@@ -216,6 +246,31 @@
   }if(isset($_GET['delete_products'])){
     include('delete_product.php');
   }
+}else{
+  echo "<div class='row'>
+          <div class='col-lg-5 col-md-5 col-sm-5 px-2'>
+          <video autoplay loop muted plays-inline>
+             <source src='../video/admin.mp4' type='video/mp4'>
+          </video>
+          </div>
+          <div class='col-lg-5 col-md-5 col-sm-5 px-2'>
+          <video autoplay loop muted plays-inline>
+             <source src='../video/admin-3.mp4' type='video/mp4'>
+          </video>
+          </div>
+          <div class='col-lg-5 col-md-5 col-sm-5 px-2'>
+          <video autoplay loop muted plays-inline>
+             <source src='../video/admin-2.mp4' type='video/mp4'>
+          </video>
+          </div>
+          <div class='col-lg-5 col-md-5 col-sm-5 px-2'>
+          <video autoplay loop muted plays-inline>
+             <source src='../video/admin-4.mp4' type='video/mp4'>
+          </video>
+          </div>
+        </div>
+";
+}
 ?>
 
                 </div>

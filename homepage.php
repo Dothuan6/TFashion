@@ -341,7 +341,7 @@
 
             </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 quick_ver2">
             <!-- side nav -->
             <ul class="navbar-nav me-auto text-center">
                 <li class="nav-item bg-info">
@@ -371,14 +371,6 @@
         </div>
     </div>
     </div>
-    <?php 
-    // calling function 
-    // getproducts();
-    // get_unique_categories();
-    // get_unique_brands();
-      ?>
-    <!-- row END  -->
-
     </div>
     <!-- Chat bot -->
 
