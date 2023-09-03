@@ -37,15 +37,14 @@ include_once('../functions/common_function.php');
                     <div class="form-outline mb-4">
                         <!-- username field -->
                         <label for="admin_name" class="form-label">Tên</label>
-                        <input type="text" class="form-control" id="admin_name" placeholder="Enter your Username"
+                        <input type="text" class="form-control" id="admin_name" placeholder="Nhập vào tên"
                             autocomplete="off" required="required" name="admin_name">
                     </div>
                     <div class="form-outline mb-4">
                         <!-- password field -->
                         <label for="admin_password" class="form-label">Mật khẩu</label>
-                        <input type="password" class="form-control" id="admin_password"
-                            placeholder="Enter your Password" autocomplete="off" required="required"
-                            name="admin_password">
+                        <input type="password" class="form-control" id="admin_password" placeholder="Nhập vào mật khẩu"
+                            autocomplete="off" required="required" name="admin_password">
                     </div>
                     <a class="" href="#">Quên mật khẩu</a><br>
                     <input class="mt-4 btn btn-info mb-6 px-3" type="submit" name="admin_login" id="admin_login"
