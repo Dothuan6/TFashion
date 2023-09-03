@@ -659,7 +659,7 @@ function cart_item(){
           if(!isset($_GET['my_orders'])){
             if(!isset($_GET['delete_account'])){
               $get_orders="select * from `user_orders` 
-              where user_id = '$user_id' and order_status='pending'";
+              where user_id = '$user_id' and order_status='Chờ xác nhận'";
               $result_order_query=mysqli_query($con,$get_orders);
               $row_count=mysqli_num_rows($result_order_query);
               if($row_count>0){

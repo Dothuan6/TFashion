@@ -150,7 +150,7 @@
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php?views_users">
+                <a class="nav-link" href="index.php?view_users">
                     <span>XEM CÁC KHÁCH HÀNG</span></a>
             </li>
 
@@ -178,11 +178,11 @@
                         </div>
                         <?php 
                         if(isset($_SESSION['admin_name'])){
-                          echo "<a href='admin_logout.php'><button name='login' class='btn btn-outline' value='Logout'>Đăng
+                          echo "<a href='admin_logout.php'><button name='logout' class='btn btn-outline' value='Logout'>Đăng
                           xuất</button>
                   </a>";
                         }else{
-                          echo "<a href='admin_log.php'><button name='login' class='btn btn-outline' value='Logout'>Đăng
+                          echo "<a href='admin_log.php'><button name='login' class='btn btn-outline' value='Login'>Đăng
                           nhập</button>
                   </a>";
                         }
@@ -228,7 +228,7 @@
   }if(isset($_GET['view_orders'])){
     include('view_order.php');
   }if(isset($_GET['view_payments'])){
-    include('view_view_payment.php');
+    include('view_payment.php');
   }if(isset($_GET['view_users'])){
     include('view_user.php');
   }
@@ -245,6 +245,15 @@
     include('delete_category.php');
   }if(isset($_GET['delete_products'])){
     include('delete_product.php');
+  }
+  if(isset($_GET['delete_orders'])){
+    include('delete_order.php');
+  }
+  if(isset($_GET['delete_payments'])){
+    include('delete_payment.php');
+  }
+  if(isset($_GET['delete_users'])){
+    include('delete_user.php');
   }
 }else{
   echo "<div class='row'>

@@ -73,7 +73,7 @@ if(isset($_POST['admin_login'])){
         $_SESSION['admin_name'] = $admin_name;
         if(password_verify($admin_password,$row_data['admin_password'])){
             if($row_count==1){
-                $_SESSION['adminname'] = $admin_name;
+                $_SESSION['admin_name'] = $admin_name;
                 echo "<script>alert('Đăng nhập thành công!')</script>";
                 echo "<script>window.open('./index.php','_self')</script>";
             }

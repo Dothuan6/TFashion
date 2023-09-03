@@ -227,15 +227,21 @@
         <div class="row">
             <form action="" method="post">
                 <table class="table table-bordered">
-                    <thead>
-                        <tr class="text-center">
+                    <?php
+                    $cart_query_1="select *from `cart_details`";
+                    $result_1=mysqli_query($con,$cart_query_1);
+                    if(mysqli_num_rows($result_1)>0){
+                    echo "<thead>
+                        <tr class='text-center'>
                             <th>Tên sản phẩm</th>
                             <th>Hình ảnh</th>
                             <th>Số lượng</th>
                             <th>Tổng tiền</th>
                             <th>Chọn</th>
-                            <th colspan="2">Hoạt động</th>
+                            <th colspan='2'>Hoạt động</th>
                         </tr>
+                    </thead>";
+                    ?>
                     <tbody>
                         <?php 
                    global $con;
@@ -303,7 +309,6 @@
     remove_cart_item();
     ?>
                     </tbody>
-                    </thead>
                 </table>
                 <!-- subtotal -->
                 <?php
@@ -348,7 +353,13 @@
           echo "<script>window.open('homepage.php','self')</script>";
         }
       }
+    }else{
+        echo "<div class='alert alert-success' role='alert'>
+        Không có sản phẩm trong giỏ hàng!
+      </div>";
+      echo "<button name='continue_shopping' class='mx-2 mb-3 bg-info py-2 px-3 border-0 btn btn-outline'> <a href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>";
 
+    }
        
     ?>
         </div>
