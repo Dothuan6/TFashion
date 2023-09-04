@@ -117,6 +117,10 @@
     .nut-mo-chatbox {
         border-radius: 100% !important;
     }
+
+    .btn:hover {
+        transform: translateY(-10px);
+    }
     </style>
 </head>
 

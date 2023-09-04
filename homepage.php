@@ -292,6 +292,16 @@
     .buttons button:hover {
         background-color: #bac383;
     }
+
+    /* .btn {
+        transition-duration: 0.3s !important;
+        transition-timing-function: ease !important;
+        transition-delay: 0s !important;
+    } */
+
+    .btn:hover {
+        transform: translateY(-10px);
+    }
     </style>
 </head>
 

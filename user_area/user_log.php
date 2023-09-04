@@ -5,29 +5,29 @@ include_once('../functions/common_function.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Nhập</title>
     <!-- css link bstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
-    crossorigin="anonymous">
-    
-    <!-- font aware cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous"
-     referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-     <!-- css style link -->
-     <link rel="stylesheet" href="../style.css">
-     <!-- <style>
+    <!-- font aware cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- css style link -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- <style>
         body{
             overflow-x: hidden;
         }
      </style> -->
 </head>
+
 <body>
     <div class="container-fluid my-3 m-auto w-100">
         <h2 class="text-center">Đăng nhập thành viên</h2>
@@ -36,27 +36,28 @@ include_once('../functions/common_function.php');
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="form-outline mb-4">
                         <!-- username field -->
-                        <label for="user_username" class="form-label">Username</label>
-                        <input type="text" class="form-control" 
-                        id="user_username" placeholder="Enter your Username"
-                        autocomplete="off" required="required" name="user_username">
+                        <label for="user_username" class="form-label">Tên</label>
+                        <input type="text" class="form-control" id="user_username" placeholder="Nập vào tên"
+                            autocomplete="off" required="required" name="user_username">
                     </div>
                     <div class="form-outline mb-4">
                         <!-- password field -->
-                        <label for="user_password" class="form-label">Password</label>
-                        <input type="password" class="form-control" 
-                        id="user_password" placeholder="Enter your Password"
-                        autocomplete="off" required="required" name="user_password">
+                        <label for="user_password" class="form-label">Mật khẩu</label>
+                        <input type="password" class="form-control" id="user_password" placeholder="Nhập vào mật khẩu"
+                            autocomplete="off" required="required" name="user_password">
                     </div>
                     <a class="" href="#">Quên mật khẩu</a><br>
-                    <input class="mt-4 btn btn-info mb-6 px-3" type="submit" name="user_login" id="user_login" value="Đăng nhập">
-                    <p class="small fw-bold mt-2 pt-1 mb-0">Chưa có mật khẩu?<a class="text-danger" href="user_reg.php"> Đăng ký</a></p>
+                    <input class="mt-4 btn btn-info mb-6 px-3" type="submit" name="user_login" id="user_login"
+                        value="Đăng nhập">
+                    <p class="small fw-bold mt-2 pt-1 mb-0">Chưa có mật khẩu?<a class="text-danger" href="user_reg.php">
+                            Đăng ký</a></p>
                 </form>
             </div>
-         
+
         </div>
     </div>
 </body>
+
 </html>
 <?php
 if(isset($_POST['user_login'])){
