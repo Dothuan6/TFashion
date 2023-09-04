@@ -114,7 +114,25 @@
 
     .nut-mo-chatbox {
         border-radius: 100% !important;
-    }    .btn:hover {
+    }
+
+    .btn {
+        transition: transform 0.3s ease-in-out !important;
+        transition-timing-function: ease !important;
+        transition-delay: 0s !important;
+    }
+
+    .btn:hover {
+        transform: translateY(-10px);
+    }
+
+    .nav-link {
+        transition: transform 0.3s ease-in-out !important;
+        transition-timing-function: ease !important;
+        transition-delay: 0s !important;
+    }
+
+    .nav-link:hover {
         transform: translateY(-10px);
     }
     </style>

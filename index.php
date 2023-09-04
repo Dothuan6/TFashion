@@ -112,6 +112,12 @@
         animation: showcontent 1s ease-in-out 0.3s 1 forwards
     }
 
+    .btn {
+        transition: transform 0.3s ease-in-out !important;
+        transition-timing-function: ease !important;
+        transition-delay: 0s !important;
+    }
+
     .item button {
         padding: 10px 20px;
         border: none;
