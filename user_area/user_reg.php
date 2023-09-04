@@ -59,9 +59,9 @@
                 <div class="input-group has-validation">
                     <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
                     <div class="form-floating is-invalid">
-                        <label for="user_username">Username</label>
                         <input autocomplete="off" name="user_username" type="text" class="form-control"
                             id="user_username" placeholder="Username" required>
+                        <label for="user_username">Username</label>
                     </div>
                     <div class="invalid-feedback">
                         Nhập vào username.
