@@ -289,6 +289,7 @@
         transition: 0.5s;
     }
 
+    /*  animation*/
     .buttons button:hover {
         background-color: #bac383;
     }
