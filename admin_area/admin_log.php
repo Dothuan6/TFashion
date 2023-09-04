@@ -21,30 +21,48 @@ include_once('../functions/common_function.php');
 
     <!-- css style link -->
     <link rel="stylesheet" href="../style.css">
-    <!-- <style>
-        body{
-            overflow-x: hidden;
-        }
-     </style> -->
+    <style>
+    .btn {
+        transition: transform 0.3s ease-in-out !important;
+        transition-timing-function: ease !important;
+        transition-delay: 0s !important;
+    }
+
+    .btn:hover {
+        transform: translateY(-10px);
+    }
+
+    .nav-link {
+        transition: transform 0.3s ease-in-out !important;
+        transition-timing-function: ease !important;
+        transition-delay: 0s !important;
+    }
+
+    .nav-link:hover {
+        transform: translateY(-10px);
+    }
+    </style>
 </head>
 
 <body>
     <div class="container-fluid my-3 m-auto w-100">
-        <h2 class="text-center">Đăng nhập Quản Lý</h2>
+        <h2 class="text-center py-3">Đăng nhập Quản Lý</h2>
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-lg-12 col-xl-6">
                 <form action="" method="post" enctype="multipart/form-data">
-                    <div class="form-outline mb-4">
+                    <div class="form-floating mb-4">
                         <!-- username field -->
-                        <label for="admin_name" class="form-label">Tên</label>
                         <input type="text" class="form-control" id="admin_name" placeholder="Nhập vào tên"
                             autocomplete="off" required="required" name="admin_name">
+                        <label for="admin_name" class="form-label">Tên</label>
+
                     </div>
-                    <div class="form-outline mb-4">
+                    <div class="form-floating mb-4">
                         <!-- password field -->
-                        <label for="admin_password" class="form-label">Mật khẩu</label>
+
                         <input type="password" class="form-control" id="admin_password" placeholder="Nhập vào mật khẩu"
                             autocomplete="off" required="required" name="admin_password">
+                        <label for="admin_password" class="form-label">Mật khẩu</label>
                     </div>
                     <a class="" href="#">Quên mật khẩu</a><br>
                     <input class="mt-4 btn btn-info mb-6 px-3" type="submit" name="admin_login" id="admin_login"

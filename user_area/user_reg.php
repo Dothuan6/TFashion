@@ -61,10 +61,10 @@
                     <div class="form-floating is-invalid">
                         <input autocomplete="off" name="user_username" type="text" class="form-control"
                             id="user_username" placeholder="Username" required>
-                        <label for="user_username">Username</label>
+                        <label for="user_username">Tên</label>
                     </div>
                     <div class="invalid-feedback">
-                        Nhập vào username.
+                        Nhập vào Tên đăng nhập.
                     </div>
                 </div>
                 <!-- email -->
@@ -92,7 +92,7 @@
                     <div class="form-floating is-invalid">
                         <input name="user_password" type="password" class="form-control" id="floatingInputGroup2"
                             placeholder="Password" required>
-                        <label for="floatingInputGroup2">Password</label>
+                        <label for="floatingInputGroup2">Mật khẩu</label>
                     </div>
                     <div class="invalid-feedback">
                         Nhập vào mật khẩu.
@@ -104,7 +104,7 @@
                     <div class="form-floating is-invalid">
                         <input name="conf_user_password" type="password" class="form-control" id="floatingInputGroup2"
                             placeholder="Password" required>
-                        <label for="floatingInputGroup2">Confirm password</label>
+                        <label for="floatingInputGroup2">Xác nhận mật khẩu</label>
                     </div>
                     <div class="invalid-feedback">
                         Xác nhận mật khẩu.
@@ -116,7 +116,7 @@
                     <div class="form-floating is-invalid">
                         <input name="user_address" type="text" class="form-control" id="floatingInputGroup2"
                             placeholder="Address" required>
-                        <label for="floatingInputGroup2">Address</label>
+                        <label for="floatingInputGroup2">Địa chỉ</label>
                     </div>
                     <div class="invalid-feedback">
                         Nhập vào địa chỉ.
@@ -128,7 +128,7 @@
                     <div class="form-floating is-invalid">
                         <input name="user_contact" type="text" class="form-control" id="floatingInputGroup2"
                             placeholder="Contact" required>
-                        <label for="floatingInputGroup2">Contact</label>
+                        <label for="floatingInputGroup2">Liên hệ</label>
                     </div>
                     <div class="invalid-feedback">
                         Nhập vào số điện thoại.
