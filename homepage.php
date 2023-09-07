@@ -24,6 +24,13 @@
     <link rel="stylesheet"
         href="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- face -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v17.0"
+        nonce="D3hjkbza"></script>
 
     <style>
     body {
@@ -413,42 +420,42 @@
                         <div class="content">
                             <div class="name">TFashion</div>
                             <div class="des">Phong cách thời trang quốc tế</div>
-                            <button><a href="all_products.php">See more</a></button>
+                            <button><a href="all_products.php">xem chi tiết</a></button>
                         </div>
                     </div>
                     <div class="item" style="background-image: url(./images/fashion1.jpg);">
                         <div class="content">
                             <div class="name">TFashion</div>
                             <div class="des">Phong cách thời trang quốc tế</div>
-                            <button><a href="all_products.php">See more</a></button>
+                            <button><a href="all_products.php">xem chi tiết</a></button>
                         </div>
                     </div>
                     <div class="item" style="background-image: url(./images/fashion3.jpg);">
                         <div class="content">
                             <div class="name">TFashion</div>
                             <div class="des">Phong cách thời trang quốc tế</div>
-                            <button><a href="all_products.php">See more</a></button>
+                            <button><a href="all_products.php">xem chi tiết</a></button>
                         </div>
                     </div>
                     <div class="item" style="background-image: url(./images/fashion4.jpg);">
                         <div class="content">
                             <div class="name">TFashion</div>
                             <div class="des">Phong cách thời trang quốc tế</div>
-                            <button><a href="all_products.php">See more</a></button>
+                            <button><a href="all_products.php">xem chi tiết</a></button>
                         </div>
                     </div>
                     <div class="item" style="background-image: url(./images/fashion5.jpg);">
                         <div class="content">
                             <div class="name">TFashion</div>
                             <div class="des">Phong cách thời trang quốc tế</div>
-                            <button><a href="all_products.php">See more</a></button>
+                            <button><a href="all_products.php">xem chi tiết</a></button>
                         </div>
                     </div>
                     <div class="item" style="background-image: url(./images/fashion6.jpg);">
                         <div class="content">
                             <div class="name">TFashion</div>
                             <div class="des">Phong cách thời trang quốc tế</div>
-                            <button><a href="all_products.php">See more</a></button>
+                            <button><a href="all_products.php">xem chi tiết</a></button>
                         </div>
                     </div>
                 </div>
@@ -477,9 +484,12 @@
                 <!-- products -->
                 <!-- product mu -->
                 <?php if(isset($_GET['category']) or isset($_GET['brand'])){
-       get_unique_categories();
-       get_unique_brands();
-    }else{
+                    
+                    get_unique_categories();
+                    get_unique_brands();
+                    
+
+                     }else{
         echo "<div><h3 class='text-center bg-dark text-light py-1'>Nón</h3></div>";
         getproducts_non();
         echo " <div><h3 class='text-center bg-dark text-light py-1'>Túi Xách</h3></div>";
@@ -488,8 +498,6 @@
         getproducts_quan_ao();
         echo "<div><h3 class='text-center bg-dark text-light py-1'>Mắt Kính</h3></div>";
         getproducts_kinh(); 
-        get_unique_categories();
-        get_unique_brands();
     }
      ?>
 
@@ -499,7 +507,7 @@
             <!-- side nav -->
             <ul class="navbar-nav me-auto text-center">
                 <li class="nav-item bg-info">
-                    <a href="#" class="nav-link text-light ">
+                    <a href="#" class="nav-link text-light">
                         <h6>Danh mục</h6>
                     </a>
                 </li>
@@ -602,6 +610,8 @@
         document.getElementById('slide').prepend(lists[lists.length - 1]);
     }
     </script>
+
+
 </body>
 
 </html>

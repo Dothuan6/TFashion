@@ -26,6 +26,13 @@
 
     <link rel="stylesheet" href="./style.css">
 
+    <!-- FACE
+ -->
+    <!-- <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v17.0"
+        nonce="D3hjkbza"></script> -->
+
+
     <style>
     .logo {
         width: 6%;
@@ -300,15 +307,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
+    <!-- cmt -->
+    <!-- <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator"
+        data-width="100%" data-numposts="5"></div>
+    <script>
+    js.src = "https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&amp;version=v2.5";
+    </script> -->
+
+
+
     <?php
     include_once('./includes/footer.php'); 
     ?>
+
     <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/custom.js">
     </script>
     <!-- js chat bot -->
     <script>
     /*Hàm Mở Form*/
     function moForm() {
+        z
         document.getElementById("myForm").style.display = "block";
     }
     /*Hàm Đóng Form*/

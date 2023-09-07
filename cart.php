@@ -132,6 +132,31 @@
     .nut-mo-chatbox {
         border-radius: 100% !important;
     }
+
+    /*  animation*/
+    .buttons button:hover {
+        background-color: #bac383;
+    }
+
+    .btn {
+        transition: transform 0.3s ease-in-out !important;
+        transition-timing-function: ease !important;
+        transition-delay: 0s !important;
+    }
+
+    .btn:hover {
+        transform: translateY(-10px);
+    }
+
+    .nav-link {
+        transition: transform 0.3s ease-in-out !important;
+        transition-timing-function: ease !important;
+        transition-delay: 0s !important;
+    }
+
+    .nav-link:hover {
+        transform: translateY(-10px);
+    }
     </style>
 </head>
 
@@ -176,7 +201,7 @@
                                 class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
                     </li>
                     <li class='nav-item'>
-                        <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?> VND</a>
+                        <a class='nav-link' href='#'>Tổng Tiền: <?php subtotal() ?></a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search" action="search_products.php" method="get">
@@ -222,7 +247,7 @@
 
     <!-- third child -->
     <!-- fourth child-table -->
-    <h3 class="text-center py-3 text-info">Chi tiết giỏ hàng</h3>
+    <h3 class="text-center py-3">Chi tiết giỏ hàng</h3>
     <div class="container">
         <div class="row">
             <form action="" method="post">
@@ -247,8 +272,7 @@
                    global $con;
                    $total_price=0;
                    $get_ip_add = getIPAddress();
-                   $cart_query="select *from `cart_details` where ip_address=
-                   '$get_ip_add'";
+                   $cart_query="select *from `cart_details` where ip_address = '$get_ip_add'";
                    $result=mysqli_query($con,$cart_query);
                    while($row=mysqli_fetch_array($result)){
                      $product_id = $row['product_id'];
@@ -259,39 +283,49 @@
                        $price_table = $row_product_price['product_price'];
                        $product_title = $row_product_price['product_title'];
                        $product_image1 = $row_product_price['product_image3'];
+                    
                        $product_values = array_sum($product_price);
-                       $total_price+=$product_values;  
-    ?>
-
+                       $total_price += $product_values;
+                    //    echo $total_price;
+                       
+                       if(isset($_POST['update_cart'])){
+                        if(!empty($_POST['removeitem'])){
+                            foreach($_POST['removeitem'] as $remove_id){
+                                $quantities =  $_POST['qty'];
+                                settype($quantities,"integer");
+                                settype($price_table,"integer");
+                                // echo $remove_id;
+                                $update_cart="update `cart_details` set quantity='$quantities' where product_id = '$remove_id' ";
+                                $run_update = mysqli_query($con,$update_cart);
+                                // echo $run_update;
+                              if($run_update){
+                                $total_price = $total_price*$quantities;
+                                // echo "<script>window.open('cart.php?product_id=$remove_id','_self')</script>";
+                            }       
+                            else{
+                                
+                                 $total_price = $total_price;
+                                  
+                            }
+                        }
+                    }else{
+                        echo "<script>alert('Sản phẩm bạn chọn là?')</script>";
+                      } 
+                }
+                         
+                         ?>
                         <tr class='text-center'>
                             <td><?php echo $product_title ?></td>
                             <td><?php echo "<img class='cart_img center-block' src='./admin_area/product_images/$product_image1'"?>
                             </td>
                             <td>
                                 <div style='display: flex;'>
-                                    <input type="number" name="qty" id=""
+                                    <input value="<?php echo $quantities ?>" type="number" name="qty" min="1" ]
                                         style="width: 70px; height: 20px;margin-top: 10px;">
                                     <label class='mb-4 text-muted' style='margin-left: 20px; margin-top: 10px;'>Còn
                                         hàng</label>
                                 </div>
                             </td>
-
-                            <?php 
-          $get_ip_add = getIPAddress();
-          if(isset($_POST['update_cart'])){
-            $quantities = $_POST['qty'];
-             $update_cart="update `cart_details` set quantity='$quantities' where product_id='$product_id'";
-             $result_products_quantity=mysqli_query($con,$update_cart);
-             settype($quantities,'integer');
-             if($quantities>0){
-              $total_price= $total_price*$quantities;
-             }else{
-              $total_price = $total_price;
-             }
-            
-          }
-          ?>
-
                             <td><?php echo "{$price_table} VND" ?></td>
                             <td><input type='checkbox' name='removeitem[]' value='<?php echo $product_id ?>'></td>
                             <td>
@@ -341,27 +375,34 @@
         $result=mysqli_query($con,$cart_query);
         $result_count=mysqli_num_rows($result);
         if($result_count>0){
-             echo "<div class='d-flex mb-5'><h4 class='px3'>Tổng tiền: <strong class='text-info'> $total_price VND</strong></h4>
-                  <button class='mx-2 bg-info py-2 px-3 border-0 btn btn-outline' name='continue_shopping'> <a href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
-                 <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php' class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
-                </div>";
+             echo "<div class='d-flex mb-5'><h4 class='px3'>Tổng tiền: <strong class='text-info'>$total_price
+                VND</strong></h4>
+                <button class='mx-2 bg-info py-2 px-3 border-0 btn btn-outline' name='continue_shopping'> <a
+                        href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
+                <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php'
+                        class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
+        </div>";
         }
-      else{
-              echo "<button name='continue_shopping' class='mx-2 mb-3 bg-info py-2 px-3 border-0 btn btn-outline'> <a href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>";
-          
-        }if(isset($_POST['continue_shopping'])){
-          echo "<script>window.open('homepage.php','self')</script>";
-        }
-      }
-    }else{
-        echo "<div class='alert alert-success' role='alert'>
-        Không có sản phẩm trong giỏ hàng!
-      </div>";
-      echo "<button name='continue_shopping' class='mx-2 mb-3 bg-info py-2 px-3 border-0 btn btn-outline'> <a href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>";
+        else{
+        echo "<button name='continue_shopping' class='mx-2 mb-3 bg-info py-2 px-3 border-0 btn btn-outline'> <a
+                href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>";
 
-    }
-       
-    ?>
+        }if(isset($_POST['continue_shopping'])){
+        echo "<script>
+        window.open('homepage.php', 'self')
+        </script>";
+        }
+        }
+        }else{
+        echo "<div class='alert alert-success' role='alert'>
+            Không có sản phẩm trong giỏ hàng!
+        </div>";
+        echo "<button name='continue_shopping' class='mx-2 mb-3 bg-info py-2 px-3 border-0 btn btn-outline'> <a
+                href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>";
+
+        }
+
+        ?>
         </div>
     </div>
     </form>

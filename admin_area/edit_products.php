@@ -36,21 +36,24 @@
     <form action="" method="post" enctype="multipart/form-data">
         <div class="form-outline w-50 m-auto mt-3">
             <lable for="product_title" class="form-label">Tên SP</lable>
-            <input value="<?php echo $product_title ?>" type="text" id="product_title" name="product_title" class="form-control" required="required">
+            <input value="<?php echo $product_title ?>" type="text" id="product_title" name="product_title"
+                class="form-control" required="required">
         </div>
         <div class="form-outline w-50 m-auto">
             <lable for="product_description" class="form-label">Mô Tả</lable>
-            <input value="<?php echo $product_description ?>"  type="text" id="product_description" name="product_description" class="form-control" required="required">
+            <input value="<?php echo $product_description ?>" type="text" id="product_description"
+                name="product_description" class="form-control" required="required">
         </div>
         <div class="form-outline w-50 m-auto  mt-4">
             <lable for="product_keywords" class="form-label">Từ Khóa</lable>
-            <input value="<?php echo $product_keywords ?>" type="text" id="product_keywords" name="product_keywords" class="form-control" required="required">
+            <input value="<?php echo $product_keywords ?>" type="text" id="product_keywords" name="product_keywords"
+                class="form-control" required="required">
         </div>
         <div class="form-outline mb-4 w-50 m-auto mt-4">
             <label for="product_category" class="form-label">Danh Mục</label>
-                <select  name="product_category" class="form-select">
-                    <option value="<?php echo $category_title ?>"> <?php echo $category_title ?></option>
-                    <?php
+            <select name="product_category" class="form-select">
+                <option value="<?php echo $category_title ?>"> <?php echo $category_title ?></option>
+                <?php
                         $select_category_all = " select * from `categories`";
                         $result_category_all = mysqli_query($con,$select_category_all);
                         while($row_category_all = mysqli_fetch_assoc($result_category_all)){
@@ -59,13 +62,13 @@
                             echo "<option value='$category_id'>$category_title</option>";
                         }
                     ?>
-                </select>
-            </div>
-            <div class="form-outline mb-4 w-50 m-auto mt-4">
+            </select>
+        </div>
+        <div class="form-outline mb-4 w-50 m-auto mt-4">
             <label for="product_category" class="form-label">Nhãn Hàng</label>
-                <select name="product_brands" id="" class="form-select">
-                    <option value="<?php echo $brand_title ?>"><?php echo $brand_title ?></option>
-                    <?php
+            <select name="product_brands" id="" class="form-select">
+                <option value="<?php echo $brand_title ?>"><?php echo $brand_title ?></option>
+                <?php
                         $select_brand_all = " select * from `brands`";
                         $result_brand_all = mysqli_query($con,$select_brand_all);
                         while($row_brand_all = mysqli_fetch_assoc($result_brand_all)){
@@ -74,32 +77,36 @@
                             echo "<option value='$brand_id'>$brand_title</option>";
                         }
                     ?>
-                </select>
-            </div>
-            <div class="form-outline w-50 m-auto mb-4 mt-4">
-                <label for="product_image1" class="form-label">Ảnh 1</label>
-                <div class="d-flex">
-                <input type="file" id="product_image1" name="product_image1" class="form-control w-90 m-auto" required="required">
+            </select>
+        </div>
+        <div class="form-outline w-50 m-auto mb-4 mt-4">
+            <label for="product_image1" class="form-label">Ảnh 1</label>
+            <div class="d-flex">
+                <input type="file" id="product_image1" name="product_image1" class="form-control w-90 m-auto"
+                    required="required">
                 <img src="./product_images/<?php echo $product_image1 ?>" alt="" class="edit_image">
-                </div>
             </div>
-            <div class="form-outline w-50 m-auto mb-4">
-                <label for="product_image2" class="form-label">Ảnh 2</label>
-                <div class="d-flex">
-                <input type="file" id="product_image2" name="product_image2" class="form-control w-90 m-auto" required="required">
+        </div>
+        <div class="form-outline w-50 m-auto mb-4">
+            <label for="product_image2" class="form-label">Ảnh 2</label>
+            <div class="d-flex">
+                <input type="file" id="product_image2" name="product_image2" class="form-control w-90 m-auto"
+                    required="required">
                 <img src="./product_images/<?php echo $product_image2 ?>" alt="" class="edit_image">
-                </div>
             </div>
-            <div class="form-outline w-50 m-auto mb-4">
-                <label for="product_image3" class="form-label">Ảnh 3</label>
-                <div class="d-flex">
-                <input type="file" id="product_image3" name="product_image3" class="form-control w-90 m-auto" required="required">
+        </div>
+        <div class="form-outline w-50 m-auto mb-4">
+            <label for="product_image3" class="form-label">Ảnh 3</label>
+            <div class="d-flex">
+                <input type="file" id="product_image3" name="product_image3" class="form-control w-90 m-auto"
+                    required="required">
                 <img src="./product_images/<?php echo $product_image3 ?>" alt="" class="edit_image">
-                </div>
             </div>
-            <div class="form-outline w-50 m-auto">
+        </div>
+        <div class="form-outline w-50 m-auto">
             <lable for="product_price" class="form-label">Giá</lable>
-            <input value="<?php echo $product_price?>" type="text" id="product_price" name="product_price" class="form-control" required="required">
+            <input value="<?php echo $product_price?>" type="text" id="product_price" name="product_price"
+                class="form-control" required="required">
         </div>
         <div class="w-50 m-auto">
             <input type="submit" name="edit_product" value="Cập nhật" class="btn btn-info mb-3 px-3 mt-4">

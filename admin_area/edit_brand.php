@@ -1,4 +1,3 @@
-
 <?php
 if(isset($_GET['edit_brand'])){
     $brand_id=$_GET['edit_brand'];
@@ -10,16 +9,17 @@ if(isset($_GET['edit_brand'])){
 ?>
 
 <div class="container mt-2">
-<h3 class="text-center text-dark py-2">Chỉnh Sửa Nhãn Hàng</h3>
-<form action="" method="post" enctype="multipart/form-data">
-<div class="form-outline w-50 m-auto py-2 text-center">
+    <h3 class="text-center text-dark py-2">Chỉnh Sửa Nhãn Hàng</h3>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="form-outline w-50 m-auto py-2 text-center">
             <lable for="brand_title" class="form-label">Tên Nhãn Hàng</lable>
-            <input value="<?php echo $brand_title ?>" type="text" id="brand_title" name="brand_title" class="form-control mt-2 w-50 m-auto" required="required">
+            <input value="<?php echo $brand_title ?>" type="text" id="brand_title" name="brand_title"
+                class="form-control mt-2 w-50 m-auto" required="required">
         </div>
         <div class="w-50 m-auto text-center">
             <input type="submit" name="edit_brand" value="Cập nhật" class="btn btn-info mb-3 px-3 mt-3">
         </div>
-</form>
+    </form>
 </div>
 <?php
 if(isset($_POST['edit_brand'])){
@@ -30,7 +30,7 @@ if(isset($_POST['edit_brand'])){
     $result_brand_tt=mysqli_query($con,$update_brand);
     if($result_brand_tt){
         echo "<script>alert('Cập nhật thành công!')</script>";
-        echo "<script>window.open('./index.php','_self')</script>";
+        echo "<script>window.open('./index.php?insert_brands','_self')</script>";
     }
 }
 ?>

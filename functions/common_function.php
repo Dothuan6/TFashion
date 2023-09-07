@@ -611,6 +611,8 @@ function cart_item(){
             $product_image1 = $row_product_price['product_image2'];
             $product_values = array_sum($product_price);
             $total_price+=$product_values;
+
+            
             $get_ip_add = getIPAddress();
             if(isset($_POST['update_cart'])){
               $get_ip_add = getIPAddress(); 
@@ -621,11 +623,13 @@ function cart_item(){
               $result_products_quantity=mysqli_query($con,$update_cart);
               if($result_products_quantity){
                 $total_price=$total_price*$quantities;
+            }else{
+              $total_price = $total_price;
             }
         }
       }
         }
-        echo "{$total_price}K";
+        echo "{$total_price} VND";
       }
       // remove the cart
 
