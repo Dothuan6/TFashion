@@ -185,6 +185,24 @@
     .nav-link:hover {
         transform: translateY(-10px);
     }
+
+    .marquee {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        box-sizing: border-box;
+        animation: marquee 10s linear infinite;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
     </style>
 </head>
 

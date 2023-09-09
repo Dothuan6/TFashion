@@ -144,10 +144,34 @@
     .nav-link:hover {
         transform: translateY(-10px);
     }
+
+    .marquee {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        box-sizing: border-box;
+        animation: marquee 10s linear infinite;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .img-marquee {
+        width: 100%;
+        height: 100px;
+    }
     </style>
 </head>
 
 <body>
+
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-secondary-subtle">
         <div class="container-fluid">
@@ -239,6 +263,9 @@
         <div class="col-md-10">
             <div class="row container">
                 <!-- products -->
+                <div class="marquee">
+                    <span><img class="img-marquee" src="./images/sale5.jpg" alt=""></span>
+                </div>
                 <div>
                     <h3 class="bg-dark text-light text-center py-1">Tất cả sản phẩm</h3>
                 </div>

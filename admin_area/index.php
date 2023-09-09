@@ -131,47 +131,47 @@
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php?insert_products">
-                    <span>THÊM SẢN PHẨM</span></a>
+                    <span><i class="fa-regular fa-calendar-plus"></i> SẢN PHẨM</span></a>
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php?insert_categories">
-                    <span>THÊM DANH MỤC</span></a>
+                    <span><i class="fa-solid fa-list"></i> DANH MỤC</span></a>
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php?insert_brands">
-                    <span>THÊM NHÃN HÀNG</span></a>
+                    <span><i class="fa-solid fa-list-check"></i> NHÃN HÀNG</span></a>
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php?view_products">
-                    <span>XEM SẢN PHẨM</span></a>
+                    <span><i class="fa-solid fa-clipboard-list"></i>XEM SẢN PHẨM</span></a>
             </li>
-            <hr class="sidebar-divider">
+            <!-- <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php?view_categories">
                     <span>XEM DANH MỤC</span></a>
-            </li>
-            <hr class="sidebar-divider">
+            </li> -->
+            <!-- <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php?view_brands">
                     <span>XEM NHÃN HÀNG</span></a>
-            </li>
+            </li> -->
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php?view_orders">
-                    <span>XEM CÁC ĐƠN HÀNG</span></a>
+                    <span><i class="fa-solid fa-table-list"></i> ĐƠN HÀNG</span></a>
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php?view_payments">
-                    <span>XEM CÁC THANH TOÁN</span></a>
+                    <span><i class="fa-solid fa-credit-card"></i> THANH TOÁN</span></a>
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php?view_users">
-                    <span>XEM CÁC KHÁCH HÀNG</span></a>
+                    <span><i class="fa-solid fa-user"></i> KHÁCH HÀNG</span></a>
             </li>
 
 
@@ -188,7 +188,7 @@
                 <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
                     <div class="bg-dark p-4">
                         <div>
-                            <h5 class="text-body-emphasis h4">Giao diện quản lý
+                            <h5 class="text-body-emphasis h4"><i class="fa-solid fa-people-roof"></i> Giao diện quản lý
                                 <?php if(!isset($_SESSION['admin_name'])){
                                   echo "<a href='admin_reg.php'><button
                                   name='reg' class='btn btn-outline reg' value='Logout'>Đăng

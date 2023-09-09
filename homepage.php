@@ -320,12 +320,45 @@
     .nav-link:hover {
         transform: translateY(-10px);
     }
+
+    .marquee {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        box-sizing: border-box;
+        animation: marquee 10s linear infinite;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .img-marquee {
+        width: 100%;
+        height: 100px;
+    }
+
+    /* .btn {
+        display: none;
+    }
+
+
+    .btn:hover {
+        display: block;
+    } */
     </style>
 </head>
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg">
+
+    <nav class="navbar  bg-secondary-subtle navbar-expand-lg">
         <div class="container-fluid">
             <img src="images/logo.png" alt="Lo Go" class="logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -363,7 +396,7 @@
                                 class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
                     </li>
                     <li class='nav-item'>
-                        <a class='nav-link' href='#'>Tổng Tiền: <?php total_price() ?> VND</a>
+                        <a class='nav-link' href='#'>Tổng Tiền: <?php subtotal() ?></a>
                     </li>
 
 
@@ -378,6 +411,7 @@
             </div>
         </div>
     </nav>
+
     <!-- calling cart -->
     <?php
       add_cart(); 
@@ -411,6 +445,7 @@
   ?>
         </ul>
     </nav>
+
     <!-- third -->
     <div class="row">
         <div class="py-2 m-0 w-50 col-lg-6 col-md-12 col-sm-12">
@@ -467,9 +502,12 @@
         </div>
 
         <div class="col-lg-6 col-md-6">
-            <div class="row" style="height: 49px;">
-                <header><img src="./images/sale_header1.jpg" class="h-25 w-100" alt=""></header>
+            <div class="marquee">
+                <span><img class="img-marquee" src="./images/sale5.jpg" alt=""></span>
             </div>
+            <!-- <div class="row" style="height: 49px;">
+                <header><img src="./images/sale_header1.jpg" class="h-25 w-100" alt=""></header>
+            </div> -->
             <div class="row mt-2" style="height: 30 0px;">
                 <?php getproducts_thirth(); 
           ?>

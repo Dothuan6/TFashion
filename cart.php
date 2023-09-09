@@ -169,14 +169,41 @@ if(isset($_POST['update_product_qty'])){
     .nav-link:hover {
         transform: translateY(-10px);
     }
+
+    .marquee {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        box-sizing: border-box;
+        animation: marquee 10s linear infinite;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .img-marquee {
+        width: 100%;
+        height: 100px;
+    }
     </style>
 </head>
 
 <body>
     <!-- navbar-->
     <!-- navbar -->
+    <!-- <div class="marquee">
+        <span><img class="img-marquee" src="./images/sale4.jpg" alt=""></span>
+    </div> -->
     <nav class="navbar navbar-expand-lg bg-secondary-subtle">
         <div class="container-fluid">
+
             <img src="images/logo.png" alt="Lo Go" class="logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

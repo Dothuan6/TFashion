@@ -615,7 +615,13 @@ function cart_item(){
             $total_price_format = number_format((int)$total_price,3);
           }
         }
-        echo "$total_price_format VND";
+        if(isset($total_price_format)){
+          echo "$total_price_format VND";
+        }else{
+          echo "0 VND";
+        }
+        
+      
       }
       // remove the cart
 
