@@ -24,7 +24,7 @@ echo"
             while($row_data=mysqli_fetch_assoc($result_payments)){
                 $payment_id = $row_data['payment_id'];
                 $invoice_number=$row_data['invoice_number'];
-                $amount=$row_data['amount'];
+                $amount=number_format($row_data['amount'],3);
                 $payment_mode=$row_data['payment_mode'];
                 $payment_date=$row_data['date'];
                 $number++;

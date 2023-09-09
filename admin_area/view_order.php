@@ -19,7 +19,7 @@
         while($row_data=mysqli_fetch_assoc($result_orders)){
             $order_id=$row_data['order_id'];
             $user_id=$row_data['user_id'];
-            $amount_due=$row_data['amount_due'];
+            $amount_due=number_format($row_data['amount_due'],3);
             $invoice_number=$row_data['invoice_number'];
             $total_products=$row_data['total_products'];
             $order_date=$row_data['order_date'];

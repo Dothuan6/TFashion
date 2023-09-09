@@ -75,7 +75,7 @@
             while($row_orders= mysqli_fetch_assoc($result_orders)){
                 
                 $order_id = $row_orders['order_id'];
-                $amount_due=$row_orders['amount_due'];
+                $amount_due=number_format($row_orders['amount_due'],3);
                 $total_products = $row_orders['total_products'];
                 $invoice_number=$row_orders['invoice_number'];
                 $order_status = $row_orders['order_status'];

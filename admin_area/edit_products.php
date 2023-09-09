@@ -122,7 +122,7 @@
         $product_keywords = $_POST['product_keywords'];
         $product_category= $_POST['product_category'];
         $product_brands = $_POST['product_brands'];
-        $product_price = $_POST['product_price'];
+        $product_price = number_format($_POST['product_price']);
         
         //accessing images
         $product_image1 = $_FILES['product_image1']['name'];
@@ -159,7 +159,7 @@
             $result_update = mysqli_query($con,$update_product);
             if($result_update){
                 echo "<script>alert('Cập nhật thành công!')</script>";
-                echo "<script>window.open('index.php','_self')</script>";
+                echo "<script>window.open('index.php?view_products','_self')</script>";
             }
         }
     }

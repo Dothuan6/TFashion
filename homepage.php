@@ -413,7 +413,7 @@
     </nav>
     <!-- third -->
     <div class="row">
-        <div class="py-2 m-0 w-50 col-lg-6 col-md-12">
+        <div class="py-2 m-0 w-50 col-lg-6 col-md-12 col-sm-12">
             <div class="container">
                 <div id="slide">
                     <div class="item" style="background-image: url(./images/fashion1.jpg);">

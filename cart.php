@@ -3,8 +3,20 @@
   include_once('./functions/common_function.php');
   @session_start();
 ?>
+<?php
+// update query\
 
-
+if(isset($_POST['update_product_qty'])){
+    $update_value = $_POST['update_qty'];
+    $update_id = $_POST['update_qty_id'];
+    // echo $update_id;
+    // echo $update_value;
+    $update_qty_query=mysqli_query($con,"update `cart_details` set quantity = '$update_value' where product_id = '$update_id'");
+    if($update_qty_query){
+        echo "<script>alert('Cập nhật thành công!')</script>" ;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -201,7 +213,7 @@
                                 class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
                     </li>
                     <li class='nav-item'>
-                        <a class='nav-link' href='#'>Tổng Tiền: <?php subtotal() ?></a>
+                        <a class='nav-link' href='#'>Tổng Tiền: <?php echo subtotal() ?></a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search" action="search_products.php" method="get">
@@ -260,9 +272,9 @@
                         <tr class='text-center'>
                             <th>Tên sản phẩm</th>
                             <th>Hình ảnh</th>
+                            <th>Giá SP</th>
                             <th>Số lượng</th>
                             <th>Tổng tiền</th>
-                            <th>Chọn</th>
                             <th colspan='2'>Hoạt động</th>
                         </tr>
                     </thead>";
@@ -272,10 +284,12 @@
                    global $con;
                    $total_price=0;
                    $get_ip_add = getIPAddress();
-                   $cart_query="select *from `cart_details` where ip_address = '$get_ip_add'";
+                   $cart_query="select *from `cart_details`";
                    $result=mysqli_query($con,$cart_query);
                    while($row=mysqli_fetch_array($result)){
                      $product_id = $row['product_id'];
+                     $product_qty=$row['quantity'];
+                    //  echo $product_qty;
                      $select_products="select *from `products` where product_id='$product_id'";
                      $result_products=mysqli_query($con,$select_products);
                      while($row_product_price=mysqli_fetch_array($result_products)){
@@ -283,60 +297,41 @@
                        $price_table = $row_product_price['product_price'];
                        $product_title = $row_product_price['product_title'];
                        $product_image1 = $row_product_price['product_image3'];
-                    
-                       $product_values = array_sum($product_price);
-                       $total_price += $product_values;
-                    //    echo $total_price;
-                       
-                       if(isset($_POST['update_cart'])){
-                        if(!empty($_POST['removeitem'])){
-                            foreach($_POST['removeitem'] as $remove_id){
-                                $quantities =  $_POST['qty'];
-                                settype($quantities,"integer");
-                                settype($price_table,"integer");
-                                // echo $remove_id;
-                                $update_cart="update `cart_details` set quantity='$quantities' where product_id = '$remove_id' ";
-                                $run_update = mysqli_query($con,$update_cart);
-                                // echo $run_update;
-                              if($run_update){
-                                $total_price = $total_price*$quantities;
-                                // echo "<script>window.open('cart.php?product_id=$remove_id','_self')</script>";
-                            }       
-                            else{
-                                
-                                 $total_price = $total_price;
-                                  
-                            }
-                        }
-                    }else{
-                        echo "<script>alert('Sản phẩm bạn chọn là?')</script>";
-                      } 
-                }
-                         
+                       $subtotal = number_format((int)$product_qty*(int)$price_table,3);
+                       $total_price =((int)$total_price + (int)$subtotal);
+                       $total_price_format = number_format((int)$total_price,3);
+                    //    echo $total_price; 
                          ?>
                         <tr class='text-center'>
                             <td><?php echo $product_title ?></td>
                             <td><?php echo "<img class='cart_img center-block' src='./admin_area/product_images/$product_image1'"?>
                             </td>
+                            <td><?php echo "$price_table VND" ?></td>
                             <td>
-                                <div style='display: flex;'>
-                                    <input value="<?php echo $quantities ?>" type="number" name="qty" min="1" ]
-                                        style="width: 70px; height: 20px;margin-top: 10px;">
-                                    <label class='mb-4 text-muted' style='margin-left: 20px; margin-top: 10px;'>Còn
-                                        hàng</label>
-                                </div>
+                                <form action="" method="post">
+                                    <input type="hidden" class="text-center" value="<?php echo $product_id ?>"
+                                        name="update_qty_id">
+
+                                    <div class="quantity_box">
+                                        <input value="<?php echo $product_qty ?>" type="number" name="update_qty"
+                                            min="1" style="width: 70px; height: 20px;margin-top: 10px;">
+                                        <input class='mx-3 bg-warning py-2 px-2 border-0 btn' value='Cập nhật'
+                                            type='submit' name='update_product_qty'>
+                                    </div>
+                                </form>
                             </td>
-                            <td><?php echo "{$price_table} VND" ?></td>
-                            <td><input type='checkbox' name='removeitem[]' value='<?php echo $product_id ?>'></td>
+                            <td><?php echo "$subtotal VND" ?></td>
+
                             <td>
-                                <input class='mx-3 bg-info py-2 px-2 border-0' value='Update Cart' type='submit'
-                                    name='update_cart'>
-                                <input class='mx-3 bg-info py-2 px-2 border-0' value='Remove Cart' type='submit'
-                                    name='remove_cart'>
+                                <form action="" method="post">
+                                    <input type="hidden" value="<?php echo $product_id ?>" name="update_qty_id">
+                                    <input class='mx-3 bg-info py-2 px-2 border-0 btn' value='Xóa' type='submit'
+                                        name='remove_cart'>
+                                </form>
                             </td>
                         </tr>
                         <?php 
-                }
+                }   
           }
     ?>
                         <?php
@@ -347,7 +342,7 @@
                 <!-- subtotal -->
                 <?php
         if(isset($_SESSION['username'])){
-        $get_ip_add=getIPAddress();
+        $get_ip_add=getIPAddress();         
         $cart_query="select * from `cart_details` where ip_address='$get_ip_add'";
         $result=mysqli_query($con,$cart_query);
         $result_count=mysqli_num_rows($result);
@@ -358,8 +353,9 @@
         $user_id = $row_user_id['user_id'];
         
         if($result_count>0){
-             echo "<div class='d-flex mb-5'><h4 class='px3'>Tổng tiền: <strong class='text-info'> $total_price VND</strong></h4>
-                  <button class='mx-2 bg-info py-2 px-3 border-0 btn btn-outline' name='continue_shopping'> <a href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
+             echo "<div class='d-flex mb-5'><h4 class='px3'>Tổng tiền: <strong class='text-danger'> $total_price_format VND</strong></h4>
+                  <button class='mx-2 bg-info py-2 px-3 border-0 btn btn-outline' name='continue_shopping'> <a 
+                  href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
                  <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php?user_id=$user_id' class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
                 </div>";
         }
@@ -375,16 +371,16 @@
         $result=mysqli_query($con,$cart_query);
         $result_count=mysqli_num_rows($result);
         if($result_count>0){
-             echo "<div class='d-flex mb-5'><h4 class='px3'>Tổng tiền: <strong class='text-info'>$total_price
+             echo "<div class='d-flex mb-5'><h4 class='px3'>Tổng tiền: <strong class='text-info'>$total_price_format
                 VND</strong></h4>
-                <button class='mx-2 bg-info py-2 px-3 border-0 btn btn-outline' name='continue_shopping'> <a
+                <button class='mx-2 bg-info py-2 px-3 border-0  bg-warning btn btn-outline' name='continue_shopping'> <a
                         href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
                 <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php'
                         class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
         </div>";
         }
         else{
-        echo "<button name='continue_shopping' class='mx-2 mb-3 bg-info py-2 px-3 border-0 btn btn-outline'> <a
+        echo "<button name='continue_shopping' class='mx-2 mb-3 bg-warning py-2 px-3 border-0 btn btn-outline'> <a
                 href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>";
 
         }if(isset($_POST['continue_shopping'])){
@@ -431,7 +427,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
-    <script src="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script>
+    <script src="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js">
+    </script>
     <script src="./js/customs.js"></script>
     <script>
     /*Hàm Mở Form*/

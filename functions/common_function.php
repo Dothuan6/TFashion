@@ -17,14 +17,14 @@ function getproducts(){
       $category_id = $row['category_id'];
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
-      <div class='card'>
+      <div class='card shadow rounded'>
       <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
       <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
       </a>
                 <div class='card-body'>
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
-                  <p class='card-text text-danger'>Giá: {$product_price}K</p>
+                  <p class='card-text text-danger'>Giá: {$product_price} VND</p>
                   <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
               
                 </div>
@@ -52,14 +52,14 @@ function getproducts_non(){
     $category_id = $row['category_id'];
     $brand_id = $row['brand_id'];
     echo "<div class='col-md-4 mb-2'>
-    <div class='card'>
+    <div class='card shadow rounded'>
     <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
     <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
     </a>
               <div class='card-body'>
                <h5 class='card-title'>$product_title</h5>
                 <p class='card-text'> $product_description</p>
-                <p class='card-text text-danger'>Giá: {$product_price}K</p>
+                <p class='card-text text-danger'>Giá: {$product_price} VND</p>
                 <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
             
               </div>
@@ -87,14 +87,14 @@ function getproducts_tuixach(){
     $category_id = $row['category_id'];
     $brand_id = $row['brand_id'];
     echo "<div class='col-md-4 mb-2'>
-    <div class='card'>
+    <div class='shadow rounded card'>
     <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
     <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
     </a>
               <div class='card-body'>
                <h5 class='card-title'>$product_title</h5>
                 <p class='card-text'> $product_description</p>
-                <p class='card-text text-danger'>Giá: {$product_price}K</p>
+                <p class='card-text text-danger'>Giá: {$product_price} VND</p>
                 <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
             
               </div>
@@ -122,14 +122,14 @@ function getproducts_quan_ao(){
     $category_id = $row['category_id'];
     $brand_id = $row['brand_id'];
     echo "<div class='col-md-4 mb-2'>
-    <div class='card'>
+    <div class='card shadow rounded'>
     <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
     <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
     </a>
               <div class='card-body'>
                <h5 class='card-title'>$product_title</h5>
                 <p class='card-text'> $product_description</p>
-                <p class='card-text text-danger'>Giá: {$product_price}K</p>
+                <p class='card-text text-danger'>Giá: {$product_price} VND</p>
                 <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
             
               </div>
@@ -158,14 +158,14 @@ function getproducts_kinh(){
     $category_id = $row['category_id'];
     $brand_id = $row['brand_id'];
     echo "<div class='col-md-4 mb-2'>
-    <div class='card'>
+    <div class='card shadow rounded'>
     <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
     <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
     </a>
               <div class='card-body'>
                <h5 class='card-title'>$product_title</h5>
                 <p class='card-text'> $product_description</p>
-                <p class='card-text text-danger'>Giá: {$product_price}K</p>
+                <p class='card-text text-danger'>Giá: {$product_price} VND</p>
                 <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
             
               </div>
@@ -193,13 +193,13 @@ function getproducts_thirth(){
     $category_id = $row['category_id'];
     $brand_id = $row['brand_id'];
     echo "<div class='col-md-4' style='height:400px;'>
-    <div class='card' style='height:350px;'>
+    <div class='card  shadow rounded' style='height:350px;'>
     <a href='product_details.php?product_id= $product_id' class='btn btn-light bg-warning'>
     <img src='./admin_area/product_images/$product_image2' class='card-img-top_sale' style='height:250px;'>
     </a>
               <div class='card-body'>
                <h5 class='card-title'>$product_title</h5>
-                <p class='card-text text-danger'>Giá: {$product_price}K</p>
+                <p class='card-text text-danger'>Giá: {$product_price} VND</p>
                 <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
               </div>
     </div>
@@ -233,14 +233,14 @@ function get_unique_categories(){
       $category_id = $row['category_id'];
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
-              <div class='card'>
+              <div class='card   shadow rounded'>
               <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
               <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
               </a>
               <div class='card-body'>
               <h5 class='card-title'>$product_title</h5>
               <p class='card-text'> $product_description</p>
-              <p class='card-text text-danger'>Giá: {$product_price}K</p>
+              <p class='card-text text-danger'>Giá: {$product_price} VND</p>
               <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
               </div>
       </div>
@@ -285,14 +285,14 @@ function get_unique_brands(){
       $category_id = $row['category_id'];
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
-      <div class='card'>
+      <div class='card   shadow rounded'>
                 <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
                 <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
                 </a>
-                <div class='card-body'>
+                <div class='card-body'> 
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
-                  <p class='card-text text-danger'>Giá: {$product_price}K</p>
+                  <p class='card-text text-danger'>Giá: {$product_price} VND</p>
                   <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
                   
                 </div>
@@ -340,14 +340,14 @@ function search_products(){
       $category_id = $row['category_id'];
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
-      <div class='card'>
+      <div class='card  shadow rounded'>
                   <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
                    <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
                   </a>
                 <div class='card-body'>
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
-                  <p class='card-text'>Giá: {$product_price}K</p>
+                  <p class='card-text text-danger'>Giá: {$product_price} VND</p>
                   <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
                  
                 </div>
@@ -374,14 +374,14 @@ function get_allproducts(){
       $category_id = $row['category_id'];
       $brand_id = $row['brand_id'];
       echo "<div class='col-md-4 mb-2'>
-      <div class='card'>
+      <div class='card py-1 shadow rounded'>
       <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
       <img src='./admin_area/product_images/$product_image2' class='card-img-top'>
       </a>
                 <div class='card-body'> 
                  <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'> $product_description</p>
-                  <p class='card-text text-danger'>Giá: {$product_price}K</p>
+                  <p class='card-text text-danger'>Giá: {$product_price} VND</p>
                   <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
                  
                 </div>
@@ -502,7 +502,7 @@ function add_cart(){
 
     }else{
       $insert_query = "insert into `cart_details` (product_id,ip_address,quantity) values(
-        $get_product_id,'$get_ip_add',0)";
+        $get_product_id,'$get_ip_add',1)";
         $result_query = mysqli_query($con,$insert_query);
       echo "<script>alert('Đã thêm thành công vào giỏ hàng!')</script>";
       echo "<script>window.open('homepage.php','_self')</script>";
@@ -597,47 +597,33 @@ function cart_item(){
         global $con;
         $total_price=0;
         $get_ip_add = getIPAddress();
-        $cart_query="select *from `cart_details` where ip_address='$get_ip_add'";
+        $cart_query="select *from `cart_details`";
         $result=mysqli_query($con,$cart_query);
         while($row=mysqli_fetch_array($result)){
-          $get_ip_add = getIPAddress();
           $product_id = $row['product_id'];
+          $product_qty=$row['quantity'];
+         //  echo $product_qty;
           $select_products="select *from `products` where product_id='$product_id'";
           $result_products=mysqli_query($con,$select_products);
           while($row_product_price=mysqli_fetch_array($result_products)){
             $product_price = array($row_product_price['product_price']);
             $price_table = $row_product_price['product_price'];
             $product_title = $row_product_price['product_title'];
-            $product_image1 = $row_product_price['product_image2'];
-            $product_values = array_sum($product_price);
-            $total_price+=$product_values;
-
-            
-            $get_ip_add = getIPAddress();
-            if(isset($_POST['update_cart'])){
-              $get_ip_add = getIPAddress(); 
-              $quantities=$_POST['qty'];
-              settype($quantities,"integer");
-              settype($price_table,"integer");
-              $update_cart="update `cart_details` set quantity='$quantities' where product_id='$product_id'";
-              $result_products_quantity=mysqli_query($con,$update_cart);
-              if($result_products_quantity){
-                $total_price=$total_price*$quantities;
-            }else{
-              $total_price = $total_price;
-            }
+            $product_image1 = $row_product_price['product_image3'];
+            $subtotal = number_format((int)$product_qty*(int)$price_table,3);
+            $total_price =((int)$total_price + (int)$subtotal);
+            $total_price_format = number_format((int)$total_price,3);
+          }
         }
-      }
-        }
-        echo "{$total_price} VND";
+        echo "$total_price_format VND";
       }
       // remove the cart
 
       function remove_cart_item(){
         global $con;
         if(isset($_POST['remove_cart'])){
-          if(!empty($_POST['removeitem'])){
-          foreach($_POST['removeitem'] as $remove_id){
+          if(!empty($_POST['update_qty_id'])){
+          foreach($_POST['update_qty_id'] as $remove_id){
             $delete_query = "delete from `cart_details` where product_id='$remove_id'";
             $run_delete = mysqli_query($con,$delete_query);
             if($run_delete){
