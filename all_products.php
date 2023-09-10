@@ -23,14 +23,14 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet"
         href="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css">
-
     <link rel="stylesheet" href="./style.css">
-
-    <!-- FACE
- -->
-    <!-- <div id="fb-root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- face -->
+    <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v17.0"
-        nonce="D3hjkbza"></script> -->
+        nonce="D3hjkbza"></script>
 
 
     <style>
@@ -347,18 +347,51 @@
     include_once('./includes/footer.php'); 
     ?>
 
+    <!-- script -->
+    <script>
+    function dark_mode() {
+        var element = document.body;
+        element.classList.toggle("dark_mode");
+    }
+    </script>
     <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/custom.js">
     </script>
+    <script>
+    window.onscroll = function() {
+        myFunction()
+    };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+    </script>
+
     <!-- js chat bot -->
     <script>
     /*Hàm Mở Form*/
     function moForm() {
-        z
         document.getElementById("myForm").style.display = "block";
     }
     /*Hàm Đóng Form*/
     function dongForm() {
         document.getElementById("myForm").style.display = "none";
+    }
+    </script>
+    <script>
+    document.getElementById('next').onclick = function() {
+        let lists = document.querySelectorAll('.item');
+        document.getElementById('slide').appendChild(lists[0]);
+    }
+    document.getElementById('prev').onclick = function() {
+        let lists = document.querySelectorAll('.item');
+        document.getElementById('slide').prepend(lists[lists.length - 1]);
     }
     </script>
 </body>

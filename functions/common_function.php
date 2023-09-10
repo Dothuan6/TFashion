@@ -627,22 +627,11 @@ function cart_item(){
 
       function remove_cart_item(){
         global $con;
-        if(isset($_POST['remove_cart'])){
-          if(!empty($_POST['update_qty_id'])){
-          foreach($_POST['update_qty_id'] as $remove_id){
-            $delete_query = "delete from `cart_details` where product_id='$remove_id'";
-            $run_delete = mysqli_query($con,$delete_query);
-            if($run_delete){
-              echo "<script>window.open('cart.php','_self')</script>";
-            }
-          }
-        }
-        else{
-          echo "<script>alert('Sản phẩm bạn chọn là?')</script>";
-        }
-      }
+        if(isset($_GET['remove'])){
+          $remove_id = $_GET['remove'];
+          mysqli_query($con,"delete from `cart_details` where product_id = '$remove_id'");
     }
-
+  }
     // get user order details
     function get_user_oder_details(){
       global $con;

@@ -39,7 +39,7 @@
                     <!-- Grid column -->
 
                     <hr class="w-100 clearfix d-md-none" />
-                    z
+
                     <!-- Grid column -->
                     <hr class="w-100 clearfix d-md-none" />
 

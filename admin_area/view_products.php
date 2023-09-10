@@ -32,7 +32,7 @@
             $row_count=mysqli_num_rows($result_count);
             echo "<tr><td class='bg-secondary text-light'>$number</td>
             <td  class='bg-secondary text-light'>$product_title</td>
-            <td  class='bg-secondary text-light img'><img src='./product_images/$product_image2' class='product_images'></td>
+            <td  class='bg-secondary text-light img'><img src='./product_images/$product_image2' class='product_images shadow'></td>
             <td  class='bg-secondary text-light'>$product_price VND</td>
             <td  class='bg-secondary text-light'> $row_count</td>
             <td  class='bg-secondary text-light'>$product_status</td>

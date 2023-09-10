@@ -42,7 +42,7 @@
             <td class='text-center text-light bg-secondary'>$number</td>
             <td class='text-center text-light bg-secondary'>$usernamer</td>
             <td class='text-center text-light bg-secondary'>$user_email</td>
-            <td  class='bg-secondary text-light'><img src='../user_area/user_images/$user_image' class='user_images'></td>
+            <td  class='bg-secondary text-light text-center'><img src='../user_area/user_images/$user_image' class='user_images shadow'></td>
             <td class='text-center text-light bg-secondary'>$user_address</td>
             <td class='text-center text-light bg-secondary'>$user_mobile</td>
             <td  class='bg-secondary text-light text-center'><a data-bs-toggle='modal' data-bs-target='#exampleModal' 

@@ -52,6 +52,8 @@
     .product_images {
         width: 50%;
         object-fit: contain;
+        border-radius: 10px;
+
     }
 
     .edit_image {
@@ -61,9 +63,11 @@
     }
 
     .user_images {
-        width: 100px;
-        height: 70px;
-        object-fit: contain;
+        width: 50%;
+        height: 76px;
+        /* object-fit: contain; */
+        border-radius: 20%;
+        align-items: center;
     }
 
     .img {

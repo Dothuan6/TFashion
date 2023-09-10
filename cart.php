@@ -15,6 +15,11 @@ if(isset($_POST['update_product_qty'])){
     if($update_qty_query){
         echo "<script>alert('Cập nhật thành công!')</script>" ;
     }
+
+}
+if(isset($_GET['remove'])){
+    $remove_id = $_GET['remove'];
+    mysqli_query($con,"delete from `cart_details` where product_id = '$remove_id'");
 }
 ?>
 <!DOCTYPE html>
@@ -34,8 +39,17 @@ if(isset($_POST['update_product_qty'])){
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- css style link -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet"
+        href="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="./style.css">
-    <!-- js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- face -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v17.0"
+        nonce="D3hjkbza"></script>
 
     <style>
     .cart_img {
@@ -347,22 +361,17 @@ if(isset($_POST['update_product_qty'])){
                                     </div>
                                 </form>
                             </td>
-                            <td><?php echo "$subtotal VND" ?></td>
+                            <td class="text-danger"><?php echo "$subtotal VND" ?></td>
 
                             <td>
-                                <form action="" method="post">
-                                    <input type="hidden" value="<?php echo $product_id ?>" name="update_qty_id">
-                                    <input class='mx-3 bg-info py-2 px-2 border-0 btn' value='Xóa' type='submit'
-                                        name='remove_cart'>
-                                </form>
+                                <a href="cart.php?remove=<?php echo $product_id ?>"
+                                    class="mx-3 text-dark bg-info py-2 px-2 border-0 btn"
+                                    onclick="return confirm('Bạn chắn chắn muốn xóa sản phẩm này?')">Xóa</a>
                             </td>
                         </tr>
                         <?php 
                 }   
           }
-    ?>
-                        <?php
-    remove_cart_item();
     ?>
                     </tbody>
                 </table>
