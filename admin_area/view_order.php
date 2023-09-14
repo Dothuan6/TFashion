@@ -25,40 +25,28 @@
             $order_date=$row_data['order_date'];
             $order_status=$row_data['order_status'];
             $number++;
-            echo "
-            <tr>
-             <td class='text-light bg-secondary'>$number</td>
-             <td class='text-light bg-secondary'>$amount_due VND</td>
-             <td class='text-light bg-secondary'>$invoice_number</td>
-             <td class='text-light bg-secondary'>$total_products</td>
-             <td class='text-light bg-secondary'>$order_date</td>
-             <td class='text-light bg-secondary'>$order_status</td>
-             <td  class='bg-secondary text-light'><a data-bs-toggle='modal' data-bs-target='#exampleModal' href='./index.php?delete_orders=$invoice_number'>
-            <i class='fa-solid fa-trash text-light'></i></a></td>
-            </tr>";
+            ?>
+
+        <tr>
+            <td class='text-light bg-secondary'><?php echo $number ?></td>
+            <td class='text-light bg-secondary'><?php echo "$amount_due VND"?></td>
+            <td class='text-light bg-secondary'><?php echo $invoice_number ?></td>
+            <td class='text-light bg-secondary'><?php echo $total_products ?></td>
+            <td class='text-light bg-secondary'><?php echo $order_date ?></td>
+            <td class='text-light bg-secondary'><?php echo $order_status ?></td>
+            <td class='bg-secondary text-light'><a onclick='return confirm("Bạn chắn chắn muốn xóa sản phẩm này?")'
+                    href='./index.php?delete_orders=<?php echo $invoice_number ?>'>
+                    <i class='fa-solid fa-trash text-light'></i></a>
+            </td>
+        </tr>
+        <?php 
         }
-    }
+        }
         else{
-            echo "<div class='alert alert-success' role='alert'>
+        echo "<div class='alert alert-success' role='alert'>
             Không có đơn đặt hàng nào gần đây!
-          </div>";
-        }   
+        </div>";
+        }
         ?>
         </tbody>
 </table>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4>Bạn chắc chắn muốn xóa đơn hàng này?</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    <a class="text-decoration-none text-light" href="./index.php?view_orders">Không</a></button>
-                <button type="button" class="btn btn-primary">
-                    <a href="index.php?delete_orders=<?php echo $invoice_number ?>"
-                        class="text-light text-decoration-none">Có</a></button>
-            </div>
-        </div>
-    </div>
-</div>

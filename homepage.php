@@ -538,6 +538,12 @@
         getproducts_kinh(); 
     }
      ?>
+                <div class="text-right">
+                    <a href="all_products.php">
+                        <h7>xem thêm <i class=" fa-solid fa-hand-point-right"></i></h7>
+                    </a>
+
+                </div>
 
             </div>
         </div>

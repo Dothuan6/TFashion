@@ -192,14 +192,17 @@ function getproducts_thirth(){
     $product_price = $row['product_price'];
     $category_id = $row['category_id'];
     $brand_id = $row['brand_id'];
+    $sale_price = 0;
+    $sale_price = number_format((float)$product_price*(80/100),3);
     echo "<div class='col-md-4' style='height:400px;'>
-    <div class='card  shadow rounded' style='height:350px;'>
+    <div class='card shadow rounded' style='height:350px;'>
     <a href='product_details.php?product_id= $product_id' class='btn btn-light bg-warning'>
     <img src='./admin_area/product_images/$product_image2' class='card-img-top_sale' style='height:250px;'>
     </a>
               <div class='card-body'>
-               <h5 class='card-title'>$product_title</h5>
-                <p class='card-text text-danger'>Giá: {$product_price} VND</p>
+               <h5 class='card-title fs-5'>$product_title</h5>
+               <p class='card-text text text-decoration-line-through fs-6' style='margin-bottom:0px;'>Giá: $product_price VND</p><sub>-20%</sub>
+                <p class='card-text text-danger fs-6'>Còn: {$sale_price} VND</p>
                 <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
               </div>
     </div>

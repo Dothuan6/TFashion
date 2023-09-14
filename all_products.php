@@ -272,6 +272,14 @@
                 <?php 
     get_allproducts();
     ?>
+
+                <!--  -->
+                <div class="text-left">
+                    <a href="homepage.php">
+                        <h7><i class="fa-solid fa-hand-point-left"></i> Quay về</h7>
+                    </a>
+
+                </div>
                 <!--  -->
             </div>
         </div>

@@ -38,36 +38,25 @@
                 $user_address=$row_data['user_address'];
                 $user_mobile=$row_data['user_mobile'];
                 $number++;
-            echo "<tr>
-            <td class='text-center text-light bg-secondary'>$number</td>
-            <td class='text-center text-light bg-secondary'>$usernamer</td>
-            <td class='text-center text-light bg-secondary'>$user_email</td>
-            <td  class='bg-secondary text-light text-center'><img src='../user_area/user_images/$user_image' class='user_images shadow'></td>
-            <td class='text-center text-light bg-secondary'>$user_address</td>
-            <td class='text-center text-light bg-secondary'>$user_mobile</td>
-            <td  class='bg-secondary text-light text-center'><a data-bs-toggle='modal' data-bs-target='#exampleModal' 
-            href='./index.php?delete_users=$user_id'>
-            <i class='fa-solid fa-trash text-light'></i></a></td>
-        </tr></tbody>";
-               
-        }
+                ?>
+
+    <tr>
+        <td class='text-center text-light bg-secondary'><?php echo $number ?></td>
+        <td class='text-center text-light bg-secondary'><?php echo $usernamer ?></td>
+        <td class='text-center text-light bg-secondary'><?php echo $user_email ?></td>
+        <td class='bg-secondary text-light text-center'><img src='../user_area/user_images/<?php echo $user_image ?>'
+                class='user_images shadow'></td>
+        <td class='text-center text-light bg-secondary'><?php echo $user_address ?></td>
+        <td class='text-center text-light bg-secondary'><?php echo $user_mobile ?></td>
+        <td class='bg-secondary text-light text-center'><a
+                onclick='return confirm("Bạn chắn chắn muốn xóa người dùng này?")'
+                href='./index.php?delete_users=<?php echo $user_id ?>'>
+                <i class='fa-solid fa-trash text-light'></i></a></td>
+    </tr>
+    </tbody>
+    <?php 
     }
-}
-?>
+    }
+    }
+    ?>
 </table>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4>Bạn chắc chắn muốn xóa người dùng này?</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    <a class="text-decoration-none text-light" href="./index.php?view_users">Không</a></button>
-                <button type="button" class="btn btn-primary">
-                    <a href="./index.php?delete_users=<?php echo $user_id ?>"
-                        class="text-light text-decoration-none">Có</a></button>
-            </div>
-        </div>
-    </div>
-</div>

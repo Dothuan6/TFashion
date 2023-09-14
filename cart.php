@@ -325,6 +325,7 @@ if(isset($_GET['remove'])){
                    global $con;
                    $total_price=0;
                    $get_ip_add = getIPAddress();
+                   $total_price_format =0;  
                    $cart_query="select *from `cart_details`";
                    $result=mysqli_query($con,$cart_query);
                    while($row=mysqli_fetch_array($result)){

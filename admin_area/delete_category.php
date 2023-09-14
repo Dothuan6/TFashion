@@ -5,7 +5,7 @@ if(isset($_GET['delete_category'])){
     $result_delete_category=mysqli_query($con,$delete_category);
     if($result_delete_category){
         echo "<script>alert('Xóa thành công!')</script>";
-        echo "<script>window.open('./index.php?view_categories','_self')</script>";
+        echo "<script>window.open('./index.php?insert_categories','_self')</script>";
     }
 }
  ?>

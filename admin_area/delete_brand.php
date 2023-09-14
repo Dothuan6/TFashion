@@ -5,7 +5,7 @@ if(isset($_GET['delete_brand'])){
     $result_delete_brand=mysqli_query($con,$delete_brand);
     if($result_delete_brand){
         echo "<script>alert('Xóa thành công!')</script>";
-        echo "<script>window.open('./index.php?view_brands','_self')</script>";
+        echo "<script>window.open('./index.php?insert_brands','_self')</script>";
     }
 }
  ?>

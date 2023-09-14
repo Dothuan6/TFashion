@@ -30,36 +30,25 @@
             $get_count="select * from `orders_pending` where product_id=$product_id";
             $result_count=mysqli_query($con,$get_count);
             $row_count=mysqli_num_rows($result_count);
-            echo "<tr><td class='bg-secondary text-light'>$number</td>
-            <td  class='bg-secondary text-light'>$product_title</td>
-            <td  class='bg-secondary text-light img'><img src='./product_images/$product_image2' class='product_images shadow'></td>
-            <td  class='bg-secondary text-light'>$product_price VND</td>
-            <td  class='bg-secondary text-light'> $row_count</td>
-            <td  class='bg-secondary text-light'>$product_status</td>
-            <td  class='bg-secondary text-light text-center'><a class='text-light' 
-            href='index.php?edit_products=$product_id'><i class='fa-solid
-            fa-pen-to-square'></i></a></td>
-            <td  class='bg-secondary text-light'><a type='button' class='btn text-light' 
-            data-bs-toggle='modal' data-bs-target='#exampleModal' class='text-light'
-             href='index.php?delete_products=$product_id'><i class='fa-solid
-            fa-trash'></i></a></td></tr>";
+            ?>
+        <tr>
+            <td class='bg-secondary text-light'><?php echo $number ?></td>
+            <td class='bg-secondary text-light'><?php echo $product_title ?></td>
+            <td class='bg-secondary text-light img'><img src='./product_images/<?php echo $product_image2 ?>'
+                    class='product_images shadow'></td>
+            <td class='bg-secondary text-light'><?php echo "$product_price VND" ?></td>
+            <td class='bg-secondary text-light'><?php echo $row_count ?></td>
+            <td class='bg-secondary text-light'><?php echo $product_status ?></td>
+            <td class='bg-secondary text-light text-center'><a class='text-light'
+                    href='index.php?edit_products=<?php echo $product_id ?>'><i class='fa-solid
+                     fa-pen-to-square'></i></a></td>
+            <td class='bg-secondary text-light'><a onclick='return confirm("Bạn chắn chắn muốn xóa sản phẩm này?")'
+                    type='button' class='btn text-light' class='text-light'
+                    href='index.php?delete_products=<?php echo $product_id ?>'><i class='fa-solid
+            fa-trash'></i></a></td>
+        </tr>
+        <?php 
         }
-    ?>
+        ?>
     </tbody>
 </table>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4>Bạn chắc chắn muốn xóa sản phẩm này?</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    <a class="text-decoration-none text-light" href="./index.php?view_products">Không</a></button>
-                <button type="button" class="btn btn-primary">
-                    <a href="index.php?delete_products=<?php echo $product_id ?>"
-                        class="text-light text-decoration-none">Có</a></button>
-            </div>
-        </div>
-    </div>
-</div>
