@@ -1,6 +1,7 @@
 <?php
   include_once("./includes/connect.php");
   include_once('./functions/common_function.php');
+  @session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +34,7 @@
     }
 
     .carousel-inner {
-        height: 700px !important;
+        height: 70% !important;
     }
 
     body {
@@ -152,6 +153,67 @@
         100% {
             transform: translateX(-100%);
         }
+
+    }
+
+    /* 
+    zoom image */
+    .zoom {
+        width: 70% !important;
+    }
+
+    .zoom {
+        width: max-content;
+        position: relative;
+        --zoom-x: 50%;
+        --zoom-y: 50%;
+        --zoom-show: none;
+    }
+
+    .zoom img:nth-child(1) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: scale(1.5);
+        pointer-events: none;
+        clip-path: circle(50px at var(--zoom-x) var(--zoom-y));
+        display: var(--zoom-show);
+    }
+
+
+    /* san pham cung loai */
+    .diliver-bold {
+        border-top-width: 2px !important;
+        width: 132px !important;
+        margin-bottom: 26px !important;
+    }
+
+    .diliver-base {
+        border-color: black !important;
+    }
+
+    hr {
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+        border: 0 !important;
+        border-top: 1px solid #f5f5f7 !important;
+    }
+
+    hr {
+        box-sizing: content-box !important;
+        height: 0 !important;
+    }
+
+    hr {
+        display: block !important;
+        unicode-bidi: isolate !important;
+        margin-block-start: 0.5em !important;
+        margin-block-end: 0.5em !important;
+        margin-inline-start: auto !important;
+        margin-inline-end: auto !important;
+        overflow: hidden !important;
+        border-style: inset !important;
+        border-width: 3px !important;
     }
     </style>
 </head>
@@ -269,6 +331,21 @@ add_cart();
     <!-- row END  -->
     </div>
 
+
+    <div class="row">
+        <div>
+            <h4 class="offset-md-5 offset-lg-5 offset-sm-4">CÁC SẢN PHẨM KHÁC</h4>
+        </div>
+    </div>
+
+    <hr class="divider divider-bold divider-base offset-md-5" style="width:10%;">
+    <div class="container-fluid row">
+        <?php
+        product_same_type(); 
+        ?>
+
+    </div>
+
     <!-- chat bot -->
     <button class="nut-mo-chatbox btn btn-outline btn-success" onclick="moForm()"><i
             class="fa-solid fa-comments"></i></button>
@@ -307,6 +384,25 @@ add_cart();
     function dongForm() {
         document.getElementById("myForm").style.display = "none";
     }
+    </script>
+    <!-- zoom -->
+    <script>
+    let zoom = document.querySelector('.zoom');
+    zoom.addEventListener('mousemove', (e) => {
+        zoom.style.setProperty('--zoom-show', 'block');
+
+        let positionPx = e.x - zoom.getBoundingClientRect().left;
+        let positionPy = e.y - zoom.getBoundingClientRect().top;
+
+        let positionX = 100 * positionPx / zoom.offsetWidth;
+        let positionY = 100 * positionPy / zoom.offsetHeight;
+
+        zoom.style.setProperty('--zoom-x', positionX + '%');
+        zoom.style.setProperty('--zoom-y', positionY + '%');
+    })
+    zoom.addEventListener('mouseout', () => {
+        zoom.style.setProperty('--zoom-show', 'none');
+    })
     </script>
 </body>
 

@@ -28,23 +28,24 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Trả</title>
- <!-- css link bstrap -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
-    crossorigin="anonymous">
-    
+    <!-- css link bstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
 </head>
+
 <body class="bg-secondary">
     <h1 class="text-center text-light">Xác nhận thanh toán</h1>
     <div class="container my-5">
         <form action="" method="post">
             <div class="form-outline my-4 text-center w-50 m-auto">
-                <input value="<?php echo $invoice_number ?>" placeholder="Số hóa đơn" type="text" class="form-control w-50 m-auto" name="invoice_number">
+                <input value="<?php echo $invoice_number ?>" placeholder="Số hóa đơn" type="text"
+                    class="form-control w-50 m-auto" name="invoice_number">
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <label for="" class="text-light">Số tiền</label>
@@ -52,20 +53,20 @@
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <select name="payment_mode" class="form-select w-50 m-auto">
-                    <option>chọn chế độ thanh toán</optione>
+                    <option>Chọn chế độ thanh toán</optione>
                     <option>Zalo Pay</option>
-                    <option>VietTinkbank</option>
+                    <option>VietinBank</option>
                     <option>MoMo</option>
-                    <option>TFashionShop pay</option>
-                    <option>thanh toán khi nhận hàng</option>
+                    <option>TFashionShop Pay</option>
+                    <option>Thanh toán khi nhận hàng</option>
                 </select>
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
-                <input type="submit" class="bg-info py-2 px-3 border-0" 
-                value="Confirm" name="confirm_payments">
+                <input type="submit" class="bg-info py-2 px-3 border-0" value="Confirm" name="confirm_payments">
             </div>
         </form>
     </div>
 
 </body>
+
 </html>

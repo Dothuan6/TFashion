@@ -1,35 +1,38 @@
-<div class="container mt-3">
+<div class="row">
     <h1 class="text-center text-dark">Thêm sản phẩm</h1>
-    <!-- form -->
-    <form action="" method="post" enctype="multipart/form-data">
-        <!--product title -->
-        <div class="form-outline mb-4 w-50 m-auto">
-            <label for="product_title" class="form-label">Tên sản phẩm</label>
-            <input type="text" name="product_title" id="product_title" class="form-control"
-                placeholder="Nhập vào tên sản phẩm..." autocomplete="off" required="required">
-        </div>
+    <div class="col-md-6 col-sm col-lg-6 mt-4">
 
-        <!-- description -->
-        <div class="form-outline mb-4 w-50 m-auto mt-2">
-            <label for="description" class="form-label mt-2">Mô tả sản phẩm</label>
-            <input type="text" name="description" id="description" class="form-control"
-                placeholder="Nhập vào mô tả sản phẩm..." autocomplete="off" required="required">
-        </div>
 
-        <!-- Keywords -->
-
-        <div class="form-outline mb-4 w-50 m-auto">
-            <label for="product_keywords" class="form-label mt-2">Từ khóa</label>
-            <input type="text" name="product_keywords" id="product_keywords" class="form-control"
-                placeholder="Nhập vào từ khóa..." autocomplete="off" required="required">
-        </div>
-
-        <!-- categories  -->
-        <div class="py-2 mt-2">
+        <!-- form -->
+        <form action="" method="post" enctype="multipart/form-data">
+            <!--product title -->
             <div class="form-outline mb-4 w-50 m-auto">
-                <select name="product_category" id="" class="form-select">
-                    <option value="">Chọn danh mục</option>
-                    <?php
+                <label for="product_title" class="form-label">Tên sản phẩm</label>
+                <input type="text" name="product_title" id="product_title" class="form-control"
+                    placeholder="Nhập vào tên sản phẩm..." autocomplete="off" required="required">
+            </div>
+
+            <!-- description -->
+            <div class="form-outline mb-4 w-50 m-auto mt-2">
+                <label for="description" class="form-label mt-2">Mô tả sản phẩm</label>
+                <input type="text" name="description" id="description" class="form-control"
+                    placeholder="Nhập vào mô tả sản phẩm..." autocomplete="off" required="required">
+            </div>
+
+            <!-- Keywords -->
+
+            <div class="form-outline mb-4 w-50 m-auto">
+                <label for="product_keywords" class="form-label mt-2">Từ khóa</label>
+                <input type="text" name="product_keywords" id="product_keywords" class="form-control"
+                    placeholder="Nhập vào từ khóa..." autocomplete="off" required="required">
+            </div>
+
+            <!-- categories  -->
+            <div class="py-2 mt-2">
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <select name="product_category" id="" class="form-select">
+                        <option value="">Chọn danh mục</option>
+                        <?php
                         $select_query = " select *from `categories`";
                         $result_query = mysqli_query($con,$select_query);
                         while($row = mysqli_fetch_assoc($result_query)){
@@ -38,14 +41,14 @@
                             echo "<option value='$category_id'>$category_title</option>";
                         }
                     ?>
-                </select>
+                    </select>
+                </div>
             </div>
-        </div>
-        <!-- brands  -->
-        <div class="form-outline mb-4 w-50 m-auto">
-            <select name="product_brand" id="" class="form-select">
-                <option value="">Chọn nhãn hàng</option>
-                <?php
+            <!-- brands  -->
+            <div class="form-outline mb-4 w-50 m-auto">
+                <select name="product_brand" id="" class="form-select">
+                    <option value="">Chọn nhãn hàng</option>
+                    <?php
                         $select_query = " select *from `brands`";
                         $result_query = mysqli_query($con,$select_query);
                         while($row = mysqli_fetch_assoc($result_query)){
@@ -55,9 +58,10 @@
                         }
                     ?>
 
-            </select>
-        </div>
-
+                </select>
+            </div>
+    </div>
+    <div class="col-md-6 col-sm col-lg-6 mt-4">
         <!-- image 1 -->
         <div class="py-2">
             <div class="form-outline mb-4 w-50 m-auto">
@@ -87,12 +91,13 @@
         </div>
 
         <!-- submit -->
-        <div class="py-3">
+        <div class="py-3 text-center">
             <div class="form-outline mb-4 w-50 m-auto">
                 <input type="submit" name="insert_product" class="btn btn-info mb-3 px-3" value="Thêm sản phẩm">
             </div>
         </div>
-    </form>
+        </form>
+    </div>
 </div>
 <?php
     if(isset($_POST['insert_product'])){

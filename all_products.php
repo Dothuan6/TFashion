@@ -267,7 +267,7 @@
                     <span><img class="img-marquee" src="./images/sale5.jpg" alt=""></span>
                 </div>
                 <div>
-                    <h3 class="bg-dark text-light text-center py-1">Tất cả sản phẩm</h3>
+                    <h3 class="bg-light text-dark text-center py-1">Tất cả sản phẩm</h3>
                 </div>
                 <?php 
     get_allproducts();

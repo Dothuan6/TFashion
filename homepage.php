@@ -528,14 +528,18 @@
                     
 
                      }else{
-        echo "<div><h3 class='text-center bg-dark text-light py-1'>Nón</h3></div>";
+        echo "<div><h3 class='text-center bg-light text-dark py-1'>Nón</h3></div>";
         getproducts_non();
-        echo " <div><h3 class='text-center bg-dark text-light py-1'>Túi Xách</h3></div>";
+        echo " <div><h3 class='text-center bg-light text-dark py-1'>Túi Xách</h3></div>";
         getproducts_tuixach(); 
-        echo "<div><h3 class='text-center bg-dark text-light py-1'>Quần Áo</h3></div>";
-        getproducts_quan_ao();
-        echo "<div><h3 class='text-center bg-dark text-light py-1'>Mắt Kính</h3></div>";
-        getproducts_kinh(); 
+        echo "<div><h3 class='text-center bg-light text-dark py-1'>Áo</h3></div>";
+        getproducts_ao();
+        echo "<div><h3 class='text-center bg-light text-dark py-1'>Áo</h3></div>";
+        getproducts_quan(); 
+        echo "<div><h3 class='text-center bg-light text-dark py-1'>Quần</h3></div>";
+        getproducts_kinh();
+        echo "<div><h3 class='text-center bg-light text-dark py-1'>Giày</h3></div>";
+        getproducts_giay(); 
     }
      ?>
                 <div class="text-right">
