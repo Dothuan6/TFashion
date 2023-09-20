@@ -345,6 +345,8 @@ if(isset($_GET['remove'])){
                        $subtotal = number_format((int)$product_qty*(int)$price_table,3);
                        $total_price =((int)$total_price + (int)$subtotal);
                        $total_price_format = number_format((int)$total_price,3);
+                       $vat = number_format($total_price_format * (3/100),3);
+                       $sub_price = number_format(($total_price_format + $vat),3);
                     //    echo $total_price; 
                          ?>
                         <tr class='text-center'>
@@ -393,11 +395,21 @@ if(isset($_GET['remove'])){
         $user_id = $row_user_id['user_id'];
         
         if($result_count>0){
-             echo "<div class='d-flex mb-5'><h4 class='px3'>Tổng tiền: <strong class='text-danger'> $total_price_format VND</strong></h4>
-                  <button class='mx-2 bg-info py-2 px-3 border-0 btn btn-outline' name='continue_shopping'> <a 
-                  href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
-                 <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php?user_id=$user_id' class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
-                </div>";
+             echo "<div>
+             <div class='row'>
+             <h7 class='px3'>Tổng tiền: <strong class='text-danger'> $total_price_format VND</strong></h7>
+             </div>
+             <div class='row py-2'>
+             <h7 class='px3'>Thuế VAT(3%): <strong class='text-danger'> $vat VND</strong></h7>
+             </div>
+             <div class='row'>
+             <h7 class='px3'>Thành tiền: <strong class='text-danger'>$sub_price VND</strong></h7>
+             </div>
+             <div class='py-2'>
+             <button class='mx-0 bg-info py-2 px-3 border-0 btn btn-outline' name='continue_shopping'> <a 
+             href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
+            <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php?user_id=$user_id' class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
+            </div></div>";
         }
       else{
               echo "<button name='continue_shopping' class='mx-2 mb-3 bg-info py-2 px-3 border-0 btn btn-outline'> <a href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>";
@@ -411,9 +423,10 @@ if(isset($_GET['remove'])){
         $result=mysqli_query($con,$cart_query);
         $result_count=mysqli_num_rows($result);
         if($result_count>0){
-             echo "<div class='d-flex mb-5'><h4 class='px3'>Tổng tiền: <strong class='text-info'>$total_price_format
-                VND</strong></h4>
-                <button class='mx-2 bg-info py-2 px-3 border-0  bg-warning btn btn-outline' name='continue_shopping'> <a
+             echo "<div class='d-flex mb-5'><h7 class='px-3'>Tổng tiền: <strong class='text-info'>$total_price_format
+                VND</strong></h7>
+                <button class='mx-2 bg-info py-2 px-3 border-0  
+                bg-warning btn btn-outline' name='continue_shopping'> <a
                         href='homepage.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
                 <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php'
                         class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
