@@ -43,6 +43,7 @@
     }
 
     .logo {
+
         width: 6%;
         height: 7%;
         border-radius: 20px;
@@ -51,16 +52,6 @@
     /* .carousel-inner{
  display: block;
 } */
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%;
-    }
-
-    .sticky+.content {
-        padding-top: 60px;
-    }
-
     .chat_bot {
         text-align: center;
         border-radius: 100%;
@@ -352,13 +343,27 @@
     .btn:hover {
         display: block;
     } */
+
+    #navbar {
+        background-color: black !important;
+    }
+
+    #navbar li a {
+        float: left !important;
+        display: block !important;
+        color: #f2f2f2 !important;
+        text-align: center !important;
+        padding: 14px 16px !important;
+        text-decoration: none !important;
+        /* font-size: 17px; */
+    }
     </style>
 </head>
 
 <body>
     <!-- navbar -->
 
-    <nav class="navbar  bg-secondary-subtle navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg bg-secondary-subtle navbar-sticky" id="navbar">
         <div class="container-fluid">
             <img src="images/logo.png" alt="Lo Go" class="logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -371,36 +376,35 @@
                     <!-- Nav Item - Dashboard -->
                     <li class="nav-item active">
                         <a class="nav-link" href="homepage.php">
-                            <i class="fa-solid fa-house"></i>
-                            <span>Trang Chủ</span></a>
+                            <i class="fa-solid fa-house text-light"></i>
+                            <span class="text-light">Trang Chủ</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="all_products.php">Sản Phẩm</a>
+                        <a class="nav-link text-light" href="all_products.php">Sản Phẩm</a>
                     </li>
+
                     <?php 
         if(isset($_SESSION['username'])){
           echo " <li class='nav-item'>
-          <a class='nav-link' href='./user_area/user_profile.php'>Tài Khoản</a>
+          <a class='nav-link text-light' href='./user_area/user_profile.php'>Tài Khoản</a>
         </li>";
         }else{
           echo " <li class='nav-item'>
-          <a class='nav-link' href='./user_area/user_reg.php'>Đăng Ký</a>
+          <a class='nav-link text-light' href='./user_area/user_reg.php'>Đăng Ký</a>
         </li>";
         }
-         ?>
+                     ?>
                     <li class='nav-item'>
-                        <a class='nav-link' href='contact.php'>Liên Hệ</a>
+                        <a class='nav-link text-light' href='contact.php'>Liên Hệ</a>
+                    </li>
+
+                    <li class='nav-item'>
+                        <a class='nav-link text-light' href='#'>Tổng Tiền: <?php subtotal() ?></a>
                     </li>
                     <li class='nav-item'>
-                        <a class='nav-link' href='cart.php'><i
+                        <a class='nav-link text-light' href='cart.php'><i
                                 class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
                     </li>
-                    <li class='nav-item'>
-                        <a class='nav-link' href='#'>Tổng Tiền: <?php subtotal() ?></a>
-                    </li>
-
-
-
                 </ul>
                 <form class="d-flex" role="search" action="search_products.php" method="get">
                     <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search"
@@ -408,6 +412,7 @@
                     <button class="btn btn-outline-info" type="submit"><i
                             class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
+
             </div>
         </div>
     </nav>
@@ -418,28 +423,29 @@
   ?>
     <!--  -->
     <!-- second child -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+
+    <nav class="navbar-expand-lg navbar-dark text-dark">
         <ul class="navbar-nav me-auto">
 
             <?php 
   if(isset($_SESSION['username'])){
     echo "<li class='nav-item'>
-          <a class='nav-link' href='homepage.php'>Xin chào {$_SESSION['username']}</a>
+          <a class='nav-link text-dark' href='homepage.php'>Xin chào {$_SESSION['username']}</a>
           </li>";
   }else{
     echo "<li class='nav-item'>
-    <a class='nav-link' href='homepage.php'><i class='fa-regular fa-user'></i></a>
+    <a class='nav-link text-dark' href='homepage.php'><i class='fa-regular fa-user'></i></a>
     </li>";
   }
   if(isset($_SESSION['username'])){
     echo "
     <li class='nav-item'>
-           <a class='nav-link' href='./user_area/user_logout.php'>Đăng xuất</a>
+           <a class='nav-link text-dark' href='./user_area/user_logout.php'>Đăng xuất</a>
     </li>";
   }else{
     echo "
     <li class='nav-item'>
-           <a class='nav-link' href='./user_area/user_log.php'>Đăng nhập</a>
+           <a class='nav-link text-dark' href='./user_area/user_log.php'>Đăng nhập</a>
     </li>";
   }
   ?>
@@ -449,7 +455,7 @@
     <!-- third -->
     <div class="row">
         <div class="py-2 m-0 w-50 col-lg-6 col-md-12 col-sm-12">
-            <div class="container">
+            <div class="container-fluid">
                 <div id="slide">
                     <div class="item" style="background-image: url(./images/fashion1.jpg);">
                         <div class="content">
@@ -528,17 +534,17 @@
                     
 
                      }else{
-        echo "<div><h3 class='text-center bg-light text-dark py-1'>Nón</h3></div>";
+        echo "<div><h3 class='text-center text-dark py-3'>Nón</h3></div>";
         getproducts_non();
-        echo " <div><h3 class='text-center bg-light text-dark py-1'>Túi Xách</h3></div>";
+        echo " <div><h3 class='text-center text-dark py-3'>Túi Xách</h3></div>";
         getproducts_tuixach(); 
-        echo "<div><h3 class='text-center bg-light text-dark py-1'>Áo</h3></div>";
+        echo "<div><h3 class='text-center text-dark py-3'>Áo</h3></div>";
         getproducts_ao();
-        echo "<div><h3 class='text-center bg-light text-dark py-1'>Áo</h3></div>";
+        echo "<div><h3 class='text-center text-dark py-3'>Quần</h3></div>";
         getproducts_quan(); 
-        echo "<div><h3 class='text-center bg-light text-dark py-1'>Quần</h3></div>";
+        echo "<div><h3 class='text-center text-dark py-3'>Kính</h3></div>";
         getproducts_kinh();
-        echo "<div><h3 class='text-center bg-light text-dark py-1'>Giày</h3></div>";
+        echo "<div><h3 class='text-center text-dark py-3'>Giày</h3></div>";
         getproducts_giay(); 
     }
      ?>
@@ -554,7 +560,7 @@
         <div class="col-md-2">
             <!-- side nav -->
             <ul class="navbar-nav me-auto text-center">
-                <li class="nav-item bg-info">
+                <li class="nav-item" style="background-color: black;">
                     <a href="#" class="nav-link text-light">
                         <h6>Danh mục</h6>
                     </a>
@@ -567,8 +573,8 @@
             </ul>
             <!-- Brand -->
             <ul class="navbar-nav me-auto text-center">
-                <li class="nav-item bg-info">
-                    <a href="#" class="nav-link text-light ">
+                <li class="nav-item" style="background-color: black;">
+                    <a href="#" class="nav-link text-light">
                         <h6>Nhãn hàng</h6>
                     </a>
                 </li>
@@ -620,6 +626,7 @@
     </script>
     <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/custom.js">
     </script>
+    <!-- sticky -->
     <script>
     window.onscroll = function() {
         myFunction()

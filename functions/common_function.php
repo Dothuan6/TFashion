@@ -144,7 +144,7 @@ function getproducts_ao(){
   global $con;
   if(!isset($_GET['category'])){
       if(!isset($_GET['brand'])){
-  $select_query = "select * from `products`  where product_keywords like '%ao%' order by rand() LIMIT 0,3";
+  $select_query = "select * from `products`  where product_keywords like '%ao%' order by rand() LIMIT 0,6";
   $result_query = mysqli_query($con,$select_query);
   // $row = mysqli_fetch_assoc($result_query);
   while($row = mysqli_fetch_assoc($result_query)){
@@ -265,9 +265,9 @@ function getproducts_thirth(){
     $sale_price = 0;
     $sale_price = number_format((float)$product_price*(80/100),3);
     echo "<div class='col-md-4' style='height:100%;'>
-    <div class='card shadow rounded' style='height:100%;'>
+    <div class='card shadow rounded' style='height:500px;'>
     <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
-    <img src='./admin_area/product_images/$product_image2' class='card-img-top_sale' style='height:100%; border-radius:5px;'>
+    <img src='./admin_area/product_images/$product_image2' class='card-img-top_sale' style='height:250px !important; border-radius:5px;'>
     </a>
               <div class='card-body'>
                <h5 class='card-title fs-5'>$product_title</h5>

@@ -203,6 +203,20 @@
             transform: translateX(-100%);
         }
     }
+
+    #navbar {
+        background-color: black !important;
+    }
+
+    #navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
     </style>
 </head>
 
@@ -218,8 +232,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <!-- Nav Item - Dashboard -->
-                    <li class="nav-item active">
-                        <a class="nav-link" href="homepage.php">
+                    <li class="nav-item active ">
+                        <a class="nav-link text-light" href="homepage.php">
                             <i class="fa-solid fa-house"></i>
                             <span>Trang Chủ</span></a>
                     </li>

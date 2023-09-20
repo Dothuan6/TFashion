@@ -206,6 +206,10 @@ if(isset($_GET['remove'])){
         width: 100%;
         height: 100px;
     }
+
+    #navbar {
+        background-color: black !important;
+    }
     </style>
 </head>
 
@@ -215,9 +219,8 @@ if(isset($_GET['remove'])){
     <!-- <div class="marquee">
         <span><img class="img-marquee" src="./images/sale4.jpg" alt=""></span>
     </div> -->
-    <nav class="navbar navbar-expand-lg bg-secondary-subtle">
+    <nav class="navbar navbar-expand-lg bg-secondary-subtle" id="navbar">
         <div class="container-fluid">
-
             <img src="images/logo.png" alt="Lo Go" class="logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -227,34 +230,34 @@ if(isset($_GET['remove'])){
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <!-- Nav Item - Dashboard -->
-                    <li class="nav-item active">
-                        <a class="nav-link" href="homepage.php">
+                    <li class="nav-item active text-light">
+                        <a class="nav-link text-light" href="homepage.php">
                             <i class="fa-solid fa-house"></i>
                             <span>Trang Chủ</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="all_products.php">Sản Phẩm</a>
+                    <li class="nav-item ">
+                        <a class="nav-link text-light" href="all_products.php">Sản Phẩm</a>
                     </li>
                     <?php 
         if(isset($_SESSION['username'])){
           echo " <li class='nav-item'>
-          <a class='nav-link' href='./user_area/user_profile.php'>Tài Khoản</a>
+          <a class='nav-link text-light' href='./user_area/user_profile.php'>Tài Khoản</a>
         </li>";
         }else{
           echo " <li class='nav-item'>
-          <a class='nav-link' href='./user_area/user_reg.php'>Đăng Ký</a>
+          <a class='nav-link text-light' href='./user_area/user_reg.php'>Đăng Ký</a>
         </li>";
         }
          ?>
                     <li class='nav-item'>
-                        <a class='nav-link' href='./contact.php'>Liên Hệ</a>
+                        <a class='nav-link text-light' href='./contact.php'>Liên Hệ</a>
                     </li>
                     <li class='nav-item'>
-                        <a class='nav-link' href='cart.php'><i
+                        <a class='nav-link text-light' href='cart.php'><i
                                 class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
                     </li>
                     <li class='nav-item'>
-                        <a class='nav-link' href='#'>Tổng Tiền: <?php echo subtotal() ?></a>
+                        <a class='nav-link text-light' href='#'>Tổng Tiền: <?php echo subtotal() ?></a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search" action="search_products.php" method="get">
@@ -274,22 +277,22 @@ if(isset($_GET['remove'])){
                 <?php 
   if(isset($_SESSION['username'])){
     echo "<li class='nav-item'>
-          <a class='nav-link' href='homepage.php'>Xin chào {$_SESSION['username']}</a>
+          <a class='nav-link text-light' href='homepage.php'>Xin chào {$_SESSION['username']}</a>
           </li>";
   }else{
     echo "<li class='nav-item'>
-    <a class='nav-link' href='homepage.php'><i class='fa-regular fa-user'></i></a>
+    <a class='nav-link text-light' href='homepage.php'><i class='fa-regular fa-user'></i></a>
     </li>";
   }
   if(isset($_SESSION['username'])){
     echo "
     <li class='nav-item'>
-           <a class='nav-link' href='./user_area/user_logout.php'>Đăng xuất</a>
+           <a class='nav-link text-light' href='./user_area/user_logout.php'>Đăng xuất</a>
     </li>";
   }else{
     echo "
     <li class='nav-item'>
-           <a class='nav-link' href='./user_area/user_log.php'>Đăng nhập</a>
+           <a class='nav-link text-light' href='./user_area/user_log.php'>Đăng nhập</a>
     </li>";
   }
   ?>
