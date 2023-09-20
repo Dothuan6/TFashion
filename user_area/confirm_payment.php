@@ -8,7 +8,7 @@
     $result=mysqli_query($con,$select_data);
     $row_fetch=mysqli_fetch_assoc($result);
     $invoice_number=$row_fetch['invoice_number'];
-    $amount_due=$row_fetch['amount_due'];
+    $amount_due=number_format($row_fetch['amount_due'],3);
   }
   if(isset($_POST['confirm_payments'])){
     $invoice_number=$_POST['invoice_number'];
@@ -36,11 +36,15 @@
     <!-- css link bstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
+    <style>
+    body {
+        background-image: url(../images/payment5.png);
+    }
+    </style>
 </head>
 
-<body class="bg-secondary">
-    <h1 class="text-center text-light">Xác nhận thanh toán</h1>
+<body>
+    <h1 class="text-center text-light py-3">Xác nhận thanh toán</h1>
     <div class="container my-5">
         <form action="" method="post">
             <div class="form-outline my-4 text-center w-50 m-auto">
@@ -62,7 +66,8 @@
                 </select>
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
-                <input type="submit" class="bg-info py-2 px-3 border-0" value="Confirm" name="confirm_payments">
+                <input type="submit" class="bg-warning py-2 px-3 border-2 shadow" style="border-radius: 7px;"
+                    value="Xác nhận" name="confirm_payments">
             </div>
         </form>
     </div>

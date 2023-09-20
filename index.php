@@ -232,11 +232,9 @@
         document.getElementById('slide').prepend(lists[lists.length - 1]);
     }
     </script>
-    <footer>
-        <?php 
-            include('./includes/footer.php');
-            ?>
-    </footer>
+    <!-- <footer>
+  
+    </footer> -->
 </body>
 
 </html>
