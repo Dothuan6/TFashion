@@ -177,7 +177,7 @@
 <body>
 
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-secondary-subtle" id="navbar">
+    <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
             <img src="images/logo.png" alt="Lo Go" class="logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -234,28 +234,28 @@
 ?>
     <!--  -->
     <!-- second child -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <ul class="navbar-nav me-auto">
 
             <?php 
   if(isset($_SESSION['username'])){
     echo "<li class='nav-item'>
-          <a class='nav-link text-light' href='homepage.php'>Xin chào {$_SESSION['username']}</a>
+          <a class='nav-link text-dark' href='homepage.php'>Xin chào {$_SESSION['username']}</a>
           </li>";
   }else{
     echo "<li class='nav-item'>
-    <a class='nav-link text-light' href='homepage.php'><i class='fa-regular fa-user'></i></a>
+    <a class='nav-link text-dark' href='homepage.php'><i class='fa-regular fa-user'></i></a>
     </li>";
   }
   if(isset($_SESSION['username'])){
     echo "
     <li class='nav-item'>
-           <a class='nav-link text-light' href='./user_area/user_logout.php'>Đăng xuất</a>
+           <a class='nav-link text-dark' href='./user_area/user_logout.php'>Đăng xuất</a>
     </li>";
   }else{
     echo "
     <li class='nav-item'>
-           <a class='nav-link text-light' href='./user_area/user_log.php'>Đăng nhập</a>
+           <a class='nav-link text-dark' href='./user_area/user_log.php'>Đăng nhập</a>
     </li>";
   }
   ?>
@@ -271,7 +271,7 @@
                     <span><img class="img-marquee" src="./images/sale5.jpg" alt=""></span>
                 </div>
                 <div>
-                    <h3 class="bg-light text-dark text-center py-1">Tất cả sản phẩm</h3>
+                    <h3 class="text-dark text-center py-1">Tất cả sản phẩm</h3>
                 </div>
                 <?php 
     get_allproducts();
@@ -290,7 +290,7 @@
         <div class="col-md-2">
             <!-- side nav -->
             <ul class="navbar-nav me-auto text-center">
-                <li class="nav-item bg-info">
+                <li class="nav-item" style="background-color: black;">
                     <a href="#" class="nav-link text-light ">
                         <h6>Danh mục</h6>
                     </a>
@@ -301,7 +301,7 @@
             </ul>
             <!-- Brand -->
             <ul class="navbar-nav me-auto text-center">
-                <li class="nav-item bg-info">
+                <li class="nav-item" style="background-color: black;">
                     <a href="#" class="nav-link text-light ">
                         <h6>Nhãn hàng</h6>
                     </a>

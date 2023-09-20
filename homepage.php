@@ -344,18 +344,24 @@
         display: block;
     } */
 
-    #navbar {
-        background-color: black !important;
+    .navbar {
+        padding: 10px 16px;
+        background: black !important;
+        /* color: #f1f1f1; */
     }
 
-    #navbar li a {
-        float: left !important;
-        display: block !important;
-        color: #f2f2f2 !important;
-        text-align: center !important;
-        padding: 14px 16px !important;
-        text-decoration: none !important;
-        /* font-size: 17px; */
+    /* .content {
+        padding: 16px;
+    } */
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .sticky+.content {
+        padding-top: 102px;
     }
     </style>
 </head>
@@ -363,7 +369,7 @@
 <body>
     <!-- navbar -->
 
-    <nav class="navbar navbar-expand-lg bg-secondary-subtle navbar-sticky" id="navbar">
+    <nav class="navbar navbar-expand-lg bg-secondary-subtle navbar-sticky py-0 py-1" id="mynavbar">
         <div class="container-fluid">
             <img src="images/logo.png" alt="Lo Go" class="logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -424,8 +430,8 @@
     <!--  -->
     <!-- second child -->
 
-    <nav class="navbar-expand-lg navbar-dark text-dark">
-        <ul class="navbar-nav me-auto">
+    <nav class="navbar-expand-lg navbar-dark text-dark px-3" style="display: block;">
+        <ul class="navbar-nav me-auto py-2 ">
 
             <?php 
   if(isset($_SESSION['username'])){
@@ -453,7 +459,7 @@
     </nav>
 
     <!-- third -->
-    <div class="row">
+    <div class="row content">
         <div class="py-2 m-0 w-50 col-lg-6 col-md-12 col-sm-12">
             <div class="container-fluid">
                 <div id="slide">
@@ -632,14 +638,14 @@
         myFunction()
     };
 
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
+    var header = document.getElementById("mynavbar");
+    var sticky = header.offsetTop;
 
     function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
         } else {
-            navbar.classList.remove("sticky");
+            header.classList.remove("sticky");
         }
     }
     </script>
