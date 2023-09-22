@@ -20,7 +20,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- css style link -->
-    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet"
         href="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="./style.css">
@@ -31,6 +30,7 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v17.0"
         nonce="D3hjkbza"></script>
+    <link rel="stylesheet" href="style.css">
 
     <style>
     body {

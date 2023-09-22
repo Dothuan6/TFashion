@@ -53,7 +53,8 @@
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <label for="" class="text-light">Số tiền</label>
-                <input value="<?php echo $amount_due ?>" type="text" class="form-control w-50 m-auto" name="amount">
+                <input value="<?php echo "$amount_due VND" ?>" type="text" class="form-control w-50 m-auto"
+                    name="amount">
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <select name="payment_mode" class="form-select w-50 m-auto">

@@ -665,11 +665,12 @@ function cart_item(){
         $product_price = array($row_product_price['product_price']);
         $product_values = array_sum($product_price);
         $total_price+=$product_values;
+        $total_price_end = number_format($total_price,3);
 
       }
 
-    }
-    echo $total_price;
+    } 
+    echo "$total_price_end VND";
 
     }
 

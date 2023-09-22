@@ -50,7 +50,7 @@
 
 <body>
 
-    <form class="w-75 mt-3 border border-2 m-auto" action="" method="post" enctype="multipart/form-data">
+    <form class="w-75 mt-3 border border-2 m-auto reg_form" action="" method="post" enctype="multipart/form-data">
         <h1 class="text-center text-primary py-3">Đăng ký thành viên mới</h1>
         <div class="row px-3">
             <img class="col-lg-6 col-md-5" src="../images/reg_image.svg" alt="">
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <!-- image -->
-                <div class="form-outline mb-4 mt-3">
+                <div class="form-outline mt-3">
 
                     <input name="user_images" type="file" class="form-control" id="user_image"
                         placeholder="Enter your Image" autocomplete="off" required="required" name="user_image">
@@ -215,3 +215,83 @@
 }
     }
     ?>
+<!-- validate form -->
+<script>
+const usernameEle = document.getElementsByName('user_username');
+const emailEle = document.getElementsByName('user_email');
+const passEle = document.getElementsByName('user_password');
+const confpEle = document.getElementsByName('conf_user_password');
+const contactEle = document.getElementsByName('user_contact');
+
+const btnRegister = document.getElementById('Register');
+const inputEles = document.querySelectorAll('.reg_form');
+
+btnRegister.addEventListener('click', function() {
+    Array.from(inputEles).map((ele) =>
+        ele.classList.remove('success', 'error')
+    );
+    let isValid = checkValidate();
+
+    if (isValid) {
+        alert('Gửi đăng ký thành công');
+    }
+});
+
+function checkValidate() {
+    let usernameValue = usernameEle.value;
+    let emailValue = emailEle.value;
+    let phoneValue = phoneEle.value;
+
+    let isCheck = true;
+
+    if (usernameValue == '') {
+        setError(usernameEle, 'Tên không được để trống');
+        isCheck = false;
+    } else {
+        setSuccess(usernameEle);
+    }
+
+    if (emailValue == '') {
+        setError(emailEle, 'Email không được để trống');
+        isCheck = false;
+    } else if (!isEmail(emailValue)) {
+        setError(emailEle, 'Email không đúng định dạng');
+        isCheck = false;
+    } else {
+        setSuccess(emailEle);
+    }
+
+    if (phoneValue == '') {
+        setError(phoneEle, 'Số điện thoại không được để trống');
+        isCheck = false;
+    } else if (!isPhone(phoneValue)) {
+        setError(phoneEle, 'Số điện thoại không đúng định dạng');
+        isCheck = false;
+    } else {
+        setSuccess(phoneEle);
+    }
+
+    return isCheck;
+}
+
+function setSuccess(ele) {
+    ele.parentNode.classList.add('success');
+}
+
+function setError(ele, message) {
+    let parentEle = ele.parentNode;
+    parentEle.classList.add('error');
+    parentEle.querySelector('small').innerText = message;
+}
+
+function isEmail(email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        .test(
+            email
+        );
+}
+
+function isPhone(number) {
+    return /(84|0[3|5|7|8|9])+([0-9]{8})\b/.test(number);
+}
+</script>

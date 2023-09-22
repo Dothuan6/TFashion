@@ -263,7 +263,7 @@ add_cart();
         <div class="col-md-2">
             <!-- side nav -->
             <ul class="navbar-nav me-auto text-center">
-                <li class="nav-item bg-info">
+                <li class="nav-item" style="background-color: black;">
                     <a href="#" class="nav-link text-light ">
                         <h6>Danh mục</h6>
                     </a>
@@ -276,7 +276,7 @@ add_cart();
             </ul>
             <!-- Brand -->
             <ul class="navbar-nav me-auto text-center">
-                <li class="nav-item bg-info">
+                <li class="nav-item" style="background-color:black   ;">
                     <a href="#" class="nav-link text-light ">
                         <h6>Nhãn hàng</h6>
                     </a>
