@@ -91,7 +91,7 @@
         color: #eee;
         transform: translate(0, -50%);
         display: none;
-        font-family: system-ui;
+        font-family: system-ui !important;
     }
 
     .item:nth-child(2) .content {
