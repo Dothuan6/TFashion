@@ -30,7 +30,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: Sofia Pro Regular, Helvetica Neue, Helvetica, Arial, sans-serif !important;
+    /* font-family: Sofia Pro Regular, Helvetica Neue, Helvetica, Arial, sans-serif; */
     box-sizing: border-box;
 }
 .footer{

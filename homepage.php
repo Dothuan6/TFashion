@@ -14,10 +14,9 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <!-- font aware cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <!-- css style link -->
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet"
@@ -374,7 +373,8 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="homepage.php">
                             <!-- <i class="fa-regular fa-house"></i> -->
-                            <span class="text-light">Trang Chủ</span>
+                            <span class="text-light" data-bs-toggle="tooltip" data-bs-placement="bottom">Trang
+                                Chủ</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -400,8 +400,8 @@
                         <a class='nav-link text-light' href='#'>Tổng Tiền: <?php subtotal() ?></a>
                     </li>
                     <li class='nav-item'>
-                        <a class='nav-link text-light' href='cart.php'><i
-                                class="fa-brands fa-twitter"></i><sup><?php cart_item() ?><sup></a>
+                        <a class='nav-link text-light' href='cart.php'>
+                            <i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item() ?><sup></a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search" action="search_products.php" method="get">
