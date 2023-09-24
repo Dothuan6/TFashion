@@ -667,10 +667,12 @@ function cart_item(){
         $total_price+=$product_values;
         $total_price_end = number_format($total_price,3);
 
+      } if(isset($total_price_end)){
+        echo "$total_price_end VND";
+      }else{
+        echo "0 VNĐ";
       }
-
-    } 
-    echo "$total_price_end VND";
+    }
 
     }
 
@@ -741,8 +743,6 @@ function cart_item(){
         }else{
           echo "0 VND";
         }
-        
-      
       }
       // remove the cart
 

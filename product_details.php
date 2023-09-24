@@ -258,7 +258,7 @@
                                 class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
                     </li>
                     <li class='nav-item'>
-                        <a class='nav-link text-light' href='#'>Tổng Tiền: <?php total_price() ?></a>
+                        <a class='nav-link text-light' href='#'>Tổng Tiền: <?php echo subtotal() ?></a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search" action="search_products.php" method="get">

@@ -10,7 +10,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TFashion</title>
-    <!-- css link bstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
@@ -20,18 +19,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- css style link -->
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet"
         href="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="./style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- face -->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v17.0"
-        nonce="D3hjkbza"></script>
-    <link rel="stylesheet" href="style.css">
-
     <style>
     body {
         background-color: white;
@@ -382,8 +373,9 @@
                     <!-- Nav Item - Dashboard -->
                     <li class="nav-item active">
                         <a class="nav-link" href="homepage.php">
-                            <i class="fa-solid fa-house text-light"></i>
-                            <span class="text-light">Trang Chủ</span></a>
+                            <!-- <i class="fa-regular fa-house"></i> -->
+                            <span class="text-light">Trang Chủ</span>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="all_products.php">Sản Phẩm</a>
@@ -409,7 +401,7 @@
                     </li>
                     <li class='nav-item'>
                         <a class='nav-link text-light' href='cart.php'><i
-                                class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
+                                class="fa-brands fa-twitter"></i><sup><?php cart_item() ?><sup></a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search" action="search_products.php" method="get">
