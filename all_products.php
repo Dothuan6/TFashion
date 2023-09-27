@@ -234,7 +234,7 @@
             <?php 
   if(isset($_SESSION['username'])){
     echo "<li class='nav-item'>
-          <a class='nav-link text-dark' href='homepage.php'>Xin chào {$_SESSION['username']}</a>
+          <a class='nav-link text-dark p-1' href='homepage.php'>Xin chào {$_SESSION['username']}  &rang;</a>
           </li>";
   }else{
     echo "<li class='nav-item'>
@@ -244,7 +244,7 @@
   if(isset($_SESSION['username'])){
     echo "
     <li class='nav-item'>
-           <a class='nav-link text-dark' href='./user_area/user_logout.php'>Đăng xuất</a>
+           <a class='nav-link text-dark p-1' href='./user_area/user_logout.php'>Đăng xuất</a>
     </li>";
   }else{
     echo "
