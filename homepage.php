@@ -513,13 +513,10 @@
             </div>
         </div>
 
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="marquee">
                 <span><img class="img-marquee" src="./images/sale5.jpg" alt=""></span>
             </div>
-            <!-- <div class="row" style="height: 49px;">
-                <header><img src="./images/sale_header1.jpg" class="h-25 w-100" alt=""></header>
-            </div> -->
             <div class="row mt-2" style="height: 30 0px;">
                 <?php getproducts_thirth(); 
           ?>
