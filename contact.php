@@ -73,7 +73,7 @@
     }
 
     .carousel-inner {
-        height: 700px !important;
+        height: 100% !important;
     }
 
     .sticky {
@@ -266,7 +266,7 @@
         </header>
         <div class="row">
             <div class="col-md-7 mb-5 mb-md-0">
-                <form id="contact-form" method="post" action="https://t004.gokisoft.com/feedback" class="form">
+                <form id="contact-form" method="post" action="contact.php">
                     <input type="hidden" name="_token" value="zI58qJqH6CBUeUUQpZU1Hm9bvtR7oQxN3jF6dovz">
                     <div class="controls">
                         <div class="row">
@@ -306,7 +306,7 @@
                                 required="required" class="form-control"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-outline-dark">Gửi</button>
+                        <button type="submit" name="submit" class="btn btn-outline-dark">Gửi</button>
                     </div>
                 </form>
             </div>
@@ -419,3 +419,37 @@
 </body>
 
 </html>
+<?php
+//  if(isset($_POST['submit'])){
+//     $f_name = $_POST['firstname'];
+//     $l_name = $_POST['lastname'];
+//     $contact_email = $_POST['email'];
+//     $contact_phone = $_POST['phone_number'];
+//     $contact_subject= $_POST['subject'];
+//     $contact_message = $_POST['message'];
+
+// $to = "thuann6222@gmail.com";
+// $subject = $contact_message;
+
+// $message = "Email: {$contact_email} Phone: {$contact_phone}" .$contact_message;
+
+// // Always set content-type when sending HTML email
+// $headers = "MIME-Version: 1.0" . "\r\n";
+// $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+// // More headers
+// $headers .= 'From: <>' . "\r\n";
+// // $headers .= 'Cc: myboss@example.com' . "\r\n";
+
+// mail($to,$subject,$message,$headers);
+
+//     if($mail){
+//         echo "<script>alert('Lời nhắn của bạn đã được gửi đến ')</script>";
+//     }else{
+//         echo "Không thành công!";
+//     }
+//  }
+if(isset($_POST['submit'])){
+    echo "<script>alert('Bạn đã gửi thành công')</script>";
+}
+?>

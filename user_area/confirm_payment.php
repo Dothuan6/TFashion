@@ -8,7 +8,7 @@
     $result=mysqli_query($con,$select_data);
     $row_fetch=mysqli_fetch_assoc($result);
     $invoice_number=$row_fetch['invoice_number'];
-    $amount_due=number_format($row_fetch['amount_due'],3);
+    $amount_due=$row_fetch['amount_due'];
   }
   if(isset($_POST['confirm_payments'])){
     $invoice_number=$_POST['invoice_number'];
@@ -17,9 +17,7 @@
     $insert_query="insert into `user_payments` (order_id,invoice_number,amount,payment_mode,date) values ($order_id,$invoice_number,$amount,'$payment_mode',NOW())";
     $result=mysqli_query($con,$insert_query);
     if($result){
-        echo "<div class='alert alert-success' role='alert'>
-        Xác nhận lại đơn hàng thành công!
-      </div>";
+        echo "<script>alert('Xác nhận đơn thanh toán thành công!')</script>";
         echo "<script>window.open('user_profile.php?my_orders','_self')</script>";
     }
     $update_orders="update `user_orders` set order_status='Hoàn thành' where order_id = $order_id";
@@ -53,8 +51,7 @@
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <label for="" class="text-light">Số tiền</label>
-                <input value="<?php echo "$amount_due VND" ?>" type="text" class="form-control w-50 m-auto"
-                    name="amount">
+                <input value="<?php echo "$amount_due" ?>" type="text" class="form-control w-50 m-auto" name="amount">
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <select name="payment_mode" class="form-select w-50 m-auto">

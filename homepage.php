@@ -4,7 +4,7 @@
   @session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme=dark>
 
 <head>
     <meta charset="UTF-8">
@@ -462,42 +462,47 @@
                         <div class="content">
                             <div class="name">TFashion</div>
                             <div class="des">Phong cách thời trang quốc tế</div>
-                            <button><a href="all_products.php">xem chi tiết</a></button>
+                            <button class="btn"><a class="text-light" href="all_products.php">xem chi tiết</a></button>
                         </div>
                     </div>
                     <div class="item" style="background-image: url(./images/fashion1.jpg);">
                         <div class="content">
                             <div class="name">TFashion</div>
                             <div class="des">Phong cách thời trang quốc tế</div>
-                            <button><a href="all_products.php">xem chi tiết</a></button>
+                            <button class="btn btn-outline"><a class="text-light" href="all_products.php">xem chi
+                                    tiết</a></button>
                         </div>
                     </div>
                     <div class="item" style="background-image: url(./images/fashion3.jpg);">
                         <div class="content">
                             <div class="name">TFashion</div>
                             <div class="des">Phong cách thời trang quốc tế</div>
-                            <button><a href="all_products.php">xem chi tiết</a></button>
+                            <button class="btn btn-outline"><a class="text-light" href="all_products.php">xem chi
+                                    tiết</a></button>
                         </div>
                     </div>
                     <div class="item" style="background-image: url(./images/fashion4.jpg);">
                         <div class="content">
                             <div class="name">TFashion</div>
                             <div class="des">Phong cách thời trang quốc tế</div>
-                            <button><a href="all_products.php">xem chi tiết</a></button>
+                            <button class="btn btn-outline"><a class="text-light" href="all_products.php">xem chi
+                                    tiết</a></button>
                         </div>
                     </div>
                     <div class="item" style="background-image: url(./images/fashion5.jpg);">
                         <div class="content">
                             <div class="name">TFashion</div>
                             <div class="des">Phong cách thời trang quốc tế</div>
-                            <button><a href="all_products.php">xem chi tiết</a></button>
+                            <button class="btn btn-outline"><a class="text-light" href="all_products.php">xem chi
+                                    tiết</a></button>
                         </div>
                     </div>
                     <div class="item" style="background-image: url(./images/fashion6.jpg);">
                         <div class="content">
                             <div class="name">TFashion</div>
                             <div class="des">Phong cách thời trang quốc tế</div>
-                            <button><a href="all_products.php">xem chi tiết</a></button>
+                            <button class="btn btn-outline"><a class="text-light" href="all_products.php">xem chi
+                                    tiết</a></button>
                         </div>
                     </div>
                 </div>
@@ -551,7 +556,7 @@
      ?>
                 <div class="text-right">
                     <a href="all_products.php">
-                        <h7>xem thêm <i class=" fa-solid fa-hand-point-right"></i></h7>
+                        <h7>xem thêm &raquo;</h7>
                     </a>
 
                 </div>
