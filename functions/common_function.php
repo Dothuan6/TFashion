@@ -551,7 +551,7 @@ function product_same_type(){
   global $con;
   if(isset($_GET['product_id'])){
   $product_id = $_GET['product_id'];
-  $select_query = "select * from `products`";
+  $select_query = "select * from `products` limit 0,5";
   $result_query = mysqli_query($con,$select_query);
   // $num_of_rows = mysqli_num_rows($result_query);
   while($row = mysqli_fetch_assoc($result_query)){
