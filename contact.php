@@ -420,36 +420,7 @@
 
 </html>
 <?php
-//  if(isset($_POST['submit'])){
-//     $f_name = $_POST['firstname'];
-//     $l_name = $_POST['lastname'];
-//     $contact_email = $_POST['email'];
-//     $contact_phone = $_POST['phone_number'];
-//     $contact_subject= $_POST['subject'];
-//     $contact_message = $_POST['message'];
-
-// $to = "thuann6222@gmail.com";
-// $subject = $contact_message;
-
-// $message = "Email: {$contact_email} Phone: {$contact_phone}" .$contact_message;
-
-// // Always set content-type when sending HTML email
-// $headers = "MIME-Version: 1.0" . "\r\n";
-// $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-// // More headers
-// $headers .= 'From: <>' . "\r\n";
-// // $headers .= 'Cc: myboss@example.com' . "\r\n";
-
-// mail($to,$subject,$message,$headers);
-
-//     if($mail){
-//         echo "<script>alert('Lời nhắn của bạn đã được gửi đến ')</script>";
-//     }else{
-//         echo "Không thành công!";
-//     }
-//  }
 if(isset($_POST['submit'])){
-    echo "<script>alert('Bạn đã gửi thành công')</script>";
+    echo "<script>alert('Cảm ơn bạn đã phản hồi lại cho chúng tôi!')</script>";
 }
-?>
+ ?>
