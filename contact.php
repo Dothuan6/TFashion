@@ -420,7 +420,22 @@
 
 </html>
 <?php
-if(isset($_POST['submit'])){
-    echo "<script>alert('Cảm ơn bạn đã phản hồi lại cho chúng tôi!')</script>";
+
+ini_set("SMTP","smtp.gmail.com");
+ini_set("smtp_port","587");
+// ini_set('sendmail_from', "thuann6222@gmail.com");
+// error_reporting( E_ALL );
+$f_email = $_POST['email'];
+$from = $f_email ;
+$t_email= "thuann6222@gmail.com";
+$to = $t_email;
+$subject_fr = $_POST['subject'];
+$subject = $subject_fr;
+$message_fr  = $_POST['message'];
+$message = $message_fr;
+$headers = "From:" . $from;
+$mail = mail($to,$subject,$message, $headers);
+if($mail){
+    echo "<script>alert('Tin nhắn đã được gửi!!')</script>";
 }
  ?>

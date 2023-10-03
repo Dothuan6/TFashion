@@ -65,6 +65,8 @@
                 <th class="bg-dark text-light">Ngày đặt</th>
                 <th class="bg-dark text-light">Hoàn thành/Chưa hoàn thành</th>
                 <th class="bg-dark text-light">Trạng thái</th>
+                <!-- <th class="bg-dark text-light">Đánh giá</th> -->
+
             </tr>
         </thead>
         <tbody>

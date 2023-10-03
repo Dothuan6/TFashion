@@ -533,7 +533,7 @@ function view_details(){
     <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
     </div>
     <div class='mt-5 m-2'>
-    <a href='homepage.php?product_id= $product_id' class='m-2'><i class='fa-solid fa-backward'></i> Quay về</a>
+    <a href='homepage.php?product_id= $product_id' class='m-2'>&laquo; Quay về</a>
     </div>  
 
     </div>

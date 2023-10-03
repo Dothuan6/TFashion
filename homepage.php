@@ -24,7 +24,25 @@
     <link rel="stylesheet"
         href="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!-- <script>
+    $(function() {
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 500,
+            values: [75, 300],
+            slide: function(event, ui) {
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            }
+        });
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+            " - $" + $("#slider-range").slider("values", 1));
+    });
+    </script> -->
     <style>
     body {
         background-color: white;
@@ -451,6 +469,7 @@
   }
   ?>
         </ul>
+
     </nav>
 
     <!-- third -->
@@ -537,6 +556,8 @@
                     
 
                      }else{
+        // echo "<div><h3 class='text-center text-dark py-3'>Sản Phẩm Bán Chạy Nhất</h3></div>";
+        // getproducts_bestsaler();
         echo "<div><h3 class='text-center text-dark py-3'>Nón</h3></div>";
         getproducts_non();
         echo " <div><h3 class='text-center text-dark py-3'>Túi Xách</h3></div>";
@@ -548,7 +569,7 @@
         echo "<div><h3 class='text-center text-dark py-3'>Kính</h3></div>";
         getproducts_kinh();
         echo "<div><h3 class='text-center text-dark py-3'>Giày</h3></div>";
-        getproducts_giay(); 
+        getproducts_giay();
     }
      ?>
                 <div class="text-right">

@@ -37,6 +37,12 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet"
         href="../startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"
+        integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
     .logo {
         width: 6%;
@@ -177,7 +183,11 @@
                 <a class="nav-link" href="index.php?view_users">
                     <span><i class="fa-solid fa-user"></i> KHÁCH HÀNG</span></a>
             </li>
-
+            <hr class="sidebar-divider">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.php?statistics">
+                    <span><i class="fa-solid fa-chart-simple"></i> DOANH SỐ</span></a>
+            </li>
 
 
             <!-- Divider -->
@@ -278,6 +288,9 @@
   }
   if(isset($_GET['delete_users'])){
     include('delete_user.php');
+  }
+  if(isset($_GET['statistics'])){
+    include('statistics.php');
   }
 }else{
   echo "<div class='row'>
