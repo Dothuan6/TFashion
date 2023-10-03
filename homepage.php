@@ -380,9 +380,11 @@
 <body>
     <!-- navbar -->
 
-    <nav class="navbar navbar-expand-lg bg-secondary-subtle navbar-sticky py-0 py-1" id="mynavbar">
+    <nav class="navbar navbar-expand-lg bg-secondary-subtle navbar-sticky" id="mynavbar">
         <div class="container-fluid">
-            <img src="images/logo.png" alt="Lo Go" class="logo">
+            <!-- <img src="images/logo.png" alt="Lo Go" class="logo"> -->
+            <h3 style="cursor: pointer;"><a class="text-light" style="text-decoration: none; background-color: black;"
+                    href="homepage.php">TFASHION</a></h3>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
