@@ -421,13 +421,13 @@
 </html>
 <?php
 
-ini_set("SMTP","smtp.gmail.com");
-ini_set("smtp_port","587");
+// ini_set("SMTP","smtp.gmail.com");
+// ini_set("smtp_port","587");
 // ini_set('sendmail_from', "thuann6222@gmail.com");
 // error_reporting( E_ALL );
 $f_email = $_POST['email'];
-$from = $f_email ;
-$t_email= "thuann6222@gmail.com";
+$from = $f_email;
+$t_email= "thuanb2014705@student.ctu.edu.vn";
 $to = $t_email;
 $subject_fr = $_POST['subject'];
 $subject = $subject_fr;

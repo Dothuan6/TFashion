@@ -153,13 +153,14 @@ $pdo -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             $size_status = array();
             $labels = array();
             while($row = $result->fetch()){
-                $size_status[] = $row['size_status'];
                 $revenue[] = $row["product_id"];
                 $pro_id = $row['product_id'];
                 $result_title = "select product_title from `products` where product_id = '$pro_id'";
                 $query = mysqli_query($con,$result_title);
                 while($row_title=mysqli_fetch_assoc($query)){
                     $labels[] = $row_title['product_title'];
+                    $size_status[] = $row['size_status'];
+                    // echo print_r($size_status);
                     // echo $labels;
                 }         
             }
