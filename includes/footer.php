@@ -91,7 +91,7 @@
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
             © 2020 Copyright:
-            <a class="text-white text-decoration-none" href="../homepage.php">TFashion.com</a>
+            <a class="text-white text-decoration-none" href="./homepage.php">TFashion.com</a>
             <!-- loading -->
             <div class="py-4">
                 <div class="spinner-grow text-primary" role="status">

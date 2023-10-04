@@ -117,8 +117,8 @@
                     <!-- Nav Item - Dashboard -->
                     <li class="nav-item active">
                         <a class="nav-link text-light" href="../homepage.php">
-                            <i class="fa-solid fa-house"></i>
-                            <!-- <span>Trang Chủ</span> -->
+                            <!-- <i class="fa-solid fa-house"></i> -->
+                            <span>Trang Chủ</span>
                         </a>
                     </li>
                     <li class="nav-item">
