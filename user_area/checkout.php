@@ -81,7 +81,8 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg" style="background-color: black;">
         <div class="container-fluid">
-            <img src="../images/logo.png" alt="Lo Go" class="logo">
+            <h3 style="cursor: pointer;"><a class="text-light" style="text-decoration: none; background-color: black;"
+                    href="homepage.php">TFASHION</a></h3>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -92,8 +93,9 @@
                     <!-- Nav Item - Dashboard -->
                     <li class="nav-item active">
                         <a class="nav-link text-light" href="../homepage.php">
-                            <i class="fa-solid fa-house"></i>
-                            <span>Trang Chủ</span></a>
+                            <!-- <i class="fa-solid fa-house"></i> -->
+                            <span>Trang Chủ</span>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="../all_products.php">Sản Phẩm</a>
@@ -129,7 +131,7 @@
             <?php 
   if(isset($_SESSION['username'])){
     echo "<li class='nav-item'>
-          <a class='nav-link text-dark' href='../homepage.php'>Xin chào {$_SESSION['username']}</a>
+          <a class='nav-link text-dark' href='../homepage.php'>Xin chào {$_SESSION['username']} ⟩</a>
           </li>";
   }else{
     echo "<li class='nav-item'>

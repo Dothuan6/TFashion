@@ -421,21 +421,41 @@
 </html>
 <?php
 
-// ini_set("SMTP","smtp.gmail.com");
-// ini_set("smtp_port","587");
-// ini_set('sendmail_from', "thuann6222@gmail.com");
-// error_reporting( E_ALL );
-$f_email = $_POST['email'];
-$from = $f_email;
-$t_email= "thuanb2014705@student.ctu.edu.vn";
-$to = $t_email;
-$subject_fr = $_POST['subject'];
-$subject = $subject_fr;
-$message_fr  = $_POST['message'];
-$message = $message_fr;
-$headers = "From:" . $from;
-$mail = mail($to,$subject,$message, $headers);
-if($mail){
-    echo "<script>alert('Tin nhắn đã được gửi!!')</script>";
+// // ini_set("SMTP","smtp.gmail.com");
+// // ini_set("smtp_port","587");
+// // ini_set('sendmail_from', "thuann6222@gmail.com");
+// // error_reporting( E_ALL );
+// $f_email = $_POST['email'];
+// $from = $f_email;
+// $t_email= "thuanb2014705@student.ctu.edu.vn";
+// $to = $t_email;
+// $subject_fr = $_POST['subject'];
+// $subject = $subject_fr;
+// $message_fr  = $_POST['message'];
+// $message = $message_fr;
+// $headers = "From:" . $from;
+// $mail = mail($to,$subject,$message, $headers);
+// if($mail){
+//     echo "<script>alert('Tin nhắn đã được gửi!!')</script>";
+
+// }
+if(isset($_POST['submit'])){
+    $sender_name = $_POST['firstname'];
+    $sender_name_last = $_POST['lastname'];
+    $sender_email = $_POST['email'];
+    $sender_subject = $_POST['subject'];
+    $sender_message = $_POST['message'];
+    $sender_phone = $_POST['phone_number'];
+    $receiver_email= "thuann6222@gmail.com";
+    mail($receiver_email,$sender_name,$sender_subject,$sender_message,$sender_email);
+
+    $email = $_POST['email'];
+    $subject = "Welcome to my website \r\n";
+    $msg = "Thanks for sending us message. ASAP we will reply your message \r\n";
+    $from = "thuann6222@gmail.com \r\n"; 
+    $email = mail($email, $subject,$msg,$from);
+    if($email){
+    echo "<h2> Your message has sent successfully </h2>";
+}
 }
  ?>
