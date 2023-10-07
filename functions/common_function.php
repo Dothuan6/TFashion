@@ -440,15 +440,14 @@ function get_allproducts(){
       $product_price = $row['product_price'];
       $category_id = $row['category_id'];
       $brand_id = $row['brand_id'];
-      echo "<div class='col-md-4 mb-2'>
+      echo "<div class='col-md-3 mb-2'>
       <div class='card py-1 shadow rounded'>
       <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
       <img src='./admin_area/product_images/$product_image2' class='card-img-top'>
       </a>
-                <div class='card-body'> 
-                 <h5 class='card-title'>$product_title</h5>
-                  <p class='card-text'> $product_description</p>
-                  <p class='card-text text-danger'>Giá: {$product_price} VND</p>
+                <div class='card-body fs-6'> 
+                 <h5 class='card-title fs-6'>$product_title</h5>
+                  <p class='card-text text-danger fs-6'>Giá: {$product_price} VND</p>
                   <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
                  
                 </div>

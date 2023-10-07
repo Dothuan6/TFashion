@@ -28,30 +28,12 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <!-- <script>
-    $(function() {
-        $("#slider-range").slider({
-            range: true,
-            min: 0,
-            max: 500,
-            values: [75, 300],
-            slide: function(event, ui) {
-                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-            }
-        });
-        $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-            " - $" + $("#slider-range").slider("values", 1));
-    });
-    </script> -->
+    <link rel="stylesheet" href="./style.scss">
     <style>
     body {
-        background-color: white;
+        background-color: whitesmoke;
     }
 
-    .dark_mode {
-        background-color: black !important;
-        color: white !important;
-    }
 
     .logo {
 
@@ -60,9 +42,7 @@
         border-radius: 20px;
     }
 
-    /* .carousel-inner{
- display: block;
-} */
+
     .chat_bot {
         text-align: center;
         border-radius: 100%;
@@ -614,6 +594,40 @@
     </div>
     </div>
     </div>
+
+
+    <!--  notification-->
+    <div class="notification">
+        <div class="notification-header">
+            <?php if(isset($_SESSION['username'])){
+            echo "
+            <h3 class='notification-title'><i class='fa-regular fa-bell'></i> Chào {$_SESSION['username']}</h3>
+
+              ";
+            }else{
+                echo "
+                <h3 class='notification-title'>Xin Chao</h3>
+    
+                  ";
+            }
+             ?>
+        </div>
+
+        <!-- <i class="fa fa-times notification-close"></i> -->
+        <div class="notification-container">
+            <div class="notification-media">
+            </div>
+            <div class="notification-content">
+                <p class="notification-text text-danger">
+                    Bạn có <strong><?php cart_item() ?></strong> sản phẩm trong giỏ hàng!
+                </p>
+                <span class="notification-timer"></span>
+            </div>
+            <span class="notification-status"></span>
+        </div>
+    </div>
+
+
     <!-- Chat bot -->
 
 
@@ -639,19 +653,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
+
+
     <?php
     include_once('./includes/footer.php'); 
     ?>
 
     <!-- script -->
-    <script>
-    function dark_mode() {
-        var element = document.body;
-        element.classList.toggle("dark_mode");
-    }
-    </script>
     <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/custom.js">
     </script>
+
     <!-- sticky -->
     <script>
     window.onscroll = function() {
@@ -681,6 +692,7 @@
         document.getElementById("myForm").style.display = "none";
     }
     </script>
+
     <script>
     document.getElementById('next').onclick = function() {
         let lists = document.querySelectorAll('.item');

@@ -65,6 +65,7 @@ include_once('../functions/common_function.php');
 if(isset($_POST['user_login'])){
     global $con;
     $user_username = $_POST['user_username'];
+    $user_usermail = $_POST['user_username'];
     $user_password = $_POST['user_password'];
     $select_query="select * from `user_table` where username='$user_username'";
     $result=mysqli_query($con,$select_query);
