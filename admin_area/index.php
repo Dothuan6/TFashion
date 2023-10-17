@@ -92,6 +92,7 @@
 
     .btn:hover {
         transform: translateY(-10px);
+        cursor: pointer !important;
     }
 
     .nav-link {
@@ -101,6 +102,7 @@
     }
 
     .nav-link:hover {
+        cursor: pointer !important;
         transform: translateY(-10px);
     }
     </style>
