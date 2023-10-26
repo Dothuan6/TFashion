@@ -214,96 +214,25 @@ if(isset($_GET['remove'])){
 </head>
 
 <body>
-    <!-- navbar-->
+
     <!-- navbar -->
-    <!-- <div class="marquee">
-        <span><img class="img-marquee" src="./images/sale4.jpg" alt=""></span>
-    </div> -->
-    <nav class="navbar navbar-expand-lg bg-secondary-subtle" id="navbar">
-        <div class="container-fluid">
-            <!-- <img src="images/logo.png" alt="Lo Go" class="logo"> -->
-            <h3 style="cursor: pointer;"><a class="text-light" style="text-decoration: none; background-color: black;"
-                    href="homepage.php">TFASHION</a></h3>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <!-- Nav Item - Dashboard -->
-                    <li class="nav-item active text-light">
-                        <a class="nav-link text-light" href="homepage.php">
-                            <!-- <i class="fa-solid fa-house"></i> -->
-                            <span>Trang Chủ</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link text-light" href="all_products.php">Sản Phẩm</a>
-                    </li>
-                    <?php 
-        if(isset($_SESSION['username'])){
-          echo " <li class='nav-item'>
-          <a class='nav-link text-light' href='./user_area/user_profile.php'>Tài Khoản</a>
-        </li>";
-        }else{
-          echo " <li class='nav-item'>
-          <a class='nav-link text-light' href='./user_area/user_reg.php'>Đăng Ký</a>
-        </li>";
-        }
-         ?>
-                    <li class='nav-item'>
-                        <a class='nav-link text-light' href='./contact.php'>Liên Hệ</a>
-                    </li>
-                    <li class='nav-item'>
-                        <a class='nav-link text-light' href='cart.php'><i
-                                class='fa-solid fa-cart-shopping'></i><sup><?php cart_item() ?><sup></a>
-                    </li>
-                    <li class='nav-item'>
-                        <a class='nav-link text-light' href='#'>Tổng Tiền: <?php echo subtotal() ?></a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search" action="search_products.php" method="get">
-                    <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search"
-                        name="search_data">
-                    <button class="btn btn-outline-info" type="submit"><i
-                            class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
-        </div>
-    </nav>
+    <?php
+    include_once('./includes/navbar_first.php');
+    ?>
+    <!-- cart -->
+    <?php
+  add_cart();
+    ?>
+    <!--  -->
     <!-- second child -->
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav me-auto">
 
-                <?php 
-  if(isset($_SESSION['username'])){
-    echo "<li class='nav-item'>
-          <a class='nav-link text-dark p-1' href='homepage.php'>Xin chào {$_SESSION['username']} &rang;</a>
-          </li>";
-  }else{
-    echo "<li class='nav-item'>
-    <a class='nav-link text-dark' href='homepage.php'><i class='fa-regular fa-user'></i></a>
-    </li>";
-  }
-  if(isset($_SESSION['username'])){
-    echo "
-    <li class='nav-item'>
-           <a class='nav-link text-dark p-1' href='./user_area/user_logout.php'>Đăng xuất</a>
-    </li>";
-  }else{
-    echo "
-    <li class='nav-item'>
-           <a class='nav-link text-dark' href='./user_area/user_log.php'>Đăng nhập</a>
-    </li>";
-  }
-  ?>
-            </ul>
-        </nav>
+            <?php 
+            include_once('./includes/navbar_second.php');
+            ?>
         </ul>
     </nav>
-
     <!-- third child -->
     <!-- fourth child-table -->
     <h3 class="text-center py-3">Chi tiết giỏ hàng</h3>
