@@ -224,14 +224,20 @@
     ?>
 
                 <!--  -->
-                <div class="text-left">
-                    <a href="homepage.php">
-                        <h7>&laquo; Quay về</h7>
-                    </a>
-
-                </div>
                 <!--  -->
             </div>
+            <center class='py-5 w-25 m-auto'>
+                <nav aria-label='Page navigation example'>
+                    <ul class='pagination'>
+                        <li class='page-item'><a class='page-link' href='all_products.php?startRow=0'>Previous</a>
+                        </li>
+                        <li class='page-item'><a class='page-link' href='all_products.php?startRow=0'>1</a></li>
+                        <li class='page-item'><a class='page-link' href='all_products.php?startRow=8'>2</a></li>
+                        <li class='page-item'><a class='page-link' href='all_products.php?startRow=16'>3</a></li>
+                        <li class='page-item'><a class='page-link' href='all_products.php?startRow=24'>Next</a></li>
+                    </ul>
+                </nav>
+            </center>
         </div>
         <div class="col-md-2">
             <!-- side nav -->
@@ -259,12 +265,6 @@
         </div>
     </div>
     </div>
-    <?php 
-    // calling function 
-    // getproducts();
-    // get_unique_categories();
-    // get_unique_brands();
-      ?>
     <!-- row END  -->
     </div>
 
@@ -292,15 +292,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
-    <!-- cmt -->
-    <!-- <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator"
-        data-width="100%" data-numposts="5"></div>
-    <script>
-    js.src = "https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&amp;version=v2.5";
-    </script> -->
-
-
-
     <?php
     include_once('./includes/footer.php'); 
     ?>
