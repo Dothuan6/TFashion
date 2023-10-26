@@ -426,9 +426,12 @@ function search_products(){
 // get all products
 function get_allproducts(){
   global $con;
+  $pageSize = 8;
+    $startRow =0;
+    if(isset($_GET['startRow']) == true) $startRow = $_GET['startRow'];
     if(!isset($_GET['category'])){
         if(!isset($_GET['brand'])){
-    $select_query = "select * from `products` order by rand()";
+    $select_query = "select * from `products` order by rand() limit $startRow,$pageSize";
     $result_query = mysqli_query($con,$select_query);
     // $row = mysqli_fetch_assoc($result_query);
     while($row = mysqli_fetch_assoc($result_query)){
