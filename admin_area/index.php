@@ -160,16 +160,6 @@
                 <a class="nav-link" href="index.php?view_products">
                     <span><i class="fa-solid fa-clipboard-list"></i>XEM SẢN PHẨM</span></a>
             </li>
-            <!-- <hr class="sidebar-divider">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php?view_categories">
-                    <span>XEM DANH MỤC</span></a>
-            </li> -->
-            <!-- <hr class="sidebar-divider">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php?view_brands">
-                    <span>XEM NHÃN HÀNG</span></a>
-            </li> -->
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php?view_orders">
