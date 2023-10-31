@@ -347,7 +347,7 @@
     <!--  -->
     <!-- second child -->
 
-    <nav class="navbar-expand-lg navbar-dark text-dark px-3 fixeds" style="display: block;">
+    <nav class="navbar-expand-lg navbar-dark text-dark px-3" style="display: block;">
         <ul class="navbar-nav me-auto py-2">
 
             <?php 

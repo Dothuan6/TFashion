@@ -324,13 +324,6 @@ add_cart();
         </div>
     </div>
     </div>
-    <?php 
-    // calling function 
-    // getproducts();
-    // get_unique_categories();
-    // get_unique_brands();
-      ?>
-    <!-- row END  -->
     </div>
 
 
