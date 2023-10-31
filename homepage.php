@@ -326,33 +326,10 @@
         height: 100px;
     }
 
-    /* .btn {
-        display: none;
-    }
-
-
-    .btn:hover {
-        display: block;
-    } */
-
     .navbar {
         padding: 10px 16px;
         background: black !important;
         /* color: #f1f1f1; */
-    }
-
-    /* .content {
-        padding: 16px;
-    } */
-
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%;
-    }
-
-    .sticky+.content {
-        padding-top: 102px;
     }
     </style>
 </head>
@@ -370,8 +347,8 @@
     <!--  -->
     <!-- second child -->
 
-    <nav class="navbar-expand-lg navbar-dark text-dark px-3" style="display: block;">
-        <ul class="navbar-nav me-auto py-2 ">
+    <nav class="navbar-expand-lg navbar-dark text-dark px-3 fixeds" style="display: block;">
+        <ul class="navbar-nav me-auto py-2">
 
             <?php 
     include_once('./includes/navbar_second.php');
@@ -589,23 +566,6 @@
     <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/custom.js">
     </script>
 
-    <!-- sticky -->
-    <script>
-    window.onscroll = function() {
-        myFunction()
-    };
-
-    var header = document.getElementById("mynavbar");
-    var sticky = header.offsetTop;
-
-    function myFunction() {
-        if (window.pageYOffset > sticky) {
-            header.classList.add("sticky");
-        } else {
-            header.classList.remove("sticky");
-        }
-    }
-    </script>
 
     <!-- js chat bot -->
     <script>
