@@ -15,16 +15,18 @@ echo"
     <tbody>";
     ?>
     <?php
+    global $conn;
     $get_payments="select * from `user_payments`";
-    $result_payments=mysqli_query($con,$get_payments);
+    $stmt  = $conn->prepare($get_payments);
+    $stmt->execute();
     $number=0;
-    $row_count=mysqli_num_rows($result_payments);
+    $row_count=$stmt->rowCount();
     if($row_count==0){
     echo "<script>
     alert('Không có thanh toán trước đó!')
     </script>";
     }else{
-    while($row_data=mysqli_fetch_assoc($result_payments)){
+    while($row_data=$stmt->fetch(PDO::FETCH_ASSOC)){
     $payment_id = $row_data['payment_id'];
     $invoice_number=$row_data['invoice_number'];
     $amount=number_format($row_data['amount'],3);
