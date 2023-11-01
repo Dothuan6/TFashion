@@ -1,9 +1,11 @@
 <?php
+global $conn;
     if(isset($_GET['edit_products'])){
         $edit_id=$_GET['edit_products'];
-        $get_data = "select * from `products` where product_id='$edit_id'";
-        $result=mysqli_query($con,$get_data);
-        $row=mysqli_fetch_assoc($result);
+        $get_data = "select * from `products` where product_id=?";
+        $stmt = $conn->prepare($get_data);
+        $stmt ->execute([$edit_id]);
+        $row=$stmt->fetch(PDO::FETCH_ASSOC);
         $product_title=$row['product_title'];
         $product_description=$row['product_description'];
         $product_keywords=$row['product_keywords'];
@@ -15,14 +17,16 @@
         $product_price=$row['product_price'];
 
 // fetching category 
-        $select_category="select * from `categories` where category_id='$category_id'";
-        $result_category = mysqli_query($con,$select_category);
-        $row_category=mysqli_fetch_assoc($result_category);
+        $select_category="select * from `categories` where category_id=?";
+        $stmt = $conn->prepare($select_category);
+        $stmt ->execute([$category_id]);
+        $row_category=$stmt->fetch(PDO::FETCH_ASSOC);
         $category_title=$row_category['category_title'];
 // fetch brand
-    $select_brands="select * from `brands` where brand_id='$brand_id'";
-    $result_brands = mysqli_query($con,$select_brands);
-    $row_brands=mysqli_fetch_assoc($result_brands);
+    $select_brands="select * from `brands` where brand_id=?";
+    $stmt= $conn->prepare($select_brands);
+    $stmt ->execute([$brand_id]);
+    $row_brands=$stmt->fetch(PDO::FETCH_ASSOC);
     $brand_title=$row_brands['brand_title'];
     }
 
@@ -55,8 +59,9 @@
                 <option value="<?php echo $category_title ?>"> <?php echo $category_title ?></option>
                 <?php
                         $select_category_all = " select * from `categories`";
-                        $result_category_all = mysqli_query($con,$select_category_all);
-                        while($row_category_all = mysqli_fetch_assoc($result_category_all)){
+                        $stmt = $conn->prepare($select_category_all);
+                        $stmt ->execute();
+                        while($row_category_all = $stmt->fetch(PDO::FETCH_ASSOC)){
                             $category_title = $row_category_all['category_title'];
                             $category_id = $row_category_all['category_id'];
                             echo "<option value='$category_id'>$category_title</option>";
@@ -70,8 +75,9 @@
                 <option value="<?php echo $brand_title ?>"><?php echo $brand_title ?></option>
                 <?php
                         $select_brand_all = " select * from `brands`";
-                        $result_brand_all = mysqli_query($con,$select_brand_all);
-                        while($row_brand_all = mysqli_fetch_assoc($result_brand_all)){
+                        $stmt = $conn->prepare($select_brand_all);
+                        $stmt ->execute();
+                        while($row_brand_all = $stmt->fetch(PDO::FETCH_ASSOC)){
                             $brand_title = $row_brand_all['brand_title'];
                             $brand_id = $row_brand_all['brand_id'];
                             echo "<option value='$brand_id'>$brand_title</option>";
@@ -115,19 +121,20 @@
 </div>
 <!-- editing products -->
 <?php
+global $conn;
     if(isset($_POST['edit_product'])){
 
-        $product_title = $_POST['product_title'];
-        $description = $_POST['product_description'];
-        $product_keywords = $_POST['product_keywords'];
-        $product_category= $_POST['product_category'];
-        $product_brands = $_POST['product_brands'];
-        $product_price = number_format($_POST['product_price']);
+        $product_title = htmlspecialchars($_POST['product_title']);
+        $description = htmlspecialchars($_POST['product_description']);
+        $product_keywords = htmlspecialchars($_POST['product_keywords']);
+        $product_category= htmlspecialchars($_POST['product_category']);
+        $product_brands = htmlspecialchars($_POST['product_brands']);
+        $product_price = htmlspecialchars(number_format($_POST['product_price']));
         
         //accessing images
-        $product_image1 = $_FILES['product_image1']['name'];
-        $product_image2 = $_FILES['product_image2']['name'];
-        $product_image3 = $_FILES['product_image3']['name'];
+        $product_image1 = htmlspecialchars($_FILES['product_image1']['name']);
+        $product_image2 = htmlspecialchars($_FILES['product_image2']['name']);
+        $product_image3 = htmlspecialchars($_FILES['product_image3']['name']);
     
         //accessing image tmp name
         $temp_image1 = $_FILES['product_image1']['tmp_name'];
@@ -147,16 +154,17 @@
     
             //update query
             $update_product="update `products` set
-            product_title='$product_title',
-            product_description='$description',
-            product_keywords='$product_keywords',
-            category_id = '$product_category',
-            brand_id='$product_brands', 
-            product_image1='$product_image1',
-            product_image2='$product_image2',
-            product_image3='$product_image3',
-            product_price='$product_price',date=NOW() where product_id=$edit_id";
-            $result_update = mysqli_query($con,$update_product);
+            product_title=?,
+            product_description=?,
+            product_keywords=?,
+            category_id = ?,
+            brand_id=?, 
+            product_image1=?,
+            product_image2=?,
+            product_image3=?,
+            product_price=?,date=NOW() where product_id=?";
+            $stmt = $conn->prepare($update_product);
+            $result_update = $stmt->execute([$product_title,$description,$product_keywords,$product_category,$product_brands,$product_image1,$product_image2,$product_image3,$product_price,$edit_id]);
             if($result_update){
                 echo "<script>alert('Cập nhật thành công!')</script>";
                 echo "<script>window.open('index.php?view_products','_self')</script>";
