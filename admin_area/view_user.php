@@ -1,9 +1,11 @@
 <h3 class="text-center">Các Khách Hàng</h3>
 <table class="table table-bordered mt-5">
     <?php
+    global $conn;
     $get_users="select * from `user_table`";
-    $result_users=mysqli_query($con,$get_users);
-    if(mysqli_num_rows($result_users)==0){
+    $stmt = $conn->prepare($get_users);
+    $stmt->execute();
+    if($stmt->rowCount()==0){
         echo "<div class='alert alert-success' role='alert'>
         Chưa có người dùng nào đăng ký!
       </div>";
@@ -23,14 +25,15 @@
     <tbody>";
         
          $get_users="select * from `user_table`";
-         $result_users=mysqli_query($con,$get_users);
+         $stmt = $conn->prepare($get_users);
+         $stmt->execute();
          $number=0;
-        $row_count=mysqli_num_rows($result_users);
+        $row_count=$stmt->rowCount();
         if($row_count==0){
             echo "<script>alert('Không có người dùng nào')</script>";
            
         }else{
-            while($row_data=mysqli_fetch_assoc($result_users)){
+            while($row_data=$stmt->fetch(PDO::FETCH_ASSOC)){
                 $user_id = $row_data['user_id'];
                 $usernamer=$row_data['username'];
                 $user_email=$row_data['user_email'];
