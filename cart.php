@@ -5,21 +5,25 @@
 ?>
 <?php
 // update query\
-
+global $conn;
 if(isset($_POST['update_product_qty'])){
-    $update_value = $_POST['update_qty'];
-    $update_id = $_POST['update_qty_id'];
+    $update_value = htmlspecialchars($_POST['update_qty']);
+    $update_id = htmlspecialchars($_POST['update_qty_id']);
     // echo $update_id;
     // echo $update_value;
-    $update_qty_query=mysqli_query($con,"update `cart_details` set quantity = '$update_value' where product_id = '$update_id'");
-    if($update_qty_query){
+    $update_qty_query="update `cart_details` set quantity = ? where product_id = ?";
+    $stmt = $conn->prepare($update_qty_query);
+    $result_update_qty_query=$stmt->execute([$update_value,$update_id]);
+    if($result_update_qty_query){
         echo "<script>alert('Cập nhật thành công!')</script>" ;
     }
 
 }
 if(isset($_GET['remove'])){
     $remove_id = $_GET['remove'];
-    mysqli_query($con,"delete from `cart_details` where product_id = '$remove_id'");
+    $delete = "delete from `cart_details` where product_id = ?";
+    $stmt = $conn->prepare($delete);
+    $stmt ->execute([$remove_id]);
 }
 ?>
 <!DOCTYPE html>
@@ -236,14 +240,15 @@ if(isset($_GET['remove'])){
     <!-- third child -->
     <!-- fourth child-table -->
     <h3 class="text-center py-3">Chi tiết giỏ hàng</h3>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <form action="" method="post">
                 <table class="table table-bordered">
                     <?php
                     $cart_query_1="select *from `cart_details`";
-                    $result_1=mysqli_query($con,$cart_query_1);
-                    if(mysqli_num_rows($result_1)>0){
+                    $stmt = $conn->prepare($cart_query_1);
+                    $stmt->execute();
+                    if($stmt->rowCount()>0){
                     echo "<thead>
                         <tr class='text-center'>
                             <th>Tên sản phẩm</th>
@@ -257,19 +262,22 @@ if(isset($_GET['remove'])){
                     ?>
                     <tbody>
                         <?php 
-                   global $con;
+                   global $conn;
                    $total_price=0;
                    $get_ip_add = getIPAddress();
                    $total_price_format =0;  
                    $cart_query="select *from `cart_details`";
-                   $result=mysqli_query($con,$cart_query);
-                   while($row=mysqli_fetch_array($result)){
+                    $stmt = $conn->prepare($cart_query);
+                    $stmt->execute();
+                   while($row=$stmt->fetchAll()){
+                    foreach($row as $row){
                      $product_id = $row['product_id'];
                      $product_qty=$row['quantity'];
                     //  echo $product_qty;
-                     $select_products="select *from `products` where product_id='$product_id'";
-                     $result_products=mysqli_query($con,$select_products);
-                     while($row_product_price=mysqli_fetch_array($result_products)){
+                     $select_products="select *from `products` where product_id=?";
+                     $stmt = $conn->prepare($select_products);
+                     $stmt->execute([$product_id]);
+                     while($row_product_price=$stmt->fetch()){
                        $product_price = array($row_product_price['product_price']);
                        $price_table = $row_product_price['product_price'];
                        $product_title = $row_product_price['product_title'];
@@ -310,6 +318,8 @@ if(isset($_GET['remove'])){
                         <?php 
                 }   
           }
+          
+        }
     ?>
                     </tbody>
                 </table>
@@ -317,15 +327,16 @@ if(isset($_GET['remove'])){
                 <?php
         if(isset($_SESSION['username'])){
         $get_ip_add=getIPAddress();         
-        $cart_query="select * from `cart_details` where ip_address='$get_ip_add'";
-        $result=mysqli_query($con,$cart_query);
-        $result_count=mysqli_num_rows($result);
+        $cart_query="select * from `cart_details` where ip_address=?";
+        $stmt = $conn->prepare($cart_query);
+        $stmt ->execute([$get_ip_add]);
+        $result_count=$stmt->rowCount();
         $get_username= $_SESSION['username'];
-        $select_user_id="select * from `user_table` where username='$get_username'";
-        $result_user_id=mysqli_query($con, $select_user_id);
-        $row_user_id = mysqli_fetch_array($result_user_id);
+        $select_user_id="select * from `user_table` where username=?";
+        $stmt = $conn->prepare($select_user_id);
+        $stmt ->execute([$get_username]);
+        $row_user_id = $stmt->fetch();
         $user_id = $row_user_id['user_id'];
-        
         if($result_count>0){
              echo "<div>
              <div class='row'>
@@ -351,9 +362,10 @@ if(isset($_GET['remove'])){
         }
       }else{
         $get_ip_add=getIPAddress();
-        $cart_query="select * from `cart_details` where ip_address='$get_ip_add'";
-        $result=mysqli_query($con,$cart_query);
-        $result_count=mysqli_num_rows($result);
+        $cart_query="select * from `cart_details` where ip_address=?";
+        $stmt = $conn->prepare($cart_query);
+        $stmt ->execute([$get_ip_add]);
+        $result_count=$stmt->rowCount();
         if($result_count>0){
              echo "<div class='d-flex mb-5'><h7 class='px-3'>Tổng tiền: <strong class='text-info'>$total_price_format
                 VND</strong></h7>
@@ -375,7 +387,7 @@ if(isset($_GET['remove'])){
         }
         }
         }else{
-        echo "<div class='alert alert-success' role='alert'>
+        echo "<div class='alert alert-success w-50' role='alert'>
             Không có sản phẩm trong giỏ hàng!
         </div>";
         echo "<button name='continue_shopping' class='mx-2 mb-3 bg-info py-2 px-3 border-0 btn btn-outline'> <a
@@ -387,10 +399,6 @@ if(isset($_GET['remove'])){
         </div>
     </div>
     </form>
-
-    <?php
-  include('./includes/footer.php');
-  ?>
     </div>
     <button class="nut-mo-chatbox btn btn-outline btn-success" onclick="moForm()"><i
             class="fa-solid fa-comments"></i></button>
@@ -407,7 +415,9 @@ if(isset($_GET['remove'])){
                     class="fa-solid fa-circle-chevron-left"></i></button>
         </form>
     </div>
-
+    <?php
+    include('./includes/footer.php');
+     ?>
     <!-- js link bstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
