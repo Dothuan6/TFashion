@@ -14,10 +14,14 @@
     </thead>
     <tbody>
         <?php
+        global $conn;
         $get_products="select * from `products`";
-        $result = mysqli_query($con,$get_products);
+        $stmt = $conn->prepare($get_products);
+        $stmt->execute();
         $number=0;
-        while($row=mysqli_fetch_assoc($result)){
+        
+        while($row = $stmt->fetchAll()){
+            foreach($row as $row){
             $product_id=$row['product_id'];
             $product_title=$row['product_title'];
             $product_image2=$row['product_image2'];
@@ -27,9 +31,10 @@
               $product_status ='Còn hàng';
             }
             $number++;
-            $get_count="select * from `orders_pending` where product_id=$product_id";
-            $result_count=mysqli_query($con,$get_count);
-            $row_count=mysqli_num_rows($result_count);
+            $get_count="select * from `orders_pending` where product_id=?";
+            $stmt = $conn->prepare($get_count);
+            $stmt->execute([$product_id]);
+            $row_count=$stmt->rowCount();
             ?>
         <tr>
             <td class='bg-secondary text-light'><?php echo $number ?></td>
@@ -49,6 +54,8 @@
         </tr>
         <?php 
         }
+    }
+
         ?>
     </tbody>
 </table>
