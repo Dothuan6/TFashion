@@ -80,13 +80,14 @@ include_once('../functions/common_function.php');
 </html>
 <?php
 if(isset($_POST['admin_login'])){
-    global $con;
-    $admin_name = $_POST['admin_name'];
-    $admin_password = $_POST['admin_password'];
-    $select_query="select * from `admin_table` where admin_name='$admin_name'";
-    $result=mysqli_query($con,$select_query);
-    $row_count = mysqli_num_rows($result);
-    $row_data=mysqli_fetch_assoc($result);    //cart items
+    global $conn;
+    $admin_name = htmlspecialchars($_POST['admin_name']);
+    $admin_password = htmlspecialchars($_POST['admin_password']);
+    $select_query="select * from `admin_table` where admin_name=?";
+    $stmt = $conn->prepare($select_query);
+    $stmt->execute([$admin_name]);
+    $row_count = $stmt->rowCount();
+    $row_data=$stmt->fetch(PDO::FETCH_ASSOC);    //cart items
     if($row_count>0){
         $_SESSION['admin_name'] = $admin_name;
         if(password_verify($admin_password,$row_data['admin_password'])){
