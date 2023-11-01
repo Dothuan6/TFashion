@@ -2,9 +2,11 @@
 <table class="table table-bordered mt-5 text-center">
     <thead>
         <?php
+        global $conn;
         $get_orders="select * from `user_orders`";
-        $result_orders=mysqli_query($con,$get_orders);
-        $row_count=mysqli_num_rows($result_orders);
+        $stmt = $conn->prepare($get_orders);
+        $stmt->execute();
+        $row_count = $stmt->rowCount();
         if($row_count>0){
         echo " <tr>
         <th  class='bg-info'>STT</th>
@@ -16,7 +18,7 @@
         <th  class='bg-info'>Xóa</th>
         </tr>   </thead> <tbody>";
         $number=0;
-        while($row_data=mysqli_fetch_assoc($result_orders)){
+        while($row_data=$stmt->fetch(PDO::FETCH_ASSOC)){
             $order_id=$row_data['order_id'];
             $user_id=$row_data['user_id'];
             $amount_due=number_format($row_data['amount_due'],3);
