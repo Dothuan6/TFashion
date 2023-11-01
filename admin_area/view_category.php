@@ -10,10 +10,12 @@
     </thead>
     <tbody>
         <?php
+        global $conn;
         $get_products="select * from `categories`";
-        $result = mysqli_query($con,$get_products);
+        $stmt = $conn->prepare($get_products);
+        $stmt->execute();
         $number=0;
-        while($row=mysqli_fetch_assoc($result)){
+        while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
             $number++;      
             $category_title=$row['category_title'];
             $category_id=$row['category_id'];
