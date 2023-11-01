@@ -1,13 +1,15 @@
 <?php
 // displaying products
+global $conn;
 function getproducts(){
-    global $con;
+    global $conn;
     if(!isset($_GET['category'])){
         if(!isset($_GET['brand'])){
     $select_query = "select * from `products` order by rand() LIMIT 0,3";
-    $result_query = mysqli_query($con,$select_query);
+    $stmt = $conn->prepare($select_query);
+    $stmt->execute();
     // $row = mysqli_fetch_assoc($result_query);
-    while($row = mysqli_fetch_assoc($result_query)){
+    while($row = $stmt->fetch((PDO::FETCH_ASSOC))){
       $product_id = $row['product_id'];
       $product_title = $row['product_title'];
       $product_description = $row['product_description'];
@@ -36,13 +38,14 @@ function getproducts(){
 }
 // get product nón
 function getproducts_non(){
-  global $con;
+  global $conn;
   if(!isset($_GET['category'])){
       if(!isset($_GET['brand'])){
   $select_query = "select * from `products`  where product_keywords like '%non%' order by rand() LIMIT 0,3";
-  $result_query = mysqli_query($con,$select_query);
+  $stmt = $conn->prepare($select_query);
+  $stmt->execute();
   // $row = mysqli_fetch_assoc($result_query);
-  while($row = mysqli_fetch_assoc($result_query)){
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $product_id = $row['product_id'];
     $product_title = $row['product_title'];
     $product_description = $row['product_description'];
@@ -70,13 +73,14 @@ function getproducts_non(){
 }
 // get product tui xach
 function getproducts_tuixach(){
-  global $con;
+  global $conn;
   if(!isset($_GET['category'])){
       if(!isset($_GET['brand'])){
   $select_query = "select * from `products`  where product_keywords like '%tui%' order by rand() LIMIT 0,3";
-  $result_query = mysqli_query($con,$select_query);
+  $stmt = $conn->prepare($select_query);
+  $stmt->execute();
   // $row = mysqli_fetch_assoc($result_query);
-  while($row = mysqli_fetch_assoc($result_query)){
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $product_id = $row['product_id'];
     $product_title = $row['product_title'];
     $product_description = $row['product_description'];
@@ -104,13 +108,14 @@ function getproducts_tuixach(){
 }
 // get product quan ao
 function getproducts_quan(){
-  global $con;
+  global $conn;
   if(!isset($_GET['category'])){
       if(!isset($_GET['brand'])){
   $select_query = "select * from `products`  where product_keywords like '%quan%' order by rand() LIMIT 0,3";
-  $result_query = mysqli_query($con,$select_query);
+  $stmt = $conn->prepare($select_query);
+  $stmt->execute();
   // $row = mysqli_fetch_assoc($result_query);
-  while($row = mysqli_fetch_assoc($result_query)){
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $product_id = $row['product_id'];
     $product_title = $row['product_title'];
     $product_description = $row['product_description'];
@@ -138,13 +143,14 @@ function getproducts_quan(){
 }
 // get product ao
 function getproducts_ao(){
-  global $con;
+  global $conn;
   if(!isset($_GET['category'])){
       if(!isset($_GET['brand'])){
   $select_query = "select * from `products`  where product_keywords like '%ao%' order by rand() LIMIT 0,6";
-  $result_query = mysqli_query($con,$select_query);
+  $stmt = $conn->prepare($select_query);
+  $stmt->execute();
   // $row = mysqli_fetch_assoc($result_query);
-  while($row = mysqli_fetch_assoc($result_query)){
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $product_id = $row['product_id'];
     $product_title = $row['product_title'];
     $product_description = $row['product_description'];
@@ -173,13 +179,14 @@ function getproducts_ao(){
 
 // getproduct mat kinh
 function getproducts_kinh(){
-  global $con;
+  global $conn;
   if(!isset($_GET['category'])){
       if(!isset($_GET['brand'])){
   $select_query = "select * from `products`  where product_keywords like '%Kinh%' order by rand() LIMIT 0,3";
-  $result_query = mysqli_query($con,$select_query);
+  $stmt = $conn->prepare($select_query);
+  $stmt->execute();
   // $row = mysqli_fetch_assoc($result_query);
-  while($row = mysqli_fetch_assoc($result_query)){
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $product_id = $row['product_id'];
     $product_title = $row['product_title'];
     $product_description = $row['product_description'];
@@ -207,17 +214,16 @@ function getproducts_kinh(){
 }
 // getproduct giay
 function getproducts_giay(){
-  global $con;
+  global $conn;
   if(!isset($_GET['category'])){
       if(!isset($_GET['brand'])){
   $select_query = "select * from `products`  where product_keywords like '%giay%' order by rand() LIMIT 0,3";
-  $result_query = mysqli_query($con,$select_query);
-  // $row = mysqli_fetch_assoc($result_query);
-  while($row = mysqli_fetch_assoc($result_query)){
+  $stmt = $conn->prepare($select_query);
+  $stmt->execute();
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $product_id = $row['product_id'];
     $product_title = $row['product_title'];
     $product_description = $row['product_description'];
-    // $product_keywords = $row['product_keywords'];
     $product_image2 = $row['product_image2'];
     $product_price = $row['product_price'];
     $category_id = $row['category_id'];
@@ -241,17 +247,16 @@ function getproducts_giay(){
 }
 // get product_thirth
 function getproducts_thirth(){
-  global $con;
+  global $conn;
   if(!isset($_GET['category'])){
       if(!isset($_GET['brand'])){
   $select_query = "select * from `products` order by rand() LIMIT 0,3";
-  $result_query = mysqli_query($con,$select_query);
-  // $row = mysqli_fetch_assoc($result_query);
-  while($row = mysqli_fetch_assoc($result_query)){
+  $stmt = $conn->prepare($select_query);
+  $stmt->execute();
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $product_id = $row['product_id'];
     $product_title = $row['product_title'];
     $product_description = $row['product_description'];
-    // $product_keywords = $row['product_keywords'];
     $product_image2 = $row['product_image2'];
     $product_price = $row['product_price'];
     $category_id = $row['category_id'];
@@ -280,18 +285,19 @@ function getproducts_thirth(){
 // getting unique categories
 
 function get_unique_categories(){
-    global $con;
+    global $conn;
     if(isset($_GET['category'])){
     $category_id = $_GET['category'];
-    $select_query = "select * from `products` where category_id = $category_id";
-    $result_query = mysqli_query($con,$select_query);
-    $num_of_rows = mysqli_num_rows($result_query);
+    $select_query = "select * from `products` where category_id = ?";
+    $stmt = $conn->prepare($select_query);
+    $stmt->execute([$category_id]);
+    $num_of_rows = $stmt->rowCount();
     if($num_of_rows==0){
       echo "<div class='alert alert-warning' role='alert'>
       Không có nhãn hàng nào được tìm thấy!
     </div>";
     }
-    while($row = mysqli_fetch_assoc($result_query)){
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
       $product_id = $row['product_id'];
       $product_title = $row['product_title'];
       $product_description = $row['product_description'];
@@ -318,10 +324,11 @@ function get_unique_categories(){
 
 // displaying brands in sidenav
 function getbrands(){
-    global $con;
+    global $conn;
     $select_brands = "select * from `brands`";
-        $result_brands = mysqli_query($con,$select_brands);
-        while($row_data = mysqli_fetch_assoc($result_brands)){
+    $stmt = $conn->prepare($select_brands);
+    $stmt->execute();
+        while($row_data = $stmt->fetch(PDO::FETCH_ASSOC)){
           $brand_title = $row_data['brand_title'];
           $brand_id = $row_data['brand_id'];
           echo "<li>
@@ -332,18 +339,19 @@ function getbrands(){
 // getting unique brands
 
 function get_unique_brands(){
-    global $con;
+    global $conn;
     if(isset($_GET['brand'])){
     $brand_id = $_GET['brand'];
-    $select_query = "select * from `products` where brand_id = $brand_id";
-    $result_query = mysqli_query($con,$select_query);
-    $num_of_rows = mysqli_num_rows($result_query);
+    $select_query = "select * from `products` where brand_id = ?";
+    $stmt = $conn->prepare($select_query);
+    $stmt->execute([$brand_id]);
+    $num_of_rows = $stmt->rowCount();
     if($num_of_rows==0){
       echo "<div class='alert alert-warning' role='alert'>
       Không có nhãn hàng nào được tìm thấy!
     </div>";
     }
-    while($row = mysqli_fetch_assoc($result_query)){
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
       $product_id = $row['product_id'];
       $product_title = $row['product_title'];
       $product_description = $row['product_description'];
@@ -372,11 +380,12 @@ function get_unique_brands(){
 
 //displaying categories in sidenav
 function getcategories(){
-    global $con;
+    global $conn;
     $select_categories = "select *from `categories`";
-    $result_categories= mysqli_query($con,$select_categories);       
+    $stmt = $conn->prepare($select_categories);
+    $stmt->execute();
      // $row_data = mysqli_fetch_assoc($result_brands);
-    while($row_data = mysqli_fetch_assoc($result_categories)){
+    while($row_data = $stmt->fetch(PDO::FETCH_ASSOC)){
       $category_title = $row_data['category_title'];
       $category_id = $row_data['category_id'];
       echo "<li class='nav-item'>
@@ -388,17 +397,18 @@ function getcategories(){
 
 //searching product
 function search_products(){
-    global $con;
+    global $conn;
     $search_data_value = $_GET['search_data'];
-    $search_query = "select *from `products` where product_keywords like '%$search_data_value%'";
-    $result_query = mysqli_query($con,$search_query);
-    $row_search = mysqli_num_rows($result_query);
+    $search_query = "select *from `products` where product_keywords  like '%$search_data_value%'";
+    $stmt = $conn->prepare($search_query);
+    $stmt->execute();
+    $row_search = $stmt->rowCount();
     if($row_search == 0){
       echo "<div class='alert alert-warning' role='alert'>
       Không có sản phẩm nào được tìm thấy!
     </div>";
     }
-    while($row = mysqli_fetch_assoc($result_query)){
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
       $product_id = $row['product_id'];
       $product_title = $row['product_title'];
       $product_description = $row['product_description'];
@@ -425,16 +435,17 @@ function search_products(){
 
 // get all products
 function get_allproducts(){
-  global $con;
+  global $conn;
   $pageSize = 8;
     $startRow =0;
     if(isset($_GET['startRow']) == true) $startRow = $_GET['startRow'];
     if(!isset($_GET['category'])){
         if(!isset($_GET['brand'])){
     $select_query = "select * from `products` order by rand() limit $startRow,$pageSize";
-    $result_query = mysqli_query($con,$select_query);
+    $stmt = $conn->prepare($select_query);
+    $stmt->execute();
     // $row = mysqli_fetch_assoc($result_query);
-    while($row = mysqli_fetch_assoc($result_query)){
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
       $product_id = $row['product_id'];
       $product_title = $row['product_title'];
       $product_description = $row['product_description'];
@@ -463,14 +474,15 @@ function get_allproducts(){
 
 //view detail 
 function view_details(){
-  global $con;
+  global $conn;
   if(isset($_GET['product_id'])){
   if(!isset($_GET['category'])){
       if(!isset($_GET['brand'])){
         $product_id = $_GET['product_id'];
-  $select_query = "select * from `products` where product_id = $product_id";
-  $result_query = mysqli_query($con,$select_query);
-  while($row = mysqli_fetch_assoc($result_query)){
+  $select_query = "select * from `products` where product_id =?";
+  $stmt = $conn->prepare($select_query);
+  $stmt->execute([$product_id]);
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $product_id = $row['product_id'];
     $product_title = $row['product_title'];
     $product_description = $row['product_description'];
@@ -540,50 +552,6 @@ function view_details(){
 }
 }
 }
-
-// product - tybe
-
-function product_same_type(){
-  global $con;
-  if(isset($_GET['product_id'])){
-  $product_id = $_GET['product_id'];
-  $select_query = "select * from `products` limit 0,5";
-  $result_query = mysqli_query($con,$select_query);
-  // $num_of_rows = mysqli_num_rows($result_query);
-  while($row = mysqli_fetch_assoc($result_query)){
-    $product_id = $row['product_id'];
-    $product_title = $row['product_title'];
-    $product_description = $row['product_description'];
-    $product_image2 = $row['product_image2'];
-    $product_price = $row['product_price'];
-    $product_keywords= $row['product_keywords'];
-    $get_product_key = "select * from `products` where product_keywords = '$product_keywords'";
-    $result_query_key = mysqli_query($con,$get_product_key);
-    $num_product_key = mysqli_num_rows($result_query_key);
-    if($num_product_key>0){
-      echo "<div class='col-md-3 mb-2'>
-      <div class='card   shadow rounded'>
-                <a href='product_details.php?product_id= $product_id' class='btn btn-light'>
-                <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='...'>
-                </a>
-                <div class='card-body'> 
-                 <h5 class='card-title'>$product_title</h5>
-                  <p class='card-text'> $product_description</p>
-                  <p class='card-text text-danger'>Giá: {$product_price} VND</p>
-                  <a href='homepage.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
-                  
-                </div>
-      </div>
-  </div>";
-    }else{
-      echo "Chưa có sản phẩm khác";
-    }
-    // $category_id = $row['category_id'];
-    // $brand_id = $row['brand_id'];
-
-  }   
-}
-}
 // get ip function 
 function getIPAddress() {  
   //whether ip is from the share internet  
@@ -606,20 +574,22 @@ function getIPAddress() {
 // CART Function
 function add_cart(){
   if(isset($_GET['add_to_cart'])){
-    global $con;
+    global $conn;
     $get_ip_add = getIPAddress();
     $get_product_id=$_GET['add_to_cart'];
-    $select_query = "select *from `cart_details` where ip_address = '$get_ip_add' and product_id=$get_product_id";
-    $result_query = mysqli_query($con,$select_query);
-    $num_of_rows= mysqli_num_rows($result_query);
+    $select_query = "select *from `cart_details` where ip_address = ? and product_id=?";
+    $stmt = $conn->prepare($select_query);
+    $stmt->execute([$get_ip_add, $get_product_id]);
+    $num_of_rows= $stmt->rowCount();
     if($num_of_rows>0){
       echo "<script>alert('Sản phẩm đã có trong giỏ hàng!!')</script>";
       echo "<script>window.open('homepage.php','_self')</script>";
 
     }else{
       $insert_query = "insert into `cart_details` (product_id,ip_address,quantity) values(
-        $get_product_id,'$get_ip_add',1)";
-        $result_query = mysqli_query($con,$insert_query);
+        ?,?,1)";
+        $stmt = $conn->prepare($insert_query);
+        $stmt->execute([$get_product_id,$get_ip_add]);
       echo "<script>alert('Đã thêm thành công vào giỏ hàng!')</script>";
       echo "<script>window.open('homepage.php','_self')</script>";
 
@@ -630,34 +600,38 @@ function add_cart(){
 //cart item numbers
 function cart_item(){
   if(isset($_GET['add_to_cart'])){
-    global $con;
+    global $conn;
     $get_ip_add = getIPAddress();
-    $select_query = "select *from `cart_details` where ip_address = '$get_ip_add'";
-    $result_query = mysqli_query($con,$select_query);
-    $count_cart_items= mysqli_num_rows($result_query);
+    $select_query = "select *from `cart_details` where ip_address = ?";
+    $stmt = $conn->prepare($select_query);
+    $stmt->execute([$get_ip_add]);
+    $count_cart_items= $stmt->rowCount();
   }else{
-    global $con;
+    global $conn;
     $get_ip_add = getIPAddress();
-    $select_query = "select *from `cart_details` where ip_address = '$get_ip_add'";
-    $result_query = mysqli_query($con,$select_query);
-    $count_cart_items= mysqli_num_rows($result_query);
+    $select_query = "select *from `cart_details` where ip_address = ?";
+    $stmt = $conn->prepare($select_query);
+    $stmt->execute([$get_ip_add]);
+    $count_cart_items= $stmt->rowCount();
     }
     echo $count_cart_items;
   }
   
   // total price
   function total_price(){
-    global $con;
+    global $conn;
     $total_price=0;
     $get_ip_add = getIPAddress();
     $cart_query="select *from `cart_details` where ip_address=
-    '$get_ip_add'";
-    $result=mysqli_query($con,$cart_query);
-    while($row=mysqli_fetch_array($result)){
+    ?";
+    $stmt = $conn->prepare($cart_query);
+    $stmt->execute([$get_ip_add]);
+    while($row=$stmt->fetch()){
       $product_id = $row['product_id'];
-      $select_products="select *from `products` where product_id='$product_id'";
-      $result_products=mysqli_query($con,$select_products);
-      while($row_product_price=mysqli_fetch_array($result_products)){
+      $select_products="select *from `products` where product_id=?";
+      $stmt = $conn->prepare($select_products);
+      $stmt->execute([$product_id]);
+      while($row_product_price=$stmt->fetch()){
         $product_price = array($row_product_price['product_price']);
         $product_values = array_sum($product_price);
         $total_price+=$product_values;
@@ -674,17 +648,18 @@ function cart_item(){
 
     // displaying the cart 
     function show_cart(){
-      global $con;
+      global $conn;
       $total_price=0;
       $get_ip_add = getIPAddress();
-      $cart_query="select *from `cart_details` where ip_address=
-      '$get_ip_add'";
-      $result=mysqli_query($con,$cart_query);
-      while($row=mysqli_fetch_array($result)){
+      $cart_query="select *from `cart_details` where ip_address=?";
+      $stmt = $conn->prepare($cart_query);
+      $stmt->execute([$get_ip_add]);
+      while($row=$stmt->fetch()){
         $product_id = $row['product_id'];
-        $select_products="select *from `products` where product_id='$product_id'";
-        $result_products=mysqli_query($con,$select_products);
-        while($row_product_price=mysqli_fetch_array($result_products)){
+        $select_products="select *from `products` where product_id=?";
+        $stmt = $conn->prepare($select_products);
+        $stmt->execute([$product_id]);
+        while($row_product_price=$stmt->fetch()){
           $product_price = array($row_product_price['product_price']);
           $price_table = $row_product_price['product_price'];
           $product_title = $row_product_price['product_title'];
@@ -713,18 +688,20 @@ function cart_item(){
       
       // subtotal
       function subtotal(){
-        global $con;
+        global $conn;
         $total_price=0;
         $get_ip_add = getIPAddress();
         $cart_query="select *from `cart_details`";
-        $result=mysqli_query($con,$cart_query);
-        while($row=mysqli_fetch_array($result)){
+        $stmt = $conn->prepare($cart_query);
+        $stmt->execute();
+        while($row=$stmt->fetch()){
           $product_id = $row['product_id'];
           $product_qty=$row['quantity'];
          //  echo $product_qty;
-          $select_products="select *from `products` where product_id='$product_id'";
-          $result_products=mysqli_query($con,$select_products);
-          while($row_product_price=mysqli_fetch_array($result_products)){
+          $select_products="select *from `products` where product_id=?";
+          $stmt = $conn->prepare($select_products);
+          $stmt->execute([$product_id]);
+          while($row_product_price=$stmt->fetch()){
             $product_price = array($row_product_price['product_price']);
             $price_table = $row_product_price['product_price'];
             $product_title = $row_product_price['product_title'];
@@ -743,36 +720,42 @@ function cart_item(){
       // remove the cart
 
       function remove_cart_item(){
-        global $con;
+        global $conn;
         if(isset($_GET['remove'])){
           $remove_id = $_GET['remove'];
-          mysqli_query($con,"delete from `cart_details` where product_id = '$remove_id'");
+          $sql = "delete from `cart_details` where product_id = ?";
+          $stmt = $conn->prepare($sql);
+          $stmt->execute([$remove_id]);
+          
     }
   }
     // get user order details
     function get_user_oder_details(){
-      global $con;
+      global $conn;
+      $status = 'Chờ xác nhận';
       $username = $_SESSION['username'];
-      $get_details = "select * from `user_table` where username='$username'";
-      $result_query = mysqli_query($con,$get_details);
-      while($row_query=mysqli_fetch_array($result_query)){
+      $get_details = "select * from `user_table` where username=?";
+      $stmt = $conn->prepare($get_details);
+      $stmt->execute([$username]);
+      while($row_query=$stmt->fetch()){
         $user_id = $row_query['user_id'];
-        if(!isset($_GET['edit_account'])){
-          if(!isset($_GET['my_orders'])){
-            if(!isset($_GET['delete_account'])){
-              $get_orders="select * from `user_orders` 
-              where user_id = '$user_id' and order_status='Chờ xác nhận'";
-              $result_order_query=mysqli_query($con,$get_orders);
-              $row_count=mysqli_num_rows($result_order_query);
-              if($row_count>0){
-                echo "<h3 class='text-center text-success mt-5 mb-2'>Bạn có <span class='text-danger'>$row_count</span>
-                 đơn hàng đang xử lý</h3>
-                <p  class='text-center'><a class='text-dark text-decorate-none' href='user_profile.php?my_orders'>Chi tiết đơn hàng</a></p>";
-              }else{
-                echo "<h3 class='text-center text-success mt-5 mb-2'>Không có đơn hàng nào đang xử lý</h3>
-               <p  class='text-center'><a class='text-dark text-decorate-none' 
-               href='user_profile.php?my_orders'>Order Details</a></p>";
-              }
+      }
+      if(!isset($_GET['edit_account']) ){
+        if(!isset($_GET['delete_account'])){
+          if(!isset($_GET['delete_account'])){
+            $get_orders="select * from `user_orders` 
+            where user_id = ? and order_status= ? ";
+            $stmt = $conn->prepare($get_orders);
+            $stmt->execute([$user_id,$status]); 
+            $row_count=$stmt->rowCount();
+            if($row_count > 0){
+              echo "<h3 class='text-center text-success mt-5 mb-2'>Bạn có <span class='text-danger'>$row_count</span>
+               đơn hàng đang xử lý</h3>
+              <p  class='text-center'><a class='text-dark text-decorate-none' href='user_profile.php?my_orders'>Chi tiết đơn hàng</a></p>";
+            }else{
+              echo "<h3 class='text-center text-success mt-5 mb-2'>Không có đơn hàng nào đang xử lý</h3>
+             <p  class='text-center'><a class='text-dark text-decorate-none' 
+             href='user_profile.php?my_orders'>Order Details</a></p>";
             }
           }
         }
