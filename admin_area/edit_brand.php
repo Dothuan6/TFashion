@@ -1,9 +1,11 @@
 <?php
+global $conn;
 if(isset($_GET['edit_brand'])){
     $brand_id=$_GET['edit_brand'];
-    $select_brand="select * from `brands` where brand_id='$brand_id'";
-    $result_brand = mysqli_query($con,$select_brand);
-    $row_brand=mysqli_fetch_assoc($result_brand);
+    $select_brand="select * from `brands` where brand_id=?";
+    $stmt = $conn->prepare($select_brand);
+    $stmt ->execute([$brand_id]);
+    $row_brand =$stmt->fetch(PDO::FETCH_ASSOC);
     $brand_title=$row_brand['brand_title'];
 } 
 ?>
@@ -23,11 +25,12 @@ if(isset($_GET['edit_brand'])){
 </div>
 <?php
 if(isset($_POST['edit_brand'])){
-    $get_brand_tt=$_POST['brand_title'];
+    $get_brand_tt=htmlspecialchars($_POST['brand_title']);
     $get_brand_id=$_GET['edit_brand'];
     $update_brand="update `brands` set 
-    brand_title='$get_brand_tt' where brand_id = '$get_brand_id'";
-    $result_brand_tt=mysqli_query($con,$update_brand);
+    brand_title=? where brand_id = ?";
+    $stmt = $conn->prepare($update_brand);
+    $result_brand_tt = $stmt ->execute([$get_brand_tt,$get_brand_id]);
     if($result_brand_tt){
         echo "<script>alert('Cập nhật thành công!')</script>";
         echo "<script>window.open('./index.php?insert_brands','_self')</script>";
