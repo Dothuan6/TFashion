@@ -48,10 +48,12 @@
 
 <body>
     <?php
+    global $conn;
     $username = $_SESSION['username'];
-    $get_user="select * from `user_table` where username='$username'";
-    $result=mysqli_query($con,$get_user);
-    $row_fetch=mysqli_fetch_assoc($result);
+    $get_user="select * from `user_table` where username=?";
+    $stmt = $conn->prepare($get_user);
+    $stmt->execute([$username]);
+    $row_fetch=$stmt->fetch(PDO::FETCH_ASSOC);
     $user_id = $row_fetch['user_id'];
     ?>
     <h3 class="text-dark mt-3">Các đơn hàng của tôi</h3>
@@ -71,10 +73,12 @@
         </thead>
         <tbody>
             <?php
+            global $conn;
             $number=0;
-            $get_order_details = "select * from `user_orders` where user_id=$user_id";
-            $result_orders=mysqli_query($con,$get_order_details);
-            while($row_orders= mysqli_fetch_assoc($result_orders)){
+            $get_order_details = "select * from `user_orders` where user_id=?";
+            $stmt = $conn->prepare($get_order_details);
+            $stmt -> execute([$user_id]);
+            while($row_orders= $stmt->fetch(PDO::FETCH_ASSOC)){
                 
                 $order_id = $row_orders['order_id'];
                 $amount_due=number_format($row_orders['amount_due'],3);

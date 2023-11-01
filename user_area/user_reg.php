@@ -151,25 +151,26 @@
 <?php
 
     if(isset($_POST['Register'])){
-        global $con;
-        $user_username = $_POST['user_username'];
-        $email = $_POST['user_email'];
-        $user_password = $_POST['user_password'];
+        global $conn;
+        $user_username = htmlspecialchars($_POST['user_username']);
+        $email = htmlspecialchars($_POST['user_email']);
+        $user_password = htmlspecialchars($_POST['user_password']);
         $hash_password = password_hash($user_password,PASSWORD_DEFAULT);
-        $conf_user_password= $_POST['conf_user_password'];
-        $user_address = $_POST['user_address'];
-        $user_contact = $_POST['user_contact'];
+        $conf_user_password= htmlspecialchars($_POST['conf_user_password']);
+        $user_address = htmlspecialchars($_POST['user_address']);
+        $user_contact = htmlspecialchars($_POST['user_contact']);
         $user_ip=getIPAddress();
         
         //accessing images
-        $user_image = $_FILES['user_images']['name'];
+        $user_image = htmlspecialchars($_FILES['user_images']['name']);
     
         //accessing image tmp name
         $temp_image = $_FILES['user_images']['tmp_name'];
     //select_query
-    $select_query = "select * from `user_table` where username='$user_username' or user_email='$email' ";
-    $result = mysqli_query($con,$select_query);
-    $row_count = mysqli_num_rows($result);
+    $select_query = "select * from `user_table` where username=? or user_email=? ";
+    $stmt = $conn->prepare($select_query);
+    $stmt -> execute([$user_username,$email]);
+    $row_count = $stmt->rowCount();
     if($row_count>0){
         echo "<script>alert('Tên hoặc email đã tồn tại')</script>";
     }else{
@@ -189,22 +190,24 @@
             $insert_user = "insert into `user_table` (username,
             user_email,user_password,
             user_image,user_ip,
-            user_address,user_mobile) values ('$user_username','$email',
-            '$hash_password',
-            '$user_image',
-            '$user_ip',
-            '$user_address',
-            '$user_contact')";
-             $result_query = mysqli_query($con,$insert_user);
+            user_address,user_mobile) values (?,?,?,?,?,?,?)";
+            $stmt = $conn->prepare($insert_user);
+            $result_query = $stmt -> execute([$user_username,$email,
+            $hash_password,
+            $user_image,
+            $user_ip,
+            $user_address,
+            $user_contact]);
             if($result_query){
                 echo "<script>alert('Bạn đã đăng ký thành viên thành công!')</script>";
                 echo "<script>window.open('user_log.php','_self')</script>";
             }
         }
         // Selecting cart items
-        $select_cart_items="Select * from `cart_details` where ip_address='$user_ip'";
-        $result_cart = mysqli_query($con,$select_cart_items);
-        $rows_count = mysqli_num_rows($result_cart);
+        $select_cart_items="Select * from `cart_details` where ip_address=?";
+        $stmt = $conn->prepare($select_cart_items);
+        $stmt->execute([$user_ip]);
+        $rows_count = $stmt->rowCount();
         if($row_count>0){
             $_SESSION['username'] = $user_username;
             echo "<script>alert('Bạn có một vài hàng hóa trong giỏ hàng')</script>";
@@ -215,83 +218,3 @@
 }
     }
     ?>
-<!-- validate form -->
-<script>
-const usernameEle = document.getElementsByName('user_username');
-const emailEle = document.getElementsByName('user_email');
-const passEle = document.getElementsByName('user_password');
-const confpEle = document.getElementsByName('conf_user_password');
-const contactEle = document.getElementsByName('user_contact');
-
-const btnRegister = document.getElementById('Register');
-const inputEles = document.querySelectorAll('.reg_form');
-
-btnRegister.addEventListener('click', function() {
-    Array.from(inputEles).map((ele) =>
-        ele.classList.remove('success', 'error')
-    );
-    let isValid = checkValidate();
-
-    if (isValid) {
-        alert('Gửi đăng ký thành công');
-    }
-});
-
-function checkValidate() {
-    let usernameValue = usernameEle.value;
-    let emailValue = emailEle.value;
-    let phoneValue = phoneEle.value;
-
-    let isCheck = true;
-
-    if (usernameValue == '') {
-        setError(usernameEle, 'Tên không được để trống');
-        isCheck = false;
-    } else {
-        setSuccess(usernameEle);
-    }
-
-    if (emailValue == '') {
-        setError(emailEle, 'Email không được để trống');
-        isCheck = false;
-    } else if (!isEmail(emailValue)) {
-        setError(emailEle, 'Email không đúng định dạng');
-        isCheck = false;
-    } else {
-        setSuccess(emailEle);
-    }
-
-    if (phoneValue == '') {
-        setError(phoneEle, 'Số điện thoại không được để trống');
-        isCheck = false;
-    } else if (!isPhone(phoneValue)) {
-        setError(phoneEle, 'Số điện thoại không đúng định dạng');
-        isCheck = false;
-    } else {
-        setSuccess(phoneEle);
-    }
-
-    return isCheck;
-}
-
-function setSuccess(ele) {
-    ele.parentNode.classList.add('success');
-}
-
-function setError(ele, message) {
-    let parentEle = ele.parentNode;
-    parentEle.classList.add('error');
-    parentEle.querySelector('small').innerText = message;
-}
-
-function isEmail(email) {
-    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        .test(
-            email
-        );
-}
-
-function isPhone(number) {
-    return /(84|0[3|5|7|8|9])+([0-9]{8})\b/.test(number);
-}
-</script>

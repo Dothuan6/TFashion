@@ -158,10 +158,12 @@
                 </li>
 
                 <?php
+                global $conn;
       $username=$_SESSION['username'];
-      $user_image="select * from `user_table` where username ='$username'";
-      $user_image=mysqli_query($con,$user_image);
-      $row_image=mysqli_fetch_array($user_image);
+      $user_image="select * from `user_table` where username =?";
+      $stmt = $conn->prepare($user_image);
+      $stmt->execute([$username]);
+      $row_image=$stmt->fetch();
       $user_image=$row_image['user_image'];
       echo "<li class='nav-item'>
           <img src='./user_images/$user_image' class='profile_img my-2'>

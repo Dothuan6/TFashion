@@ -3,25 +3,29 @@
   include_once('../functions/common_function.php');
   @session_start();
   if(isset($_GET['order_id'])){
+    global $conn;
     $order_id= $_GET['order_id'];
-    $select_data="select * from `user_orders` where order_id=$order_id";
-    $result=mysqli_query($con,$select_data);
-    $row_fetch=mysqli_fetch_assoc($result);
+    $select_data="select * from `user_orders` where order_id=?";
+    $stmt = $conn->prepare($select_data);
+    $result=$stmt->execute([$order_id]);
+    $row_fetch= $stmt->fetch(PDO::FETCH_ASSOC);
     $invoice_number=$row_fetch['invoice_number'];
     $amount_due=$row_fetch['amount_due'];
   }
   if(isset($_POST['confirm_payments'])){
-    $invoice_number=$_POST['invoice_number'];
-    $amount=$_POST['amount'];
-    $payment_mode=$_POST['payment_mode'];
-    $insert_query="insert into `user_payments` (order_id,invoice_number,amount,payment_mode,date) values ($order_id,$invoice_number,$amount,'$payment_mode',NOW())";
-    $result=mysqli_query($con,$insert_query);
+    $invoice_number=htmlspecialchars($_POST['invoice_number']);
+    $amount=htmlspecialchars($_POST['amount']);
+    $payment_mode=htmlspecialchars($_POST['payment_mode']);
+    $insert_query="insert into `user_payments` (order_id,invoice_number,amount,payment_mode,date) values (?,?,?,?,now())";
+    $stmt = $conn->prepare($insert_query);
+    $result = $stmt->execute([$order_id,$invoice_number,$amount,$payment_mode]);
     if($result){
         echo "<script>alert('Xác nhận đơn thanh toán thành công!')</script>";
         echo "<script>window.open('user_profile.php?my_orders','_self')</script>";
     }
-    $update_orders="update `user_orders` set order_status='Hoàn thành' where order_id = $order_id";
-    $result_query=mysqli_query($con,$update_orders);
+    $update_orders="update `user_orders` set order_status='Hoàn thành' where order_id =?";
+    $stmt = $conn->prepare($update_orders);
+    $result_query=$stmt->execute([$order_id]);
   }
 ?>
 <!DOCTYPE html>

@@ -63,20 +63,22 @@ include_once('../functions/common_function.php');
 </html>
 <?php
 if(isset($_POST['user_login'])){
-    global $con;
-    $user_username = $_POST['user_username'];
-    $user_usermail = $_POST['user_username'];
-    $user_password = $_POST['user_password'];
-    $select_query="select * from `user_table` where username='$user_username'";
-    $result=mysqli_query($con,$select_query);
-    $row_count = mysqli_num_rows($result);
-    $row_data=mysqli_fetch_assoc($result);
+    global $conn;
+    $user_username = htmlspecialchars($_POST['user_username']);
+    $user_usermail = htmlspecialchars($_POST['user_username']);
+    $user_password = htmlspecialchars($_POST['user_password']);
+    $select_query="select * from `user_table` where username=?";
+    $stmt = $conn->prepare($select_query);
+    $stmt->execute([$user_username]);
+    $row_count = $stmt->rowCount();
+    $row_data=$stmt->fetch(PDO::FETCH_ASSOC);
     $user_ip = getIPAddress();
 
     //cart items
-    $select_query_cart="select * from `cart_details` where ip_address ='$user_ip'";
-    $select_cart = mysqli_query($con,$select_query_cart);
-    $row_count_cart = mysqli_num_rows($select_cart);
+    $select_query_cart="select * from `cart_details` where ip_address =?";
+    $stmt = $conn->prepare($select_query_cart);
+    $stmt->execute([$user_ip]);
+    $row_count_cart = $stmt->rowCount();
     if($row_count>0){
         $_SESSION['username'] = $user_username;
         if(password_verify($user_password,$row_data['user_password'])){
