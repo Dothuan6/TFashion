@@ -1,13 +1,3 @@
-<?php
-$name = "root";
-$pass = "123456789";
-try{
-$pdo = new PDO("mysql:host=localhost;database=fashionstore",$name,$pass);
-$pdo -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-}catch(PDOException $e){
- die("ERROR: Could not connect. ". $e -> getMessage());
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,34 +15,40 @@ $pdo -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 <body>
     <?php
+    global $conn;
     try{
         $sql = "SELECT product_id,COUNT(product_id) AS size_status FROM fashionstore.orders_pending GROUP BY product_id";
-        $result = $pdo->query($sql);
+        $result = $conn->prepare($sql);
+        $result->execute();
         if($result->rowCount() >0){
             $revenue = array();
             $size_status = array();
             $labels = array();
-            while($row = $result->fetch()){
+            while($row = $result->fetchAll()){
+                foreach($row as $row){
                 $revenue[] = $row["product_id"];
                 $pro_id = $row['product_id'];
-                $result_title = "select product_title from `products` where product_id = '$pro_id'";
-                $query = mysqli_query($con,$result_title);
-                while($row_title=mysqli_fetch_assoc($query)){
+                $result_title = "select product_title from `products` where product_id = ?";
+                $result = $conn->prepare($result_title);
+                $result->execute([$pro_id]);
+                while($row_title=$result->fetchAll()){
+                    foreach($row_title as $row_title){
                     $labels[] = $row_title['product_title'];
                     $size_status[] = $row['size_status'];
-                    // echo print_r($size_status);
-                    // echo $labels;
                 }         
             }
+        }
+    }
             unset($result);
 
         }else{
             echo "No ";
-        }}
+        }
+    }
         catch(PDOException $e){
             die("ERROR: count not able to $sql" . $e->getMessage());
         }
-        unset($pdo);    
+        unset($conn);    
     ?>
     <div class="chartBox">
         <canvas id="myChart"></canvas>
