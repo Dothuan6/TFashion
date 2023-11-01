@@ -33,9 +33,11 @@
                     <select name="product_category" id="" class="form-select">
                         <option value="">Chọn danh mục</option>
                         <?php
+                        global $conn;
                         $select_query = " select *from `categories`";
-                        $result_query = mysqli_query($con,$select_query);
-                        while($row = mysqli_fetch_assoc($result_query)){
+                        $stmt = $conn->prepare($select_query);
+                        $stmt->execute();
+                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                             $category_title = $row['category_title'];
                             $category_id = $row['category_id'];
                             echo "<option value='$category_id'>$category_title</option>";
@@ -49,9 +51,11 @@
                 <select name="product_brand" id="" class="form-select">
                     <option value="">Chọn nhãn hàng</option>
                     <?php
+                    global $conn;
                         $select_query = " select *from `brands`";
-                        $result_query = mysqli_query($con,$select_query);
-                        while($row = mysqli_fetch_assoc($result_query)){
+                        $stmt = $conn->prepare($select_query);
+                        $stmt->execute();
+                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                             $brand_title = $row['brand_title'];
                             $brand_id = $row['brand_id'];
                             echo "<option value='$brand_id'>$brand_title</option>";
@@ -100,19 +104,20 @@
     </div>
 </div>
 <?php
+global $conn;
     if(isset($_POST['insert_product'])){
-        $product_title = $_POST['product_title'];
-        $description = $_POST['description'];
-        $product_keywords = $_POST['product_keywords'];
-        $product_category= $_POST['product_category'];
-        $product_brand = $_POST['product_brand'];
-        $product_price = number_format($_POST['product_price']);
+        $product_title = htmlspecialchars($_POST['product_title']);
+        $description = htmlspecialchars($_POST['description']);
+        $product_keywords = htmlspecialchars($_POST['product_keywords']);
+        $product_category= htmlspecialchars($_POST['product_category']);
+        $product_brand = htmlspecialchars($_POST['product_brand']);
+        $product_price = htmlspecialchars(number_format($_POST['product_price']));
         $product_status = 'true';
         
         //accessing images
-        $product_image1 = $_FILES['product_image1']['name'];
-        $product_image2 = $_FILES['product_image2']['name'];
-        $product_image3 = $_FILES['product_image3']['name'];
+        $product_image1 = htmlspecialchars($_FILES['product_image1']['name']);
+        $product_image2 = htmlspecialchars($_FILES['product_image2']['name']);
+        $product_image3 = htmlspecialchars($_FILES['product_image3']['name']);
     
         //accessing image tmp name
         $temp_image1 = $_FILES['product_image1']['tmp_name'];
@@ -120,9 +125,10 @@
         $temp_image3 = $_FILES['product_image3']['tmp_name'];
     
       // check product exist
-      $select_products = "select * from `products` where product_title = '$product_title'";
-      $result_products=mysqli_query($con,$select_products);
-      $row_products=mysqli_num_rows($result_products);  
+      $select_products = "select * from `products` where product_title = ?";
+      $stmt = $conn->prepare($select_products);
+      $stmt -> execute([$product_title]);
+      $row_products=$stmt->rowCount();
       if($row_products==0){
         //checking empty
         if(empty($product_title) or empty($description) or empty($product_keywords) or 
@@ -140,15 +146,9 @@
             product_keywords,category_id,
             brand_id,product_image1,
             product_image2,product_image3,
-            product_price,date,status) values ('$product_title','$description',
-            '$product_keywords',
-            '$product_category',
-            '$product_brand',
-            '$product_image1',
-            '$product_image2',
-            '$product_image3',
-            '$product_price',NOW(),'$product_status')";
-             $result_query = mysqli_query($con,$insert_products);
+            product_price,date,status) values (?,?,?,?,?,?,?,?,?,NOW(),?)";
+            $stmt = $conn->prepare($insert_products);
+            $result_query = $stmt -> execute([$product_title,$description,$product_keywords,$product_category,$product_brand,$product_image1,$product_image2,$product_image3,$product_price,$product_status]);
             if($result_query){  
                 echo "<script>alert('Thêm sản phẩm thành công!')</script>";
                 echo "<script>window.open('./index.php?view_products','self')</script>";
