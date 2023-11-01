@@ -1,9 +1,11 @@
 <?php
+global $conn;
 if(isset($_GET['edit_category'])){
     $category_id=$_GET['edit_category'];
-    $select_category="select * from `categories` where category_id='$category_id'";
-    $result_category = mysqli_query($con,$select_category);
-    $row_category=mysqli_fetch_assoc($result_category);
+    $select_category="select * from `categories` where category_id=?"; 
+    $stmt = $conn->prepare($select_category);
+    $stmt ->execute([$category_id]);
+    $row_category=$stmt->fetch(PDO::FETCH_ASSOC);
     $category_title=$row_category['category_title'];
 }
 ?>
@@ -23,11 +25,12 @@ if(isset($_GET['edit_category'])){
 </div>
 <?php
 if(isset($_POST['edit_category'])){
-    $get_category_tt=$_POST['category_title'];
+    $get_category_tt=htmlspecialchars($_POST['category_title']);
     $get_category_id=$_GET['edit_category'];
     $update_category="update `categories` set 
-    category_title='$get_category_tt' where category_id = '$get_category_id'";
-    $result_category_tt=mysqli_query($con,$update_category);
+    category_title=? where category_id = ?";
+    $stmt = $conn->prepare($update_category);
+    $result_category_tt = $stmt ->execute([$get_category_tt, $get_category_id]);
     if($result_category_tt){
         echo "<script>alert('Cập nhật thành công!')</script>";
         echo "<script>window.open('./index.php?insert_categories','_self')</script>";
