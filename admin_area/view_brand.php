@@ -10,10 +10,12 @@
     </thead>
     <tbody>
         <?php
+        global $conn;
         $get_products="select * from `brands`";
-        $result = mysqli_query($con,$get_products);
+        $stmt = $conn->prepare($get_products);
+        $stmt->execute();
         $number=0;
-        while($row=mysqli_fetch_assoc($result)){
+        while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
             $number++;      
             $brand_title=$row['brand_title'];
             $brand_id=$row['brand_id'];
@@ -22,7 +24,7 @@
             <td class='bg-secondary text-light'><?php echo $number ?></td>
             <td class='bg-secondary text-light'><?php echo $brand_title ?></td>
             <td class='bg-secondary text-light text-center'><a class='text-light'
-                    href='index.php?edit_brand=$brand_id'><i class='fa-solid
+                    href='index.php?edit_brand=<?php echo $brand_id ?>'><i class='fa-solid
             fa-pen-to-square'></i></a></td>
             <td class='bg-secondary text-light'><a href='index.php?delete_brand=<?php echo $brand_id ?>' type='button'
                     class='btn text-light' onclick='return confirm("Bạn chắn chắn muốn xóa sản phẩm này?")'>
