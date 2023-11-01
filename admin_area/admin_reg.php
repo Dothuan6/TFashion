@@ -100,15 +100,16 @@
 <?php
 
     if(isset($_POST['Register'])){
-        global $con;
-        $user_username = $_POST['user_username'];
-        $email = $_POST['user_email'];
-        $user_password = $_POST['user_password'];
+        global $conn;
+        $user_username = htmlspecialchars($_POST['user_username']);
+        $email = htmlspecialchars($_POST['user_email']);
+        $user_password = htmlspecialchars($_POST['user_password']);
         $hash_password = password_hash($user_password,PASSWORD_DEFAULT);
-        $conf_user_password= $_POST['conf_user_password'];
-    $select_query = "select * from `admin_table` where admin_name='$user_username' or admin_email='$email' ";
-    $result = mysqli_query($con,$select_query);
-    $row_count = mysqli_num_rows($result);
+        $conf_user_password= htmlspecialchars($_POST['conf_user_password']);
+    $select_query = "select * from `admin_table` where admin_name=? or admin_email=? ";
+    $stmt = $conn->prepare($select_query);
+    $stmt->execute([$user_username,$email]);
+    $row_count =$stmt->rowCount();
     if($row_count>0){
         echo "<script>alert('Tên hoặc email đã tồn tại')</script>";
     }else{
@@ -124,9 +125,9 @@
           
          //insert query
             $insert_user = "insert into `admin_table` (admin_name,
-            admin_email,admin_password) values ('$user_username','$email',
-            '$hash_password')";
-             $result_query = mysqli_query($con,$insert_user);
+            admin_email,admin_password) values (?,?,?)";
+            $stmt = $conn->prepare($insert_user);
+            $result_query = $stmt->execute([$user_username,$email,$hash_password]);
             if($result_query){
                 echo "<script>alert('Bạn đã đăng ký quản lý thành công!')</script>";
                 echo "<script>window.open('admin_log.php','_self')</script>";
