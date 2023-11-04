@@ -180,6 +180,9 @@
                     <a href='user_profile.php?my_orders' class="nav-link text-light ">Đơn mua</a>
                 </li>
                 <li class="nav-item">
+                    <a href='user_profile.php?changepass' class="nav-link text-light ">Đổi mật khẩu</a>
+                </li>
+                <li class="nav-item">
                     <a href='user_profile.php?delete_account' class="nav-link text-light ">Xóa tài khoản</a>
                 </li>
                 <li class="nav-item">
@@ -197,7 +200,9 @@
       include('user_orders.php');
     }if(isset($_GET['delete_account'])){
       include('delete_account.php');
-    }
+    }if(isset($_GET['changepass'])){
+        include('changepass.php');
+      }
     ?>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

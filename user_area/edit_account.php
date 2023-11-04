@@ -74,7 +74,7 @@ if(isset($_GET['edit_account'])){
                 class="form-control w-50 m-auto">
         </div>
         <div class="form-outliine mb-4">
-            <input name="user_update" type="submit" value="Update" class="bg-info py-2 px-3 border-0">
+            <input name="user_update" type="submit" value="Cập nhật" class="bg-info py-2 px-3 border-0">
         </div>
     </form>
 </body>

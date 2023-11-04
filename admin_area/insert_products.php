@@ -134,7 +134,7 @@ global $conn;
         if(empty($product_title) or empty($description) or empty($product_keywords) or 
         empty($product_category) or empty($product_brand) or empty($product_price) or
         empty($product_image1)  or empty($product_image2) or empty($product_image3)){
-            echo "<script>alert('Please fill all the available fields')</script>";
+            echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
             exit();
         }else{
             move_uploaded_file($temp_image1,"./product_images/$product_image1");

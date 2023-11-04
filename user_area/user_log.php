@@ -48,7 +48,7 @@ include_once('../functions/common_function.php');
                         <label for="user_password" class="form-label">Mật khẩu</label>
 
                     </div>
-                    <a class="" href="#">Quên mật khẩu</a><br>
+                    <a class="" href="forgot_pass.php">Quên mật khẩu</a><br>
                     <input class="mt-4 btn btn-info mb-6 px-3" type="submit" name="user_login" id="user_login"
                         value="Đăng nhập">
                     <p class="small fw-bold mt-2 pt-1 mb-0">Chưa có mật khẩu?<a class="text-danger" href="user_reg.php">
@@ -92,6 +92,9 @@ if(isset($_POST['user_login'])){
                 echo "<script>window.open('user_profile.php','_self')</script>";
         }
         }
+        else{
+            echo "<script>alert('Mật khẩu hoặc tên không đúng!')</script>";
+    }
     }else{
         echo "<script>alert('Mật khẩu hoặc tên không đúng!')</script>";
 }

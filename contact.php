@@ -222,7 +222,7 @@
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-secondary-subtle navbar-sticky" id="navbar">
+    <nav class="navbar navbar-expand-lg bg-secondary-subtle fixed-top" id="navbar">
 
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -266,7 +266,7 @@
         </header>
         <div class="row">
             <div class="col-md-7 mb-5 mb-md-0">
-                <form id="contact-form" method="post" action="contact.php">
+                <form id="contact-form" method="post" action="send.php">
                     <input type="hidden" name="_token" value="zI58qJqH6CBUeUUQpZU1Hm9bvtR7oQxN3jF6dovz">
                     <div class="controls">
                         <div class="row">
@@ -377,31 +377,7 @@
     <?php
     include_once('./includes/footer.php'); 
     ?>
-
-    <!-- script -->
-    <script>
-    function dark_mode() {
-        var element = document.body;
-        element.classList.toggle("dark_mode");
-    }
-    </script>
     <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/custom.js">
-    </script>
-    <script>
-    window.onscroll = function() {
-        myFunction()
-    };
-
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-
-    function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
-        } else {
-            navbar.classList.remove("sticky");
-        }
-    }
     </script>
 
     <!-- js chat bot -->

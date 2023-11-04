@@ -12,7 +12,10 @@
         if($numver>0){
             echo "<script>alert('Danh mục này đã có trong kho')</script>";
 
-        }else{
+        }elseif(empty($category_title)){
+            echo"<script>alert('Vui lòng nhập đầy đủ thông tin!')</script>";
+        }
+        else{
             $insert_query="insert into `categories` (category_title) value(?)";
             $stmt = $conn->prepare($insert_query);
             $result = $stmt->execute([$category_title]);
