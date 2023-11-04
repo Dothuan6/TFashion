@@ -740,9 +740,10 @@ function cart_item(){
       while($row_query=$stmt->fetch()){
         $user_id = $row_query['user_id'];
       }
-      if(!isset($_GET['edit_account']) ){
+      if(!isset($_GET['edit_account'])){
         if(!isset($_GET['delete_account'])){
           if(!isset($_GET['delete_account'])){
+            if(!isset($_GET['changepass'])){
             $get_orders="select * from `user_orders` 
             where user_id = ? and order_status= ? ";
             $stmt = $conn->prepare($get_orders);
@@ -761,5 +762,6 @@ function cart_item(){
         }
       }
     }
+  }
     // count products
 ?>

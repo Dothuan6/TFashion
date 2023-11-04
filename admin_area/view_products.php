@@ -1,5 +1,9 @@
-<h3 class="text-center text-dark">Tất cả sản phẩm</h3>
-<table class="table table-bordered mt-5 text-center">
+<h3 class="text-center text-dark mb-3">Tất cả sản phẩm</h3>
+<div>
+    <a href="index.php?insert_products"><button class="btn btn-outline btn-info py-2">Thêm <i
+                class="fa fa-plus"></i></button></a>
+</div>
+<table class="table table-bordered mt-3 text-center">
     <thead>
         <tr>
             <th class="bg-info">STT</th>
