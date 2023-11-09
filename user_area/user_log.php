@@ -80,7 +80,7 @@ if(isset($_POST['user_login'])){
     $stmt->execute([$user_ip]);
     $row_count_cart = $stmt->rowCount();
     if($row_count>0){
-        $_SESSION['username'] = $user_username;
+        // $_SESSION['username'] = $user_username;
         if(password_verify($user_password,$row_data['user_password'])){
             if($row_count==1 and $row_count_cart==0){
                 $_SESSION['username'] = $user_username;
