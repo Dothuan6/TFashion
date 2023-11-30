@@ -52,7 +52,7 @@ include_once('../functions/common_function.php');
 <?php
 if(isset($_POST['forgot_pass'])){
     global $conn;
-    $email=htmlspecialchars($_POST['email']);
+    $email=$_POST['email'];
     $last_pass=htmlspecialchars($_POST['last_pass']);
     $new_pass=htmlspecialchars($_POST['new_pass']);
     $hash_password = password_hash($new_pass,PASSWORD_DEFAULT);
@@ -60,8 +60,10 @@ if(isset($_POST['forgot_pass'])){
     $select_query="select *from `user_table`";
     $stmt = $conn->prepare($select_query);
     $result_query=$stmt->execute();
-    $row_fetch=$stmt->fetch();
-    $user_email = $row_fetch['user_email'];    
+    $row_fetch=$stmt->fetchALL();
+    foreach($row_fetch as $row_fetch){
+    $user_email = $row_fetch['user_email'];
+    }
     if($email == $user_email){
         if(password_verify($last_pass,$row_fetch['user_password'])){
             if($new_pass != $conf_new_pass){
