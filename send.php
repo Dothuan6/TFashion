@@ -16,9 +16,8 @@ require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
-
 //Create an instance; passing `true` enables exceptions
-$mail = new PHPMailer(true);
+$mail = new PHPMailer(      );
 
 try {
     //Server settings
@@ -28,11 +27,13 @@ try {
     $mail->Username   = 'thuann6222@gmail.com';                     //SMTP username
     $mail->Password   = 'bmoyjzwepideobdr';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->Port       = 465;      
+    $mail->CharSet = 'UTF-8';                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom($email,$name);
-    $mail->addAddress('thuann6222@gmail.com');     //Add a recipient
+    $mail->addAddress('thuann6222@gmail.com');//Add a recipient
+    $mail->setFrom('thuann6222@gmail.com',$name);
+
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
@@ -40,7 +41,7 @@ try {
     $mail->Body    = $message;
     $mail->send();
     echo "<script>alert('Đã gửi thành công phản hồi!')</script>";
-    echo "<script>window.open('index.php','self')</script>";
+    echo "<script>window.open('homepage.php','_self')</script>";
 
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

@@ -24,7 +24,7 @@
         $stmt->execute();
         $number=0;
         
-        while($row = $stmt->fetchAll()){
+        $row = $stmt->fetchAll();
             foreach($row as $row){
             $product_id=$row['product_id'];
             $product_title=$row['product_title'];
@@ -32,14 +32,14 @@
             $product_price=$row['product_price'];
             $product_status=$row['status'];
             if($row['status']=='true'){
-              $product_status ='Còn hàng';
-            }
-            $number++;
-            $get_count="select * from `orders_pending` where product_id=?";
-            $stmt = $conn->prepare($get_count);
-            $stmt->execute([$product_id]);
-            $row_count=$stmt->rowCount();
-            ?>
+              $product_status ='Còn hàng';  
+        $number++;
+        $get_count="select * from `orders_pending` where product_id=?";
+        $stmt = $conn->prepare($get_count);
+        $stmt->execute([$product_id]);
+        $row_count=$stmt->rowCount();
+        ?>
+
         <tr>
             <td class='bg-secondary text-light'><?php echo $number ?></td>
             <td class='bg-secondary text-light'><?php echo $product_title ?></td>
@@ -56,10 +56,9 @@
                     href='index.php?delete_products=<?php echo $product_id ?>'><i class='fa-solid
             fa-trash'></i></a></td>
         </tr>
-        <?php 
-        }
-    }
-
-        ?>
     </tbody>
+    <?php
+     }        
+    }
+?>
 </table>
